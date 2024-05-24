@@ -23,7 +23,7 @@ const Login = () => {
     try {
       let response = await apiRequest.post('auth/login',{username,password})
       //console.log('response', response);
-      //localStorage.setItem('user', JSON.stringify(response.data.user));
+      localStorage.setItem('user', JSON.stringify(response.data.user));
       updateUser(response.data.user)
       if(response.status===200){
         navigate('/');

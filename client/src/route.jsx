@@ -9,6 +9,8 @@ import About from "./components/about";
 import Contact from "./components/contact";
 import Agents from "./components/agents";
 import Private from './layout/private';
+import UserProfile from './profile/profile';
+import UpdateProfile from './profile/update-profile';
 
 
 const RoutePage = () => {
@@ -24,6 +26,8 @@ const RoutePage = () => {
     <Route path="/about" exact element={<About/>} />
     <Route path="/contact" exact element={<Contact/>} />
     <Route path="/agents" exact element={<Agents/>} />
+    <Route path="/profile" exact element={<UserProfile/>} />
+    <Route path="/update_profile" exact element={<UpdateProfile/>} />
    </Routes>
   )
 }

@@ -30,6 +30,7 @@ try {
 const user = await prisma.user.findUnique({
     where:{username}
 })
+console.log('user', user);
 if(!user) return res.status(401).json({message:"Invalid username!"})
 // check if the password is correct
 const isPasswordValid = await bcrypt.compare(password,user.password);
@@ -45,7 +46,7 @@ const token = jwt.sign({
 res.cookie("session_token", token,{
     httpOnly:true,
     age:age
-}).status(200).json({message:"Login success!", user:{email:user.email,username:username}})
+}).status(200).json({message:"Login success!", user:{email:user.email,username:username,id:user.id}})
 //  HASH THE PASSWORD
 } catch (error) {
     res.status(500).json({message:"Failed to login!"})
