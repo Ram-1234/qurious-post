@@ -1,11 +1,20 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import './style.css';
 import avatar from "../assets/avatar.jpg";
 import Button from '../components/button';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/auth-context';
 
 const UserProfile = ({username,firstname, email,location,about,linkedin, github,twitter}) => {
     const navigate = useNavigate();
+    const {currentUser, updateUser} = useContext(AuthContext);
+    
+
+    // useEffect(()=>{
+    //     if(!currentUser){
+    //         navigate('/login');
+    //     }
+    // },[currentUser])
 
     const updateProfile=()=>{
         navigate("/update_profile");
@@ -26,9 +35,9 @@ const UserProfile = ({username,firstname, email,location,about,linkedin, github,
                 <h2>Details</h2>
                 <div className='profile_details_info'>
                     <h4>Username</h4>
-                    <p>{username||"Ramnayan Yadav"}</p>
+                    <p>{currentUser.username||"Ramnayan Yadav"}</p>
                     <h4>Email</h4>
-                    <p>{email||"ram123@gmail.com"}</p>
+                    <p>{currentUser.email||"ram123@gmail.com"}</p>
                     <h4>Location</h4>
                     <p>{location||"Chiraiyakot, Mau"}</p>
                 </div>
@@ -45,7 +54,7 @@ const UserProfile = ({username,firstname, email,location,about,linkedin, github,
             <div className='profile_avatar col-lg-4'>
                 <div className='avatar_box'><img src={avatar} alt="avatar" /></div>
                 <div className='bottom_info'>
-                    <h4>{`Hello, I'M ${firstname||"RAM"}`}</h4>
+                    <h4>{`Hello, I'M ${currentUser.username||"RAM"}`}</h4>
                     <p>{about||"It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."}</p>
                     <div className='social_media'>
                         <i style={{...styles.socialMediaIcon,width:"100px", height:"50px"}} className="bi bi-linkedin social_icon"></i>

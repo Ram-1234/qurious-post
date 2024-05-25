@@ -1,12 +1,14 @@
 import React, { useContext, useState } from 'react';
-import axios from 'axios';
+import { useForm } from "react-hook-form";
+import { useNavigate } from 'react-router-dom';
 import apiRequest from '../lib/apiRequest';
 import { AuthContext } from '../context/auth-context';
-import { useForm } from "react-hook-form";
 
 const UpdateProfile = ({email, username, password}) => {
     const [error,setError]=useState('');
     const {currentUser, updateUser} = useContext(AuthContext);
+
+    const navigate= useNavigate()
 
     const { register, handleSubmit } = useForm({
         defaultValues: {
@@ -15,25 +17,18 @@ const UpdateProfile = ({email, username, password}) => {
           password: ''
         }
       });
-    
-    console.log('currentUser', currentUser);
 
 
     async function onSubmit(data){
-        console.log('data', data);
-        //let formData = new FormData(e.currentTarget);
-        //e.preventDefault();
-
-        //console.log('formdata', formData);
-
-        let {username, email, password} = Object.entries({});
-        console.log(username, email, password)
-
         try {
-           const res = await apiRequest.put(`/users/${currentUser.id}`,{username,email,password}) 
-           console.log('res', res);
+           const res = await apiRequest.put(`/users/${currentUser.id}`,data);
+           if(res.status){
+            updateUser(res.data);
+            localStorage.setItem('user', JSON.stringify(res.data));
+            navigate("/profile")
+           }
         } catch (error) {
-            console.log(error)
+            console.error(error)
             setError(error.response.data.message)
         }
     }
@@ -57,6 +52,7 @@ const UpdateProfile = ({email, username, password}) => {
             <label class="sr-only" for="inlineFormInput">Password</label>
             <input type="password" name='password' {...register('password')} class="form-control mb-2" id="inlineFormInput" placeholder="*****"/>
         </div>
+        <p>{error}</p>
         <div class="col-auto">
             <button type="submit" class="btn btn-primary mb-2">Update Profile</button>
         </div>

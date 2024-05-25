@@ -1,17 +1,14 @@
-import './App.css';
-import Navbar from './navbar/index';
 import {BrowserRouter as Router} from 'react-router-dom';
-import Home from "./route";
-//import { AuthContextProvider } from './context/auth-context';
+import './App.css';
+import {RoutePage, RoutePage1} from "./route";
+import Navbar from './navbar';
+
 
 function App() {
-  console.log('hello')
   return (
     <Router>
-      <div className="App">
-        <header><Navbar/></header>
-         <Home/>
-      </div>
+      <header><Navbar/></header>
+      <RoutePage1/>
     </Router>
   );
 }

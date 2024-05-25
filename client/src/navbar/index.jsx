@@ -16,9 +16,9 @@ const Navbar = () => {
 
     useEffect(()=>{
         if(!currentUser){
-            navigate("/user/login");
+            navigate("/");
         }
-    },[currentUser, navigate])
+    },[currentUser])
 
     const handleLogout=async()=>{
         try {
@@ -26,7 +26,7 @@ const Navbar = () => {
             await apiRequest.post("/auth/logout");
             //console.log('logout', response);
             updateUser(null);
-            navigate('/user/login')
+            navigate('/login')
         } catch (error) {
             console.log(error)
         }
@@ -48,7 +48,7 @@ const Navbar = () => {
                 </form>
                 <ul className="navbar-nav mb-2 mb-lg-0 d-flex align-items-center borde">
                     <li className="nav-item">
-                    <NavLink className="nav-link active text-light" aria-current="page" to="/home">Home</NavLink>
+                    <NavLink className="nav-link active text-light" aria-current="page" to="/">Home</NavLink>
                     </li>
                     <li className="nav-item">
                     <NavLink className="nav-link text-light" to="/about">About</NavLink>
@@ -66,8 +66,8 @@ const Navbar = () => {
                    
                     <ul className="dropdown-menu">
                        {!currentUser?.username ? <>
-                        <li><NavLink className="dropdown-item" to="/user/login">Log in</NavLink></li>
-                        <li><NavLink className="dropdown-item" to="/user/register">Sign up</NavLink></li>
+                        <li><NavLink className="dropdown-item" to="/login">Log in</NavLink></li>
+                        <li><NavLink className="dropdown-item" to="/register">Sign up</NavLink></li>
                         </>
                     :
                      <>

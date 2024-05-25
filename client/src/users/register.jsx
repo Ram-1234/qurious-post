@@ -21,7 +21,7 @@ const Register = () => {
       let resposne = await apiRequest.post('/auth/register',{email,username,password})
       console.log('res', resposne);
       if(resposne.status===200){
-        navigate('/user/login');
+        navigate('/login');
       }
     } catch (error) {
       console.log(error);
@@ -49,7 +49,7 @@ const Register = () => {
         </div>
         <button disabled={isLoading} type="submit" style={styles.buttonStyle} class="btn btn-primary">Create account</button><br/>
         {errorMsg && <div className='text-danger text-center' style={styles.alreadyAccStyle}>{errorMsg}</div> }
-        <label class="mt-2" style={styles.alreadyAccStyle} >Already have an account?{" "} <NavLink to='/user/login' style={{color:"red"}}>Log in</NavLink></label>
+        <label class="mt-2" style={styles.alreadyAccStyle} >Already have an account?{" "} <NavLink to='/login' style={{color:"red"}}>Log in</NavLink></label>
     </form>
   )
 }

@@ -53,7 +53,7 @@ const Login = () => {
         </div>
         <button  disabled={isLoading} type="submit" style={styles.buttonStyle} class="btn btn-primary">Log in</button><br/>
         {!!errorMsg?.length && <div className='text-danger text-center' style={styles.alreadyAccStyle}>{errorMsg}</div> }
-        <label class="mt-2" style={styles.alreadyAccStyle} >New user?{" "} <NavLink to="/user/register" style={{color:"red"}}>Register now</NavLink></label>
+        <label class="mt-2" style={styles.alreadyAccStyle} >New user?{" "} <NavLink to="/register" style={{color:"red"}}>Register now</NavLink></label>
     </form>
   )
 }
