@@ -2,3 +2,18 @@
     font-weight: 800;
     font-size: 1.6rem;
 }
+
+.navbar{
+    background-color: #b61924!important;
+    border-bottom: 0.5px solid #fff;
+}
+
+.navbarr-brand{
+    font-size: 2rem;
+    font-weight: 600;
+    color: #fff;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    
+}

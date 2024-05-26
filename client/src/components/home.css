@@ -1,0 +1,55 @@
+body{ 
+    margin:0; 
+    font:normal 75% Arial, Helvetica, sans-serif; 
+}
+
+
+.home-container{
+    background-color: #b61924;
+    z-index: 10000;
+}
+
+.main_box{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /* margin: 2rem 1rem; */
+    padding: 2rem 1rem;
+}
+
+.amaz_info{
+    width:50%;
+}
+.amaz_info>h1{
+    font-size: 4.5rem;
+    color: #fff;
+    line-height: 1;
+    font-weight: 500;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.amaz_info>h6{
+    font-size: 1.2rem;
+    color: #c6c6c6;
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+.amaz_info>button{
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-radius: 1rem;
+
+}
+
+.amaz_walp{
+    width: 50%;
+}
+
+.amaz_walp>img{
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+}

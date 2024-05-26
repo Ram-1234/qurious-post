@@ -35,9 +35,9 @@ const Navbar = () => {
     console.log("currentUser?.username", currentUser?.username)
  
   return ( 
-    <nav className="navbar navbar-expand-lg bg-dark">
+    <nav className="navbar navbar-expand-lg">
         <div className="container">
-            <a className="navbar-brand text-light" href="x">Realstate</a>
+            <NavLink className="navbarr-brand" to="/"> <i class="bi bi-bullseye"></i> Curious</NavLink>
             <button className="navbar-toggler text-light" type="button" data-bs-toggle="collapse" data-bs-target="xnavbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon text-light"></span>
             </button>
