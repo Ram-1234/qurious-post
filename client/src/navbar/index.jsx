@@ -61,7 +61,7 @@ const Navbar = () => {
                     </li>
                     <li className="nav-item dropdown">
                     <NavLink className="nav-link dropdown-toggle d-flex align-items-center text-light" href="x" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    {<UserProfile avatar={currentUser?.avatar || noavatar} />||<FaRegUserCircle/>} <span style={{textTransform:"capitalize", fontSize:"0.8rem", fontWeight:"600"}}>{currentUser?.username||"User"}</span>
+                    {<UserProfile avatar={currentUser?.avatar || noavatar} />||<FaRegUserCircle/>} <span style={{textTransform:"capitalize", fontSize:"1rem", fontWeight:"600"}}>{currentUser?.username||"User"}</span>
                     </NavLink>
                    
                     <ul className="dropdown-menu">

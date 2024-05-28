@@ -8,13 +8,6 @@ import { AuthContext } from '../context/auth-context';
 const UserProfile = ({username,firstname, email,location,about,linkedin, github,twitter}) => {
     const navigate = useNavigate();
     const {currentUser, updateUser} = useContext(AuthContext);
-    
-
-    // useEffect(()=>{
-    //     if(!currentUser){
-    //         navigate('/login');
-    //     }
-    // },[currentUser])
 
     const updateProfile=()=>{
         navigate("/update_profile");
@@ -52,7 +45,10 @@ const UserProfile = ({username,firstname, email,location,about,linkedin, github,
                 <Button title={'Contact Me'} callback={contactMe} />
             </div>
             <div className='profile_avatar col-lg-4'>
-                <div className='avatar_box'><img src={avatar} alt="avatar" /></div>
+                <div className='avatar_box'>
+                    <img src={avatar} alt="avatar" />
+                    <i class="bi bi-card-image"></i>
+                    </div>
                 <div className='bottom_info'>
                     <h4>{`Hello, I'M ${currentUser.username||"RAM"}`}</h4>
                     <p>{about||"It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."}</p>
