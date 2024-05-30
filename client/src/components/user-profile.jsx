@@ -1,5 +1,5 @@
 import React from 'react';
-import user from '../assets/user.jpeg';
+import noavatar from "../assets/noavatar.jpeg";
 
 const UserProfile = ({avatar,styles}) => {
 
@@ -20,7 +20,7 @@ const UserProfile = ({avatar,styles}) => {
     }
   return (
    <div style={imageStyles.imageBox}>
-    <img src={avatar||user} style={imageStyles.image} alt='user profile'/>
+    <img src={avatar||noavatar} style={imageStyles.image} alt='user profile'/>
    </div>
   )
 }

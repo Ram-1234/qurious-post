@@ -10,6 +10,8 @@ import Agents from "./components/agents";
 import {PrivateRoute} from './layout/private';
 import UserProfile from './profile/profile';
 import UpdateProfile from './profile/update-profile';
+// import UploadWidget from './uploadWidget/UploadWidget';
+
 
 
 const RoutePage = () => {
@@ -42,6 +44,7 @@ function RoutePage1(){
       <Route path="/agents" exact element={<Agents/>} />
       <Route path="/profile" exact element={<UserProfile/>} />
       <Route path="/update_profile" exact element={<UpdateProfile/>} />
+      {/* <Route path="/upload_widget" exact element={<UploadWidget/>}/> */}
     </Route>
       <Route path="/" exact element={<Home/>} />
       <Route path="/register" exact element={HocRegister} />

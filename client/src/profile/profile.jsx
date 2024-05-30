@@ -1,13 +1,20 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect,useState,createContext, useRef } from 'react'
 import './style.css';
-import avatar from "../assets/avatar.jpg";
+import user_img from "../assets/avatar.jpg";
 import Button from '../components/button';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth-context';
+import UploadWidget from '../components/uploadWidget/Wrap';
 
 const UserProfile = ({username,firstname, email,location,about,linkedin, github,twitter}) => {
+    
+
+    const [avatar, setAvatar]=useState(user_img);
+
     const navigate = useNavigate();
     const {currentUser, updateUser} = useContext(AuthContext);
+
+ 
 
     const updateProfile=()=>{
         navigate("/update_profile");
@@ -16,6 +23,7 @@ const UserProfile = ({username,firstname, email,location,about,linkedin, github,
     const contactMe=()=>{
         alert("conatct me")
     }
+
     
   return (
     <div className='profile_main_box container'>
@@ -24,6 +32,7 @@ const UserProfile = ({username,firstname, email,location,about,linkedin, github,
             <p>I'm a Creative Web Developer</p>
         </div>
         <div className='profile_bottom_box row-lg-12 justify-content-between'>
+            {/* details */}
             <div className='profile_dettails col-lg-4'>
                 <h2>Details</h2>
                 <div className='profile_details_info'>
@@ -39,16 +48,19 @@ const UserProfile = ({username,firstname, email,location,about,linkedin, github,
                     callback={updateProfile}
                 />
             </div>
+            {/* about */}
             <div className='profile_about col-lg-4'>
                 <h2>About Me</h2>
                 <p>{about||"It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."}</p>
                 <Button title={'Contact Me'} callback={contactMe} />
             </div>
-            <div className='profile_avatar col-lg-4'>
-                <div className='avatar_box'>
+            {/* avatar */}
+            <div className='profile_avatar col-lg-4' >
+                <div className='avatar_box border' >
                     <img src={avatar} alt="avatar" />
-                    <i class="bi bi-card-image"></i>
-                    </div>
+                    <i class="bi bi-pencil-square" ></i>
+                </div>
+               <UploadWidget/>
                 <div className='bottom_info'>
                     <h4>{`Hello, I'M ${currentUser.username||"RAM"}`}</h4>
                     <p>{about||"It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."}</p>
