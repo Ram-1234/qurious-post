@@ -1,4 +1,4 @@
-import prisma from "../lib/prisma";
+import prisma from "../lib/prisma.js";
 import bcrypt from "bcrypt";
 
 export const getPosts = async (req, res) => {
@@ -11,18 +11,18 @@ export const getPosts = async (req, res) => {
 };
 
 export const createPost = async (req, res) => {
-  const id = req.params.id;
-  const tokenUserId = req.userId;
+  //const id = req.params.id;
+  //const tokenUserId = req.userId;
   const body = req.body;
+  console.log('body', body)
 
-  if (id !== tokenUserId) {
-    return res.status(401).json({ message: "Not Authorized!" });
-  }
 
   try {
-    const res = await prisma.post.create({ data: { body } });
+    const res = await prisma.post.create(body);
+    console.log('res', res);
     res.status(200).json({ message: "Post Created Successfully" });
   } catch (error) {
+    console.log('error', error);
     res.status(500).json({ message: "404 Something went wrong" });
   }
 };

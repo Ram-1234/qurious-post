@@ -1,10 +1,21 @@
+datasource db {
+    provider = "mongodb"
+    url = env("DATABASE_URL")
+}
 generator client {
     provider="prisma-client-js"
 }
 
-datasource db {
-    provider = "mongodb"
-    url = env("DATABASE_URL")
+//slug     String    @unique
+model Post {
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  title    String
+  story    String
+  author   User      @relation(fields: [authorId], references: [id])
+  authorId String    @db.ObjectId
+  theme String
+  subtitle String
+  // comments Comment[]
 }
 
 model User {
@@ -13,6 +24,14 @@ model User {
     username String @unique 
     password String
     avatar String?
+    posts   Post[]
     createAt DateTime @default(now()) 
 }
 
+
+// model Comment {
+//   id      String @id @default(auto()) @map("_id") @db.ObjectId
+//   comment String
+//   post    Post   @relation(fields: [postId], references: [id])
+//   postId  String @db.ObjectId
+// }
