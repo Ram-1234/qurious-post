@@ -13,12 +13,12 @@ export const getPosts = async (req, res) => {
 export const createPost = async (req, res) => {
   //const id = req.params.id;
   //const tokenUserId = req.userId;
-  const body = req.body;
-  console.log('body', body)
+  const data = req.body;
+  console.log('body', data)
 
 
   try {
-    const res = await prisma.post.create(body);
+    const res = await prisma.post.create({data});
     console.log('res', res);
     res.status(200).json({ message: "Post Created Successfully" });
   } catch (error) {
