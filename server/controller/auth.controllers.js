@@ -4,7 +4,7 @@ import {User} from "../model/models.js";
 const register = async(req, res)=>{
     let data = req.body;
     try {
-        let res = await User.create(data);
+        let resp = await User.create(data);
             res.status(200).json({message:"user created successfully"});
     } catch (error) {
         console.log(error)
@@ -13,9 +13,8 @@ const register = async(req, res)=>{
 
 const login = async(req, res)=>{
     let {email} = req.body;
-
     try {
-        let res = await User.findUnique({"email":email});
+        let resp = await User.find({"email":email});
             res.status(200).json({message:"user found"});
     } catch (error) {
         console.log(error)

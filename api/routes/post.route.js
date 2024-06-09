@@ -10,7 +10,7 @@ import { verifyToken } from "../middleware/verifyToken.js";
 
 const router = express.Router();
 
-router.get("/", getPosts);
+router.get("/posts", getPosts);
 
 router.get("/:id", getPost);
 

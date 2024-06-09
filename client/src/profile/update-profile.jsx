@@ -12,8 +12,8 @@ const UpdateProfile = ({email, username, password}) => {
 
     const { register, handleSubmit } = useForm({
         defaultValues: {
-          username: '',
-          email: '',
+          username: currentUser.username,
+          email: currentUser.email,
           password: ''
         }
       });
@@ -35,26 +35,26 @@ const UpdateProfile = ({email, username, password}) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className='container w-50'>
-        <div class="col-auto">
-            <label class="sr-only" for="inlineFormInputGroup">Username</label>
-            <div class="input-group mb-2">
-                <div class="input-group-prepend">
-                <div class="input-group-text">@</div>
+        <div className="col-auto">
+            <label className="sr-only" for="inlineFormInputGroup">Username</label>
+            <div className="input-group mb-2">
+                <div className="input-group-prepend">
+                <div className="input-group-text">@</div>
                 </div>
-                <input type="text" {...register('username')} name="username" class="form-control" id="inlineFormInputGroup" placeholder="Username"/>
+                <input type="text" {...register('username')} name="username" className="form-control" id="inlineFormInputGroup" placeholder="Username"/>
             </div>
         </div>
-        <div class="col-auto">
-            <label class="sr-only" for="inlineFormInput">Email</label>
-            <input type="email" name="email" {...register('email')} class="form-control mb-2" id="inlineFormInput" placeholder="jane324@gmail.com"/>
+        <div className="col-auto">
+            <label className="sr-only" for="inlineFormInput">Email</label>
+            <input type="email" name="email" {...register('email')} className="form-control mb-2" id="inlineFormInput" placeholder="jane324@gmail.com"/>
         </div>
-        <div class="col-auto">
-            <label class="sr-only" for="inlineFormInput">Password</label>
-            <input type="password" name='password' {...register('password')} class="form-control mb-2" id="inlineFormInput" placeholder="*****"/>
+        <div className="col-auto">
+            <label className="sr-only" for="inlineFormInput">Password</label>
+            <input type="password" name='password' {...register('password')} className="form-control mb-2" id="inlineFormInput" placeholder="*****"/>
         </div>
         <p>{error}</p>
-        <div class="col-auto">
-            <button type="submit" class="btn btn-primary mb-2">Update Profile</button>
+        <div className="col-auto">
+            <button type="submit" className="btn btn-primary mb-2">Update Profile</button>
         </div>
     </form>
   )

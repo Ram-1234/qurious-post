@@ -7,6 +7,7 @@ import apiRequest from '../lib/apiRequest';
 import { AuthContext } from '../context/auth-context';
 import noavatar from "../assets/noavatar.jpeg";
 
+
 //profile
 
 const Navbar = () => {
@@ -51,13 +52,17 @@ const Navbar = () => {
                     <NavLink className="nav-link active text-light" aria-current="page" to="/">Home</NavLink>
                     </li>
                     <li className="nav-item">
-                    <NavLink className="nav-link text-light" to="/about">About</NavLink>
+                    <NavLink className="nav-link text-light" to="/posts">Our Story</NavLink>
                     </li>
                     <li className="nav-item">
-                    <NavLink className="nav-link text-light" to="/contact">Contact</NavLink>
+                    <NavLink className="nav-link text-light" to="/create_post">
+                    <i class="bi bi-pencil-square"></i> Write
+                    </NavLink>
                     </li>
                     <li className="nav-item">
-                    <NavLink className="nav-link text-light" to="/agents">Agents</NavLink>
+                    <NavLink className="nav-link text-light" to="/agents">
+                    <i class="bi bi-bell"></i>                       
+                    </NavLink>
                     </li>
                     <li className="nav-item dropdown">
                     <NavLink className="nav-link dropdown-toggle d-flex align-items-center text-light" href="x" role="button" data-bs-toggle="dropdown" aria-expanded="false">

@@ -2,8 +2,10 @@ import prisma from "../lib/prisma.js";
 import bcrypt from "bcrypt";
 
 export const getPosts = async (req, res) => {
+  const {start,end}=req.body;
+
   try {
-    const posts = await prisma.post.findMany();
+    const posts = await prisma.post.findMany({skip:start||0, take:end||5});
     res.status(200).json({ posts });
   } catch (error) {
     res.status(500).json({ message: "401 Error" });
@@ -18,9 +20,9 @@ export const createPost = async (req, res) => {
 
 
   try {
-    const res = await prisma.post.create({data});
-    console.log('res', res);
-    res.status(200).json({ message: "Post Created Successfully" });
+    const resp = await prisma.post.create({data});
+    console.log('resp', resp);
+    res.status(200).json({ message: "Post Created Successfully", data:resp });
   } catch (error) {
     console.log('error', error);
     res.status(500).json({ message: "404 Something went wrong" });

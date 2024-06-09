@@ -8,6 +8,8 @@ import {PrivateRoute, PublicRoute} from "./layout/private";
 import ProfilePage from './components/profile-page';
 import UpdateProfile from "./profile/update-profile";
 
+
+// not in use right now
 function Private(){
     const router = createBrowserRouter([
         {
