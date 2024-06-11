@@ -58,7 +58,7 @@ const UserProfile = ({username,firstname, email,location,about,linkedin, github,
             <div className='profile_avatar col-lg-4' >
                 <div className='avatar_box border' >
                     <img src={avatar} alt="avatar" />
-                    <i class="bi bi-pencil-square" ></i>
+                    <i className="bi bi-pencil-square" ></i>
                 </div>
                <UploadWidget/>
                 <div className='bottom_info'>

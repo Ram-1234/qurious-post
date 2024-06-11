@@ -13,9 +13,10 @@ export const getUsers=async(req,res)=>{
 
 export const getUser=async(req,res)=>{
     const id = req.params.id;
-
+    console.log('user id', id)
     try {
         const user = await prisma.user.findUnique({where:{id}});
+        console.log('res user', user)
         res.status(200).json(user)
     } catch (error) {
         console.log('err', error)

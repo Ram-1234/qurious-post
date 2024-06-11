@@ -22,13 +22,14 @@ const Login = () => {
 
     try {
       let response = await apiRequest.post('auth/login',{username,password})
-      //console.log('response', response);
+      console.log('response', response);
       localStorage.setItem('user', JSON.stringify(response.data.user));
       updateUser(response.data.user)
       if(response.status===200){
         navigate('/');
       }
     } catch (error) {
+      console.log(error)
       setError(error?.message);
     } finally{
       setIsLoading(false);
@@ -39,21 +40,21 @@ const Login = () => {
   return (
     <form onSubmit={onSubmitHandle} style={styles.formStyle}>
       <h1 className='text-light'>Login</h1>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" style={styles.textLabelStyle} class="form-label">Email ID or Username</label>
-            <input type="text" name='username' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-            {!!0 && <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>}
+        <div className="mb-3">
+            <label htmlFor="exampleInputEmail1" style={styles.textLabelStyle} className="form-label">Email ID or Username</label>
+            <input type="text" name='username' className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+            {!!0 && <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>}
         </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" style={styles.textLabelStyle} class="form-label">Password</label>
-            <input type="password" name='password' class="form-control" id="exampleInputPassword1"/>
+        <div className="mb-3">
+            <label htmlFor="exampleInputPassword1" style={styles.textLabelStyle} className="form-label">Password</label>
+            <input type="password" name='password' className="form-control" id="exampleInputPassword1"/>
         </div>
-        <div class="mb-3 form-check">
-            <label class="form-check-label" style={styles.forgotPassStyle} for="exampleCheck1">Forgot Password?</label>
+        <div className="mb-3 form-check">
+            <label className="form-check-label" style={styles.forgotPassStyle} htmlFor="exampleCheck1">Forgot Password?</label>
         </div>
-        <button  disabled={isLoading} type="submit" style={styles.buttonStyle} class="btn btn-primary">Log in</button><br/>
+        <button  disabled={isLoading} type="submit" style={styles.buttonStyle} className="btn btn-primary">Log in</button><br/>
         {!!errorMsg?.length && <div className='text-danger text-center' style={styles.alreadyAccStyle}>{errorMsg}</div> }
-        <label class="mt-2" style={styles.alreadyAccStyle} >New user?{" "} <NavLink to="/register" style={{color:"red"}}>Register now</NavLink></label>
+        <label className="mt-2" style={styles.alreadyAccStyle} >New user?{" "} <NavLink to="/register" style={{color:"red"}}>Register now</NavLink></label>
     </form>
   )
 }

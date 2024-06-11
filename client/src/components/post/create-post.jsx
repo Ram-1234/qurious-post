@@ -5,13 +5,12 @@ import apiRequest from '../../lib/apiRequest';
 const CreatePost = () => {
     const [edit, setEdit]=useState(true);
     const {currentUser, updateUser} = useContext(AuthContext);
-    console.log('cur', currentUser)
+
 
     const handleCreatePost=async()=>{
         let title = document.getElementById('post_title').innerText;
         let story = document.getElementById('post_story').innerText;
-        console.log('title-', title);
-        console.log('story-', story);
+      
         let bodyData = {title:title,story:story,authorId:currentUser.id}
         try {
             let response = await apiRequest.post(`post/create`, bodyData);

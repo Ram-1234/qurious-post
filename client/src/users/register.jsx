@@ -19,7 +19,7 @@ const Register = () => {
 
     try {
       let resposne = await apiRequest.post('/auth/register',{email,username,password})
-      console.log('res', resposne);
+      // console.log('res', resposne);
       if(resposne.status===200){
         navigate('/login');
       }
@@ -33,23 +33,23 @@ const Register = () => {
   return (
     <form onSubmit={onSubmitHandle} style={styles.formStyle}>
       <h1 className='text-light'>Sign up</h1>
-       <div class="mb-3">
-            <label for="exampleInputEmail1" style={styles.textLabelStyle} class="form-label">Username</label>
-            <input type="text" name="username" class="form-control" id="exampleInputUsername" aria-describedby="usernameHelp"/>
-            {!!0 && <div id="emailHelp" class="form-text">We'll never share your username with anyone else.</div>}
+       <div className="mb-3">
+            <label htmlFor="exampleInputEmail1" style={styles.textLabelStyle} className="form-label">Username</label>
+            <input type="text" name="username" className="form-control" id="exampleInputUsername" aria-describedby="usernameHelp"/>
+            {!!0 && <div id="emailHelp" className="form-text">We'll never share your username with anyone else.</div>}
         </div>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" style={styles.textLabelStyle} class="form-label">Email ID</label>
-            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-            {!!0 && <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>}
+        <div className="mb-3">
+            <label htmlFor="exampleInputEmail1" style={styles.textLabelStyle} className="form-label">Email ID</label>
+            <input type="email" name="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+            {!!0 && <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>}
         </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" style={styles.textLabelStyle} class="form-label">Password</label>
-            <input type="password" name="password" class="form-control" id="exampleInputPassword1"/>
+        <div className="mb-3">
+            <label htmlFor="exampleInputPassword1" style={styles.textLabelStyle} className="form-label">Password</label>
+            <input type="password" name="password" className="form-control" id="exampleInputPassword1"/>
         </div>
-        <button disabled={isLoading} type="submit" style={styles.buttonStyle} class="btn btn-primary">Create account</button><br/>
+        <button disabled={isLoading} type="submit" style={styles.buttonStyle} className="btn btn-primary">Create account</button><br/>
         {errorMsg && <div className='text-danger text-center' style={styles.alreadyAccStyle}>{errorMsg}</div> }
-        <label class="mt-2" style={styles.alreadyAccStyle} >Already have an account?{" "} <NavLink to='/login' style={{color:"red"}}>Log in</NavLink></label>
+        <label className="mt-2" style={styles.alreadyAccStyle} >Already have an account?{" "} <NavLink to='/login' style={{color:"red"}}>Log in</NavLink></label>
     </form>
   )
 }

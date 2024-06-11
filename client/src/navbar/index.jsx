@@ -23,22 +23,18 @@ const Navbar = () => {
 
     const handleLogout=async()=>{
         try {
-            //alert('logout')
             await apiRequest.post("/auth/logout");
-            //console.log('logout', response);
             updateUser(null);
             navigate('/login')
         } catch (error) {
             console.log(error)
         }
     }
-
-    console.log("currentUser?.username", currentUser?.username)
  
   return ( 
     <nav className="navbar navbar-expand-lg">
         <div className="container">
-            <NavLink className="navbarr-brand" to="/"> <i class="bi bi-bullseye"></i> Curious</NavLink>
+            <NavLink className="navbarr-brand" to="/"> <i className="bi bi-bullseye"></i> Curious</NavLink>
             <button className="navbar-toggler text-light" type="button" data-bs-toggle="collapse" data-bs-target="xnavbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon text-light"></span>
             </button>
@@ -56,12 +52,12 @@ const Navbar = () => {
                     </li>
                     <li className="nav-item">
                     <NavLink className="nav-link text-light" to="/create_post">
-                    <i class="bi bi-pencil-square"></i> Write
+                    <i className="bi bi-pencil-square"></i> Write
                     </NavLink>
                     </li>
                     <li className="nav-item">
                     <NavLink className="nav-link text-light" to="/agents">
-                    <i class="bi bi-bell"></i>                       
+                    <i className="bi bi-bell"></i>                       
                     </NavLink>
                     </li>
                     <li className="nav-item dropdown">

@@ -36,7 +36,7 @@ const UpdateProfile = ({email, username, password}) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className='container w-50'>
         <div className="col-auto">
-            <label className="sr-only" for="inlineFormInputGroup">Username</label>
+            <label className="sr-only" htmlFor="inlineFormInputGroup">Username</label>
             <div className="input-group mb-2">
                 <div className="input-group-prepend">
                 <div className="input-group-text">@</div>
@@ -45,11 +45,11 @@ const UpdateProfile = ({email, username, password}) => {
             </div>
         </div>
         <div className="col-auto">
-            <label className="sr-only" for="inlineFormInput">Email</label>
+            <label className="sr-only" htnlFor="inlineFormInput">Email</label>
             <input type="email" name="email" {...register('email')} className="form-control mb-2" id="inlineFormInput" placeholder="jane324@gmail.com"/>
         </div>
         <div className="col-auto">
-            <label className="sr-only" for="inlineFormInput">Password</label>
+            <label className="sr-only" htmlFor="inlineFormInput">Password</label>
             <input type="password" name='password' {...register('password')} className="form-control mb-2" id="inlineFormInput" placeholder="*****"/>
         </div>
         <p>{error}</p>
