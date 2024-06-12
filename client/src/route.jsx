@@ -12,6 +12,7 @@ import UserProfile from './profile/profile';
 import UpdateProfile from './profile/update-profile';
 import CreatePost from './components/post/create-post';
 import ListofPosts from './components/post/listing-post';
+import SingleFullPost from './components/post/single-post';
 // import UploadWidget from './uploadWidget/UploadWidget';
 
 
@@ -29,7 +30,7 @@ const RoutePage = () => {
     <Route path="/contact" exact element={<Contact/>} />
     <Route path="/agents" exact element={<Agents/>} />
     <Route path="/profile" exact element={<UserProfile/>} />
-    <Route path="/update_profile" exact element={<UpdateProfile/>} />
+    <Route path="/update_profile/:id" exact element={<UpdateProfile/>} />
    </Routes>
   )
 }
@@ -48,6 +49,7 @@ function RoutePage1(){
       <Route path="/update_profile" exact element={<UpdateProfile/>} />
       <Route path="/create_post" exact element={<CreatePost/>}/>
       <Route path="/posts" exact element={<ListofPosts/>}/>
+      <Route path="/single_post/:id" exact element={<SingleFullPost/>}/>
     </Route>
       <Route path="/" exact element={<Home/>} />
       <Route path="/register" exact element={HocRegister} />

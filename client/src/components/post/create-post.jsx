@@ -1,11 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../context/auth-context';
 import apiRequest from '../../lib/apiRequest';
+import { useNavigate } from 'react-router-dom';
+import { Navigate } from '../../helper';
 
 const CreatePost = () => {
     const [edit, setEdit]=useState(true);
     const {currentUser, updateUser} = useContext(AuthContext);
 
+    const navigate = useNavigate();
 
     const handleCreatePost=async()=>{
         let title = document.getElementById('post_title').innerText;
@@ -15,6 +18,9 @@ const CreatePost = () => {
         try {
             let response = await apiRequest.post(`post/create`, bodyData);
             console.log('response', response);
+            if(response.status===200){
+              navigate(`/single_post/${response.data.data.id}`);
+            }
             setEdit(false)
         } catch (error) {
             console.log(error)
@@ -27,7 +33,7 @@ const CreatePost = () => {
             <p className='post-story' id='post_story' contentEditable={edit}>Tell your story</p>
             {/* <div><textarea type="text" placeholder='Title' rows={3} required={true} /></div> */}
             {/* <div><textarea type="text" placeholder='Describe your story...' rows={5} required={true} /></div> */}
-           { edit && <div><button onClick={handleCreatePost} type='button' className='btn btn-success'>Publish</button></div>}
+            <div><button disabled={!edit} onClick={handleCreatePost} type='button' className='btn btn-success'>Publish</button></div>
     </div>
   )
 }

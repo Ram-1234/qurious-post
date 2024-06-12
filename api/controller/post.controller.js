@@ -5,8 +5,16 @@ export const getPosts = async (req, res) => {
   const {start,end}=req.body;
 
   try {
-    const posts = await prisma.post.findMany({skip:start||0, take:end||5});
-    res.status(200).json({ posts });
+    const posts = await prisma.post.findMany({skip:start||0, take:end||20});
+    console.log('post1', posts);
+    const list = posts.map(async (item)=>{
+      return  {...item,user: await prisma.user.findUnique({ where: { id: item.authorId } })}
+    })
+    console.log("list", list);
+
+    const updatedPost = await Promise.all(list)
+    console.log('post2',  updatedPost);
+    res.status(200).json({ posts:updatedPost });
   } catch (error) {
     res.status(500).json({ message: "401 Error" });
   }
@@ -31,13 +39,13 @@ export const createPost = async (req, res) => {
 
 export const getPost = async (req, res) => {
   const id = req.params.id;
-  const tokenUserId = req.userId;
-  const body = req.body;
-  const { password, avatar, ...inputs } = req.body;
+  // const tokenUserId = req.userId;
+  // const body = req.body;
+  // const { password, avatar, ...inputs } = req.body;
 
-  if (id !== tokenUserId) {
-    return res.status(401).json({ message: "Not Authorized!" });
-  }
+  // if (id !== tokenUserId) {
+  //   return res.status(401).json({ message: "Not Authorized!" });
+  // }
 
   try {
     const post = await prisma.post.findUnique({ where: { id } });

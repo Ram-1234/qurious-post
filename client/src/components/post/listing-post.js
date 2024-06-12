@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import apiRequest from '../../lib/apiRequest';
 import StoryCard from './story-card';
+import axios from 'axios';
 
 const ListofPosts = () => {
     const [postData, setData]=useState([]);
     const [loading, setLoading]=useState(false);
+    const [userData, setUserData]=useState(null);
 
     console.log('postData', postData);
 
@@ -12,7 +14,7 @@ const ListofPosts = () => {
         (async()=>{
             setLoading(true);
             try {
-                let res = await  apiRequest.get('/post/posts', {start:0,end:5});
+                let res = await  apiRequest.get('/post/posts', {start:0,end:10});
                 //console.log('res', res);
                 if(res.status){
                     setData(res.data.posts);
@@ -24,6 +26,19 @@ const ListofPosts = () => {
             }
           
         })()
+    },[])
+
+
+    useEffect(()=>{
+            (async()=>{
+                try {
+                    let userRes = await apiRequest.get(`/users/666589034122e4bc9c85a401`);
+                    setUserData(userRes);
+                    //console.log('user get', userRes)
+                } catch (error) {
+                    console.log(error)
+                }
+            })()
     },[])
 
   return (
@@ -48,6 +63,8 @@ const ListofPosts = () => {
                         return <StoryCard
                         autherId={item.authorId}
                         key={item.id}
+                        id={item.id}
+                        user={item.user}
                         title={item.title}
                         story={item.story}
                         createdAt={item.createdAt}
