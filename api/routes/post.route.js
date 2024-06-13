@@ -5,12 +5,15 @@ import {
   updatePost,
   createPost,
   deletePost,
+  listofPost,
 } from "../controller/post.controller.js";
 import { verifyToken } from "../middleware/verifyToken.js";
 
 const router = express.Router();
 
 router.get("/posts", getPosts);
+
+router.get("/posts/:id", userPosts);
 
 router.get("/:id", getPost);
 

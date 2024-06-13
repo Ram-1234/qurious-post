@@ -2,21 +2,41 @@ import prisma from "../lib/prisma.js";
 import bcrypt from "bcrypt";
 
 export const getPosts = async (req, res) => {
-  const {start,end}=req.body;
-
+  const { start, end } = req.body;
   try {
-    const posts = await prisma.post.findMany({skip:start||0, take:end||20});
-    console.log('post1', posts);
-    const list = posts.map(async (item)=>{
-      return  {...item,user: await prisma.user.findUnique({ where: { id: item.authorId } })}
-    })
-    console.log("list", list);
+    const posts = await prisma.post.findMany({
+      skip: start || 0,
+      take: end || 20,
+    });
+    //console.log('post1', posts);
+    const list = posts.map(async (item) => {
+      return {
+        ...item,
+        user: await prisma.user.findUnique({ where: { id: item.authorId } }),
+      };
+    });
 
-    const updatedPost = await Promise.all(list)
-    console.log('post2',  updatedPost);
-    res.status(200).json({ posts:updatedPost });
+    const updatedPost = await Promise.all(list);
+    //console.log("post2", updatedPost);
+    res.status(200).json({ posts: updatedPost });
   } catch (error) {
     res.status(500).json({ message: "401 Error" });
+  }
+};
+
+export const userPosts = async (req, res) => {
+  const userId = req.params.id;
+  try {
+    let listofPost = await prisma.post.findMany({
+      where: { authorId: userId },
+      include: { author: true },
+    });
+    console.log("listofPost", listofPost);
+    res
+      .status(200)
+      .json({ message: "data fetched successfully", data: listofPost });
+  } catch (error) {
+    console.log(error);
   }
 };
 
@@ -24,15 +44,14 @@ export const createPost = async (req, res) => {
   //const id = req.params.id;
   //const tokenUserId = req.userId;
   const data = req.body;
-  console.log('body', data)
-
+  console.log("body", data);
 
   try {
-    const resp = await prisma.post.create({data});
-    console.log('resp', resp);
-    res.status(200).json({ message: "Post Created Successfully", data:resp });
+    const resp = await prisma.post.create({ data });
+    console.log("resp", resp);
+    res.status(200).json({ message: "Post Created Successfully", data: resp });
   } catch (error) {
-    console.log('error', error);
+    console.log("error", error);
     res.status(500).json({ message: "404 Something went wrong" });
   }
 };
