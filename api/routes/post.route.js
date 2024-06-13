@@ -5,7 +5,7 @@ import {
   updatePost,
   createPost,
   deletePost,
-  listofPost,
+  userPosts,
 } from "../controller/post.controller.js";
 import { verifyToken } from "../middleware/verifyToken.js";
 

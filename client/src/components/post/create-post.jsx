@@ -17,7 +17,7 @@ const CreatePost = () => {
         let bodyData = {title:title,story:story,authorId:currentUser.id}
         try {
             let response = await apiRequest.post(`post/create`, bodyData);
-            console.log('response', response);
+            //console.log('response', response);
             if(response.status===200){
               navigate(`/single_post/${response.data.data.id}`);
             }
@@ -28,12 +28,10 @@ const CreatePost = () => {
     }
 
   return (
-    <div className='creat-post container w-75 border mt-4 p-4'>
-            <h3 className='post-title' id='post_title' contentEditable={edit}> Title</h3>
-            <p className='post-story' id='post_story' contentEditable={edit}>Tell your story</p>
-            {/* <div><textarea type="text" placeholder='Title' rows={3} required={true} /></div> */}
-            {/* <div><textarea type="text" placeholder='Describe your story...' rows={5} required={true} /></div> */}
-            <div><button disabled={!edit} onClick={handleCreatePost} type='button' className='btn btn-success'>Publish</button></div>
+    <div id="create_post_id" className='creat-post container w-75 border mt-4 p-4'>
+            <h3 className='post-title' suppressContentEditableWarning={true}  id='post_title' contentEditable={edit}> Title</h3>
+            <p className='post-story' suppressContentEditableWarning={true}  id='post_story' contentEditable={edit}>Tell your story</p>
+            <div><button id="publish_button" disabled={!edit} onClick={handleCreatePost} type='button' className='btn btn-success'>Publish</button></div>
     </div>
   )
 }

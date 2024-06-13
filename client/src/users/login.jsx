@@ -26,7 +26,7 @@ const Login = () => {
       localStorage.setItem('user', JSON.stringify(response.data.user));
       updateUser(response.data.user)
       if(response.status===200){
-        navigate('/');
+        navigate(`/posts`);
       }
     } catch (error) {
       console.log(error)

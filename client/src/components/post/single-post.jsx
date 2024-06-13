@@ -1,23 +1,25 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import apiRequest from '../../lib/apiRequest';
 import Avatar from '../../profile/avatar';
 import { When } from '../../helper';
+import { AuthContext } from '../../context/auth-context';
 
 const SingleFullPost = () => {
     let [storyData,setStory]=useState(null);
     let [userData,setUserData]=useState(null);
+    //const {currentUser, updateUser} = useContext(AuthContext);
 
-    console.log('story', storyData)
-    console.log('userdata', userData);
+    //console.log('story', storyData)
+    //console.log('userdata', userData);
 
     const params = useParams();
     //console.log("params", params.id);
 
     useEffect(()=>{
         (async()=>{
-            let data = await apiRequest.get(`/post/${params.id}`);
-            console.log('data', data);
+            let data = await apiRequest.get(`/post/${params?.id}`);
+            //console.log('data', data);
             if(data.status===200){
                 let userRes = await apiRequest.get(`/users/${data.data.post.authorId}`);
                 
@@ -34,8 +36,8 @@ const SingleFullPost = () => {
         <div className='single_post_user_info d-flex align-items-center' >
             <Avatar/>
             <div className='m-3 m-1'>
-                <h6 className='m-1 mt-0 mb-0'>{userData.username|| "User"}</h6>
-                <p className='m-1 mt-0 mb-0'>{When(userData.createAt) || "date"}</p>
+                <h6 className='m-1 mt-0 mb-0'>{userData?.username|| "User"}</h6>
+                <p className='m-1 mt-0 mb-0'>{When(userData?.createAt) || "date"}</p>
             </div>
         </div>
         <div>

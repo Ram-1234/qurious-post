@@ -12,6 +12,7 @@ import noavatar from "../assets/noavatar.jpeg";
 
 const Navbar = () => {
     const {currentUser, updateUser} = useContext(AuthContext);
+    
 
     const navigate = useNavigate();
 
@@ -25,7 +26,7 @@ const Navbar = () => {
         try {
             await apiRequest.post("/auth/logout");
             updateUser(null);
-            navigate('/login')
+            navigate('/')
         } catch (error) {
             console.log(error)
         }
@@ -48,7 +49,7 @@ const Navbar = () => {
                     <NavLink className="nav-link active text-light" aria-current="page" to="/">Home</NavLink>
                     </li>
                     <li className="nav-item">
-                    <NavLink className="nav-link text-light" to="/posts">Our Story</NavLink>
+                    <NavLink className="nav-link text-light" to={`/our_story/${currentUser?.id}`}>Our Story</NavLink>
                     </li>
                     <li className="nav-item">
                     <NavLink className="nav-link text-light" to="/create_post">
@@ -77,7 +78,6 @@ const Navbar = () => {
                         <li className="dropdown-item" onClick={handleLogout} style={{cursor:"pointer"}}>Logout</li>
                      </>}
                      </ul>
-                
                     </li>
                 </ul>
             </div>
