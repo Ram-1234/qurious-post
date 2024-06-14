@@ -42,13 +42,17 @@ const SingleFullPost = () => {
         </div>
         <div>
             <hr className=''/>
-                <div className='d-flex align-content-center'>
-                <i class="bi bi-chat-dots"></i>
-                <i class="bi bi-hand-thumbs-up"></i>
-                <i class="bi bi-bookmark-plus"></i>
-                <i class="bi bi-play-circle"></i>
-                <i class="bi bi-file-arrow-up"></i>
-                <i class="bi bi-three-dots"></i>
+                <div className='d-flex align-content-center justify-content-between'>
+                    <div className='left'>
+                    <i class="bi bi-chat-dots"></i>
+                    <i class="bi bi-hand-thumbs-up"></i>
+                    <i class="bi bi-bookmark-plus"></i>
+                    </div>
+                    <div className='right'>
+                    <i class="bi bi-play-circle"></i>
+                    <i class="bi bi-file-arrow-up"></i>
+                    <i class="bi bi-three-dots"></i>
+                    </div>
                 </div>
             <hr className=''/>
         </div>

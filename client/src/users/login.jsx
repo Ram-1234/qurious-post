@@ -1,4 +1,4 @@
-import React,{useContext, useState} from 'react';
+import React,{useContext, useEffect, useState} from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import apiRequest from '../lib/apiRequest.js';
 import { AuthContext } from '../context/auth-context.jsx';
@@ -11,6 +11,25 @@ const Login = () => {
   const {updateUser} = useContext(AuthContext);
 
   const navigate = useNavigate();
+
+  const alertHandle=()=>{
+    if(window.confirm('Are you sure to stay login!')){
+      handleLogout()
+    }else{
+      alert('Done')
+    }
+  }
+
+  const handleLogout=async()=>{
+    try {
+        await apiRequest.post("/auth/logout");
+        //console.log('logout')
+        updateUser(null);
+        navigate('/')
+    } catch (error) {
+        console.log(error)
+    }
+}
  
   const onSubmitHandle=async function(e){
     e.preventDefault();
@@ -22,10 +41,10 @@ const Login = () => {
 
     try {
       let response = await apiRequest.post('auth/login',{username,password})
-      console.log('response', response);
       localStorage.setItem('user', JSON.stringify(response.data.user));
       updateUser(response.data.user)
       if(response.status===200){
+        setTimeout(alertHandle, 10000*60*60*2);
         navigate(`/posts`);
       }
     } catch (error) {

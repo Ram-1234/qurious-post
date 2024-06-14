@@ -39,7 +39,7 @@ const isPasswordValid = await bcrypt.compare(password,user.password);
 if(!isPasswordValid) return res.status(401).json({message:"Invalid password!"});
 
 // GENERATE COOKIE TOKEN AND SEND TO THE USER
-const age = 1000*60*60*24*1;
+const age = 1000*60*60*5;
 const token = jwt.sign({
     id:user.id,
     isAdmin:false
