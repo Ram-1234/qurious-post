@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './home.css';
 import thoutsImg from "../assets/amaz.jpeg";
 import Button from './button';
@@ -9,6 +9,10 @@ const Home = () => {
   let eventHandler=()=>{
     alert('event')
   }
+
+  useEffect(()=>{
+    localStorage.setItem('user', null);
+  },[])
 
   const buttonColor={
     border: "none",

@@ -38,9 +38,12 @@ const Login = () => {
     let formData = new FormData(e.target);
     let username = formData.get("username");
     let password = formData.get("password");
+    console.log('username', username);
+    console.log('password', password);
 
     try {
       let response = await apiRequest.post('auth/login',{username,password})
+      console.log('res', response);
       localStorage.setItem('user', JSON.stringify(response.data.user));
       updateUser(response.data.user)
       if(response.status===200){
