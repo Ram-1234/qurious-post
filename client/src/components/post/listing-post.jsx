@@ -3,21 +3,24 @@ import apiRequest from "../../lib/apiRequest";
 import StoryCard from "./story-card";
 import { AuthContext } from "../../context/auth-context";
 import RecommendeUsers from "./refer-usre-list";
+import "./style.css";
 
 const ListofPosts = () => {
   const [postData, setData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [userData, setUserData] = useState([]);
+  const [usersData, setUserData] = useState([]);
   const { currentUser, updateUser } = useContext(AuthContext);
+  
 
   useEffect(() => {
     (async () => {
       setLoading(true);
       try {
-        let res = await apiRequest.get("/post/posts", { start: 0, end: 10 });
+        let res = await apiRequest.get("/post/random_posts", { start: 0, end: 10 });
         let userRes = await apiRequest.get(`/users/`);
+        console.log('users resp', userRes)
         if (userRes.status === 200) {
-          setUserData(userRes.data.users);
+          setUserData(userRes.data.Users);
         }
         //console.log('res', res);
         if (res.status) {
@@ -31,22 +34,11 @@ const ListofPosts = () => {
     })();
   }, []);
 
-  useEffect(() => {
-    (async () => {
-      try {
-        let userRes = await apiRequest.get(`/users/${currentUser.id}`);
-        setUserData(userRes);
-        //console.log('user get', userRes)
-      } catch (error) {
-        console.log(error);
-      }
-    })();
-  }, []);
 
   return (
     <div className="listitng-post container">
       <div className="row col-12">
-        <div className="left col-lg-8 col-md-12">
+        <div className="left col-lg-9 col-md-12">
           <div className="select-topics d-flex justify-content-between border-bottom p-2 mt-5 mb-2">
             <div>For you</div>
             <div>iOS</div>
@@ -78,11 +70,11 @@ const ListofPosts = () => {
           </div>
         </div>
         <div
-          className="right col-lg-4 col-md-0"
+          className="right col-lg-3 col-md-0"
           style={{ borderLeft: "0.5px solid lightgrey" }}
         >
-          {userData ? (
-            <RecommendeUsers users={userData} />
+          {usersData ? (
+            <RecommendeUsers users={usersData} />
           ) : (
             <h4>Recommended users</h4>
           )}

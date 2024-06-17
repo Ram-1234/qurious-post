@@ -1,25 +1,20 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import apiRequest from '../../lib/apiRequest';
 import Avatar from '../../profile/avatar';
 import { When } from '../../helper';
-import { AuthContext } from '../../context/auth-context';
+import "./style.css";
 
 const SingleFullPost = () => {
     let [storyData,setStory]=useState(null);
     let [userData,setUserData]=useState(null);
-    //const {currentUser, updateUser} = useContext(AuthContext);
 
-    //console.log('story', storyData)
-    //console.log('userdata', userData);
 
     const params = useParams();
-    //console.log("params", params.id);
 
     useEffect(()=>{
         (async()=>{
             let data = await apiRequest.get(`/post/${params?.id}`);
-            //console.log('data', data);
             if(data.status===200){
                 let userRes = await apiRequest.get(`/users/${data.data.post.authorId}`);
                 
@@ -56,8 +51,8 @@ const SingleFullPost = () => {
                 </div>
             <hr className=''/>
         </div>
-        <h3>{storyData?.title||"Title"}</h3>
-        <p>{storyData?.story||"Story..."}</p>
+        <h3 className='single_post_title'>{storyData?.title||"Title"}</h3>
+        <p className='single_post_story'>{storyData?.story||"Story..."}</p>
     </div>
   )
 }

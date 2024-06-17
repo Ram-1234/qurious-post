@@ -26,8 +26,8 @@ const StoryCard = ({title, story, user,createdAt, id}) => {
                     <p className='created_at_story m-1 mt-0 mb-0'>{When(createdAt)||"March 29, 2024"}</p>
                 </div>
                 <div className='user_story'>
-                    <h3 className='story_title'>{title||"What is react"}</h3>
-                    <p className='story_description'>{story||"evrything about react"}</p>
+                    <h1 className='story_title'>{title||"What is react"}</h1>
+                    <p className='story_description'>{story.length>450 ? story.slice(0,450)+"...":story||"evrything about react"}</p>
                 </div>
             </div>
         </div>

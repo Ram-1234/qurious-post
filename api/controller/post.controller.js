@@ -109,3 +109,45 @@ export const deletePost = async (req, res) => {
     res.status(500).json({ message: "failed to delete post!" });
   }
 };
+
+/**** different users random post */
+export const getRandomPostsForUsers=async(req, res)=> {
+  console.log('req', req);
+  try {
+    const randomPosts = [];
+    const randomUsers = await prisma.user.findMany();
+    console.log('randomUsers',randomUsers);
+
+    for (let user of randomUsers) {
+      const userPosts = await prisma.post.findMany({
+        where: {
+          authorId: user.id,
+        },
+        orderBy: {
+          createdAt: 'desc', // or any other order that fits your logic
+        },
+        take: 2,
+      });
+      randomPosts.push(...userPosts);
+    }
+
+    // add authorId
+    const list = randomPosts.map(async (item) => {
+      return {
+        ...item,
+        user: await prisma.user.findUnique({ where: { id: item.authorId } }),
+      };
+    });
+
+    const updatedPost = await Promise.all(list);
+    //console.log("post2", updatedPost);
+    res.status(200).json({ posts: updatedPost });
+  } catch (error) {
+    console.error(error);
+    throw error;
+  } finally {
+    await prisma.$disconnect();
+  }
+}
+
+

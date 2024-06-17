@@ -1,4 +1,4 @@
-import React,{useContext, useEffect, useState} from 'react';
+import React,{useContext, useState} from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import apiRequest from '../lib/apiRequest.js';
 import { AuthContext } from '../context/auth-context.jsx';
@@ -38,8 +38,7 @@ const Login = () => {
     let formData = new FormData(e.target);
     let username = formData.get("username");
     let password = formData.get("password");
-    console.log('username', username);
-    console.log('password', password);
+
 
     try {
       let response = await apiRequest.post('auth/login',{username,password})

@@ -5,7 +5,7 @@ import Avatar from "../../profile/avatar";
 const RecommendUserCard = ({ id, username, createdAt }) => {
   return (
     <div key={id}>
-      <Avatar title={username} />
+      <Avatar title={username.slice(0,1)} />
       <h4>{username}</h4>
       <p>{When(createdAt)}</p>
     </div>
