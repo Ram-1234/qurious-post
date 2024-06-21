@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import apiRequest from '../../lib/apiRequest';
 import Avatar from '../../profile/avatar';
 import { When } from '../../helper';
+import { timeFormat } from '../../common/common';
 import "./style.css";
 
 const SingleFullPost = () => {
@@ -32,7 +33,7 @@ const SingleFullPost = () => {
             <Avatar/>
             <div className='m-3 m-1'>
                 <h6 className='m-1 mt-0 mb-0'>{userData?.username|| "User"}</h6>
-                <p className='m-1 mt-0 mb-0'>{When(userData?.createAt) || "date"}</p>
+                <p className='m-1 mt-0 mb-0'>{timeFormat(userData?.createAt, "MM DD, YY HH:MM:SS EN")}</p>
             </div>
         </div>
         <div>

@@ -50,7 +50,7 @@ const Login = () => {
         navigate(`/posts`);
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
       setError(error?.message);
     } finally{
       setIsLoading(false);

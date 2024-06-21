@@ -8,11 +8,9 @@ import { AuthContext } from '../context/auth-context';
 import noavatar from "../assets/noavatar.jpeg";
 
 
-//profile
-
 const Navbar = () => {
     const {currentUser, updateUser} = useContext(AuthContext);
-        console.log('currentUser', currentUser);
+        //console.log('currentUser', currentUser);
 
     const navigate = useNavigate();
 

@@ -25,7 +25,7 @@ res.status(200).json({message:"User created Successfully!"})
 export const login=async(req,res)=>{
 //db operation
 const {email, username,password} = req.body;
-
+//console.log('req.body login', req.body)
 try {
 // check if the user exist
 const user = await prisma.user.findUnique({

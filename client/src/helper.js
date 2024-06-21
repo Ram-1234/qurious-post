@@ -9,7 +9,7 @@ export function Navigate(url){
      )
 }
 
-export let When =(created)=>  new Date(created).toGMTString();
+//export let When =(created)=>  new Date(created).toGMTString();
 
 let storyTitleStyle={
 

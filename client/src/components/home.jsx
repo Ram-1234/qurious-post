@@ -11,7 +11,10 @@ const Home = () => {
   }
 
   useEffect(()=>{
-    localStorage.setItem('user', null);
+    let user = localStorage.getItem('user');
+    if(!user){
+      localStorage.clear();
+    }
   },[])
 
   const buttonColor={

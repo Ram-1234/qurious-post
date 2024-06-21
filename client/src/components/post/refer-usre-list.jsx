@@ -6,16 +6,16 @@ const RecommendeUsers = ({ users }) => {
   const {currentUser,updateUser} = useContext(AuthContext);
   //console.log('users', users);
   return (
-    <div className="recommend-users">
+    <div className="recommend-users mt-3">
       {users &&
         users?.map((item) => {
           if(item.username===currentUser.username){
-            return
+            return;
           }
           return (
             <RecommendUserCard
               username={item?.username}
-              createdAt={item?.createdAt}
+              createdAt={item?.createAt}
               id={item.id}
             />
           );
