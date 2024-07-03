@@ -48,8 +48,8 @@
 /* single post story */
 .single_post_title{
     font-family: "SharpGrotesk", myriad-pro, Arial, sans-serif;
-    font-size: 4.6875rem;
-    font-weight: 500;
+    font-size: 2.8875rem;
+    font-weight: 600;
     letter-spacing: 1px;
     line-height: 1.02667;
 }
@@ -61,4 +61,17 @@
     letter-spacing:1px;
     line-height: 1.52667;
     margin-top: 2rem;
+}
+
+/* single post */
+.single_post_icon{
+    margin: 0.5rem 1rem;
+    font-size: 1.6rem;
+}
+
+.single_post_username{
+    font-family: "SharpGrotesk", myriad-pro, Arial, sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    
 }
