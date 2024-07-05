@@ -30,7 +30,7 @@ const SingleFullPost = () => {
   return (
     <div className='conatiner w-75 ps-5 pe-5 mx-auto'>
         <div className='single_post_user_info d-flex align-items-center' >
-            <Avatar title={userData?.username.slice(0,1)} />
+            <Avatar title={userData?.username.slice(0,1)} propsStyle={{border:"2px solid #717171" }} propsTitleStyle={{fontSize:"1.85rem", color:"#656565", fontFamily: "sans-serif"}} />
             <div className='m-3 m-1'>
                 <h6 className='m-1 single_post_username mt-0 mb-0'>{userData?.username|| "User"}</h6>
                 <p className='m-1 mt-0 mb-0'>{timeFormat(userData?.createAt, "MM DD, YY HH:MM:SS EN")}</p>
