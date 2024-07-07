@@ -1,9 +1,10 @@
 import React from 'react';
 import Avatar from '../../profile/avatar';
 import { useNavigate } from 'react-router-dom';
-import { timeFormat } from '../../common/common';
+import { timeFormat, themeStyle } from '../../common/common';
 
-const StoryCard = ({title, story, user,createdAt, id}) => {
+
+const StoryCard = ({title, story, user,createdAt, id,theme}) => {
     const navigate = useNavigate();
 
     const avatartStyle={
@@ -26,6 +27,7 @@ const StoryCard = ({title, story, user,createdAt, id}) => {
                 </div>
                 <div className='user_story'>
                     <h1 className='story_title mb-2'>{title||"What is react"}</h1>
+                   {theme?.length ?  <img src={theme} alt="theme" style={{width:"100%", height:"350px", objectFit:"cover"}} />:null}
                     <p className='story_description'>{story.length>450 ? story.slice(0,450)+"...":story||"evrything about react"}</p>
                 </div>
             </div>

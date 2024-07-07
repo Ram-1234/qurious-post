@@ -63,6 +63,7 @@ const ListofPosts = () => {
                     user={item.user}
                     title={item.title}
                     story={item.story}
+                    theme={item.theme}
                     createdAt={item.createdAt}
                   />
                 );

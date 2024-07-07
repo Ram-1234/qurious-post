@@ -7,9 +7,9 @@ import Navbar from './navbar';
 function App() {
   return (
     <Router>
-      <header><Navbar/></header>
-      <RoutePage1/>
-    </Router>
+        <header><Navbar/></header>
+        <RoutePage1/>
+      </Router>
   );
 }
 

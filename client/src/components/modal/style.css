@@ -1,5 +1,5 @@
 .container_modal {
-    /* width: 30%; */
+    width: 90%;
     height: auto;
     border: 2px solid lightgray;
     border-radius: 15px;
@@ -21,7 +21,7 @@
     font-weight: 600;
     font-family: sans-serif;
     line-height: 1pc;
-    margin: 20px 0;
+    margin-bottom: 20px;
 }
 
 .subtitle {

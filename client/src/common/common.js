@@ -9,6 +9,8 @@ export const postStyles={
     }
 } 
 
+export const themeStyle={width:"100%", height:"600px",objectFit: "cover", border:"2px solid green"}
+
 export const timeFormat=(timeStamp, format)=>{
     let time = new Date(timeStamp||null);
     // year 

@@ -5,10 +5,12 @@ import Avatar from '../../profile/avatar';
 import { When } from '../../helper';
 import { timeFormat } from '../../common/common';
 import "./style.css";
+import { themeStyle } from '../../common/common';
 
 const SingleFullPost = () => {
     let [storyData,setStory]=useState(null);
     let [userData,setUserData]=useState(null);
+    
 
 
     const params = useParams();
@@ -53,6 +55,7 @@ const SingleFullPost = () => {
             <hr className=''/>
         </div>
         <h3 className='single_post_title'>{storyData?.title||"Title"}</h3>
+        {storyData?.theme?.length ?  <img src={storyData?.theme} alt="theme" style={themeStyle} />:null}
         <p className='single_post_story'>{storyData?.story||"Story..."}</p>
     </div>
   )
