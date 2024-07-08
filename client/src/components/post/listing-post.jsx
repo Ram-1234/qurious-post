@@ -10,19 +10,21 @@ const ListofPosts = () => {
   const [loading, setLoading] = useState(false);
   const [usersData, setUserData] = useState([]);
   const { currentUser, updateUser } = useContext(AuthContext);
-  
 
   useEffect(() => {
     (async () => {
       setLoading(true);
       try {
-        let res = await apiRequest.get("/post/random_posts", { start: 0, end: 10 });
+        let res = await apiRequest.get("/post/random_posts", {
+          start: 0,
+          end: 10,
+        });
         let userRes = await apiRequest.get(`/users/`);
-        console.log('users resp', userRes)
+        //console.log('users resp', userRes)
         if (userRes.status === 200) {
           setUserData(userRes.data.Users);
         }
-        //console.log('res', res);
+
         if (res.status) {
           setData(res.data.posts);
           setLoading(true);
@@ -33,7 +35,6 @@ const ListofPosts = () => {
       }
     })();
   }, []);
-
 
   return (
     <div className="listitng-post container">
