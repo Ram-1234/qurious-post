@@ -54,7 +54,7 @@ const StoryCard = ({ title, story, user, createdAt, id, theme }) => {
               ? story.slice(0, 450) + "..."
               : story || "evrything about react"}
           </p>
-          <div className="remove_post d-flex float end">
+          <div className="remove_post d-flex float end mr-5">
             <i className="bi bi-dash-circle" onClick={() => removePost(id)}></i>
           </div>
         </div>
