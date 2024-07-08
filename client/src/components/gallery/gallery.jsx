@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import GalleryCard from "./gallerycard";
 import "./style.css"
-import { useDispatch } from 'react-redux';
-import { uploadURL } from "../../app/features/uploadURLSlice";
+
 import { AuthContext } from "../../context/auth-context";
 
 const Gallery = () => {

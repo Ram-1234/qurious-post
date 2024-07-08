@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import Avatar from "../../profile/avatar";
 import { useNavigate } from "react-router-dom";
 import { timeFormat, themeStyle } from "../../common/common";
+import apiRequest from "../../lib/apiRequest";
+import { AuthContext } from "../../context/auth-context";
 
 const StoryCard = ({ title, story, user, createdAt, id, theme }) => {
   const navigate = useNavigate();
+  const { currentUser, updateUser } = useContext(AuthContext);
 
   const avatartStyle = {
     width: "45px",
@@ -17,15 +20,17 @@ const StoryCard = ({ title, story, user, createdAt, id, theme }) => {
 
   const removePost = async (id) => {
     try {
-      let removePostRes = await apiRequest.delete(`/post/${id}`);
-      console.log("remove post", removePostRes);
+      let removePostRes = await apiRequest.delete(`/post/${id}`,{userId:currentUser});
+      
+      //console.log("remove post", removePostRes);
     } catch (error) {
       console.log(error);
     }
   };
 
+  const removeIconStyle={fontSize:"1rem"}
   return (
-    <div className="story_card_wrap" onClick={() => storyClicked(id)}>
+    <div className="story_card_wrap">
       <div className="story_card">
         <div className="user_profile d-flex align-items-center mb-2">
           <Avatar
@@ -41,7 +46,7 @@ const StoryCard = ({ title, story, user, createdAt, id, theme }) => {
           </p>
         </div>
         <div className="user_story">
-          <h1 className="story_title mb-2">{title || "What is react"}</h1>
+          <h1 className="story_title mb-2" onClick={() => storyClicked(id)}>{title || "What is react"}</h1>
           {theme?.length ? (
             <img
               src={theme}
@@ -54,8 +59,8 @@ const StoryCard = ({ title, story, user, createdAt, id, theme }) => {
               ? story.slice(0, 450) + "..."
               : story || "evrything about react"}
           </p>
-          <div className="remove_post d-flex float end mr-5">
-            <i className="bi bi-dash-circle" onClick={() => removePost(id)}></i>
+          <div className="remove_post d-flex float end mt-2 mb-2">
+            <i className="bi bi-dash-circle text-danger" style={removeIconStyle} onClick={() => removePost(id)}></i>
           </div>
         </div>
       </div>

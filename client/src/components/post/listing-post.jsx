@@ -10,7 +10,7 @@ const ListofPosts = () => {
   const [loading, setLoading] = useState(false);
   const [usersData, setUserData] = useState([]);
   const { currentUser, updateUser } = useContext(AuthContext);
-
+  
   useEffect(() => {
     (async () => {
       setLoading(true);

@@ -98,13 +98,13 @@ export const updatePost = async (req, res) => {
 export const deletePost = async (req, res) => {
   const id = req.params.id;
   const tokenUserId = req.userId;
-  if (id !== tokenUserId) {
-    return res.status(402).json({ message: "Not Authorized" });
-  }
+  // console.log('req', req);
+  // if (id !== tokenUserId) {
+  //   return res.status(402).json({ message: "Not Authorized" });
+  // }
+ 
   try {
     const deletedPost = await prisma.post.delete({ where: { id } });
-    console.log("post delete", deletedPost);
-
     res.status(200).json({ message: "post deleted" });
   } catch (error) {
     console.log(error);
@@ -114,11 +114,11 @@ export const deletePost = async (req, res) => {
 
 /**** different users random post */
 export const getRandomPostsForUsers = async (req, res) => {
-  console.log("req", req);
+  
   try {
     const randomPosts = [];
     const randomUsers = await prisma.user.findMany();
-    console.log("randomUsers", randomUsers);
+  
 
     for (let user of randomUsers) {
       const userPosts = await prisma.post.findMany({

@@ -4,8 +4,6 @@ import apiRequest from '../../lib/apiRequest';
 import { useNavigate } from 'react-router-dom';
 import { Navigate } from '../../helper';
 import Gallery from '../gallery/gallery';
-import { useSelector, useDispatch } from 'react-redux'
-import { uploadURL } from '../../app/features/uploadURLSlice';
 import { themeStyle } from '../../common/common';
 
 import Modal from '../modal/modal';
@@ -13,12 +11,7 @@ import Modal from '../modal/modal';
 const CreatePost = () => {
     const [edit, setEdit]=useState(true);
     const {currentUser, updateUser, url, modal,setURLHandler, setModalHandler} = useContext(AuthContext);
-    //const [modal, setModal]=useState(false);
-
-  
-    //const url = useSelector((state)=> state.url)
-    //console.log('url loaded ', url)
-
+   
     const navigate = useNavigate();
 
     const handleCreatePost=async()=>{
@@ -50,8 +43,6 @@ const CreatePost = () => {
             console.log(error)
         }
     }
-
-    //const themeStyle={width:"100%", height:"600px",objectFit: "cover", border:"2px solid green"}
     
   return (
     <div id="create_post_id" className='creat-post container w-75 border mt-4 p-4'>

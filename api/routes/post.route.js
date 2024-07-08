@@ -24,6 +24,6 @@ router.post("/create", createPost);
 
 router.put("/:id", updatePost);
 
-router.delete("/:id", deletePost);
+router.delete("/:id",verifyToken, deletePost);
 
 export default router;
