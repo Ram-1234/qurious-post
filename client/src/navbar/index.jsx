@@ -7,10 +7,10 @@ import apiRequest from '../lib/apiRequest';
 import { AuthContext } from '../context/auth-context';
 import noavatar from "../assets/noavatar.jpeg";
 
-//profile
 
 const Navbar = () => {
     const {currentUser, updateUser} = useContext(AuthContext);
+        //console.log('currentUser', currentUser);
 
     const navigate = useNavigate();
 
@@ -22,22 +22,18 @@ const Navbar = () => {
 
     const handleLogout=async()=>{
         try {
-            //alert('logout')
             await apiRequest.post("/auth/logout");
-            //console.log('logout', response);
             updateUser(null);
-            navigate('/login')
+            navigate('/')
         } catch (error) {
             console.log(error)
         }
     }
-
-    console.log("currentUser?.username", currentUser?.username)
  
   return ( 
     <nav className="navbar navbar-expand-lg">
         <div className="container">
-            <NavLink className="navbarr-brand" to="/"> <i class="bi bi-bullseye"></i> Curious</NavLink>
+            <NavLink className="navbarr-brand" to="/"> <i className="bi bi-bullseye"></i> Curious</NavLink>
             <button className="navbar-toggler text-light" type="button" data-bs-toggle="collapse" data-bs-target="xnavbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon text-light"></span>
             </button>
@@ -51,17 +47,21 @@ const Navbar = () => {
                     <NavLink className="nav-link active text-light" aria-current="page" to="/">Home</NavLink>
                     </li>
                     <li className="nav-item">
-                    <NavLink className="nav-link text-light" to="/about">About</NavLink>
+                    <NavLink className="nav-link text-light" to={`/our_story/${currentUser?.id}`}>Our Story</NavLink>
                     </li>
                     <li className="nav-item">
-                    <NavLink className="nav-link text-light" to="/contact">Contact</NavLink>
+                    <NavLink className="nav-link text-light" to="/create_post">
+                    <i className="bi bi-pencil-square"></i> Write
+                    </NavLink>
                     </li>
                     <li className="nav-item">
-                    <NavLink className="nav-link text-light" to="/agents">Agents</NavLink>
+                    <NavLink className="nav-link text-light" to="/agents">
+                    <i className="bi bi-bell"></i>                       
+                    </NavLink>
                     </li>
                     <li className="nav-item dropdown">
                     <NavLink className="nav-link dropdown-toggle d-flex align-items-center text-light" href="x" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    {<UserProfile avatar={currentUser?.avatar || noavatar} />||<FaRegUserCircle/>} <span style={{textTransform:"capitalize", fontSize:"1rem", fontWeight:"600"}}>{currentUser?.username||"User"}</span>
+                    {<UserProfile avatar={currentUser?.avatar || noavatar} />||<FaRegUserCircle/>} <span style={{textTransform:"capitalize", fontSize:"1rem", fontWeight:"600"}}>{(currentUser && currentUser?.username)||"User"}</span>
                     </NavLink>
                    
                     <ul className="dropdown-menu">
@@ -76,7 +76,6 @@ const Navbar = () => {
                         <li className="dropdown-item" onClick={handleLogout} style={{cursor:"pointer"}}>Logout</li>
                      </>}
                      </ul>
-                
                     </li>
                 </ul>
             </div>

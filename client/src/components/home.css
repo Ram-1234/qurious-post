@@ -46,6 +46,7 @@ body{
 
 .amaz_walp{
     width: 50%;
+    min-height: 100%;
 }
 
 .amaz_walp>img{

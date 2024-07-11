@@ -1,0 +1,77 @@
+/* story card styles */
+.story_card_wrap{
+    border-bottom: 0.5px solid #dedede;
+    margin-bottom: 10px;
+}
+
+/* recomend username style */
+.recommend_username{
+ font-size: 1rem;
+ font-weight: 600;
+ line-height:1.5rem;   
+}
+
+.recommend_user_date{
+    font-size: 0.8rem;
+    font-weight: 300;
+    line-height:.8rem; 
+    opacity: 0.6;
+}
+
+
+/* post title */
+.story_title{
+    font-family: "SharpGrotesk", myriad-pro, Arial, sans-serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+    letter-spacing: 1.1px;
+    line-height: 1.02667;
+}
+
+/* created_at_story */
+
+.created_at_story{
+    font-size: 0.7rem;
+    font-weight: 400;
+    line-height:.8rem; 
+    opacity: 0.6; 
+}
+
+.story_description{
+    font-family: "SharpGrotesk", myriad-pro, Arial, sans-serif;
+    font-size: 1.1875rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    line-height: 1.52667;
+}
+
+/* single post story */
+.single_post_title{
+    font-family: "SharpGrotesk", myriad-pro, Arial, sans-serif;
+    font-size: 2.8875rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 1.02667;
+}
+
+.single_post_story{
+    font-family: "SharpGrotesk", myriad-pro, Arial, sans-serif;
+    font-size: 1.1875rem;
+    font-weight: 400;
+    letter-spacing:1px;
+    line-height: 1.52667;
+    margin-top: 2rem;
+}
+
+/* single post */
+.single_post_icon{
+    margin: 0.5rem 1rem;
+    font-size: 1.6rem;
+}
+
+.single_post_username{
+    font-family: "SharpGrotesk", myriad-pro, Arial, sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    
+}

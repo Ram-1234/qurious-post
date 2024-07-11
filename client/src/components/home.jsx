@@ -10,6 +10,13 @@ const Home = () => {
     alert('event')
   }
 
+  useEffect(()=>{
+    let user = localStorage.getItem('user');
+    if(!user){
+      localStorage.clear();
+    }
+  },[])
+
   const buttonColor={
     border: "none",
     padding: "0.5rem 1rem",
