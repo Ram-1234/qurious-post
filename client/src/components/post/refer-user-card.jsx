@@ -1,6 +1,7 @@
 import React from "react";
 import {timeFormat} from "../../common/common.js";
 import Avatar from "../../profile/avatar";
+import { themeStyle } from "../../common/common.js";
 
 const RecommendUserCard = ({ id, username, createdAt }) => {
   return (

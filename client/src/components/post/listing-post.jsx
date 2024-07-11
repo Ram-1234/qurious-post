@@ -10,6 +10,7 @@ const ListofPosts = () => {
   const [loading, setLoading] = useState(false);
   const [usersData, setUserData] = useState([]);
   const { currentUser, updateUser } = useContext(AuthContext);
+  const [deleteStatus, setDeleteStatus]=useState(false);
   
   useEffect(() => {
     (async () => {
@@ -34,7 +35,11 @@ const ListofPosts = () => {
         setLoading(false);
       }
     })();
-  }, []);
+  }, [deleteStatus]);
+
+  const removePostHandler=async (response)=>{
+        setDeleteStatus(response);
+  }
 
   return (
     <div className="listitng-post container">
@@ -66,6 +71,7 @@ const ListofPosts = () => {
                     story={item.story}
                     theme={item.theme}
                     createdAt={item.createdAt}
+                    removePost={removePostHandler}
                   />
                 );
               })}

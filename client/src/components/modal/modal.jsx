@@ -8,7 +8,7 @@ const Modal = ({ title, closeHandle, Element}) => {
 
     return (
         <React.Fragment>
-            <div className="container_modal border border-success" onClick={() => closeHandle(false)}>
+            <div className="container_modal border border-success">
                 <div className="title">{title}</div>
                 <i className="bi bi-x-circle-fill" onClick={() => closeHandle(false)} style={iconStyle}></i>
                 <Element />

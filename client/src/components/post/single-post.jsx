@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { useParams ,useNavigate} from "react-router-dom";
 import apiRequest from "../../lib/apiRequest";
 import Avatar from "../../profile/avatar";
 import { When } from "../../helper";
+
 import { timeFormat } from "../../common/common";
 import "./style.css";
 import { themeStyle } from "../../common/common";
+import { AuthContext } from "../../context/auth-context";
 
 const SingleFullPost = () => {
   let [storyData, setStory] = useState(null);
   let [userData, setUserData] = useState(null);
+  const navigate = useNavigate();
+  const { currentUser, updateUser } = useContext(AuthContext);
 
   const params = useParams();
 
@@ -26,6 +30,12 @@ const SingleFullPost = () => {
       }
     })();
   }, [params.id]);
+
+  const editHandler=()=>{
+    navigate('/create_post',{state:{...storyData}});
+  }
+
+
 
   return (
     <div className="conatiner w-75 ps-5 pe-5 mx-auto">
@@ -52,14 +62,15 @@ const SingleFullPost = () => {
         <hr className="" />
         <div className="d-flex align-content-center justify-content-between">
           <div className="left">
-            <i class="bi single_post_icon bi-chat-dots"></i>
-            <i class="bi single_post_icon bi-hand-thumbs-up"></i>
-            <i class="bi single_post_icon bi-bookmark-plus"></i>
+            <i className="bi single_post_icon bi-chat-dots"></i>
+            <i className="bi single_post_icon bi-hand-thumbs-up"></i>
+            <i className="bi single_post_icon bi-bookmark-plus"></i>
           </div>
           <div className="right">
-            <i class="bi single_post_icon bi-play-circle"></i>
-            <i class="bi single_post_icon bi-file-arrow-up"></i>
-            <i class="bi single_post_icon bi-three-dots"></i>
+            <i className="bi single_post_icon bi-play-circle"></i>
+            {userData?.id !== currentUser?.id && <i className="bi single_post_icon bi-file-arrow-up"></i>}
+            {userData?.id === currentUser?.id && <i className="bi single_post_icon bi-pencil-square" onClick={editHandler}></i>}
+            <i className="bi single_post_icon bi-three-dots"></i>
           </div>
         </div>
         <hr className="" />

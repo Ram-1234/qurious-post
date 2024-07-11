@@ -8,7 +8,7 @@ export const getPosts = async (req, res) => {
       skip: start || 0,
       take: end || 20,
     });
-    //console.log('post1', posts);
+   
     const list = posts.map(async (item) => {
       return {
         ...item,
@@ -17,7 +17,7 @@ export const getPosts = async (req, res) => {
     });
 
     const updatedPost = await Promise.all(list);
-    //console.log("post2", updatedPost);
+    
     res.status(200).json({ posts: updatedPost });
   } catch (error) {
     res.status(500).json({ message: "401 Error" });
@@ -31,7 +31,7 @@ export const userPosts = async (req, res) => {
       where: { authorId: userId },
       include: { author: true },
     });
-    console.log("listofPost", listofPost);
+    
     res
       .status(200)
       .json({ message: "data fetched successfully", data: listofPost });
@@ -44,11 +44,11 @@ export const createPost = async (req, res) => {
   //const id = req.params.id;
   //const tokenUserId = req.userId;
   const data = req.body;
-  console.log("body", data);
+ 
 
   try {
     const resp = await prisma.post.create({ data });
-    console.log("resp", resp);
+    
     res.status(200).json({ message: "Post Created Successfully", data: resp });
   } catch (error) {
     console.log("error", error);
@@ -80,15 +80,16 @@ export const updatePost = async (req, res) => {
   const body = req.body;
   const { password, avatar, ...inputs } = req.body;
 
-  if (id !== tokenUserId) {
-    return res.status(401).json({ message: "Not Authorized!" });
-  }
+  // if (id !== tokenUserId) {
+  //   return res.status(401).json({ message: "Not Authorized!" });
+  // }
 
   try {
     const post = await prisma.post.update({
       where: { id },
       data: body,
     });
+    
     res.status(200).json({ message: "Post Updated Successfully" });
   } catch (error) {
     res.status(500).json({ message: "401 Error" });
@@ -98,7 +99,7 @@ export const updatePost = async (req, res) => {
 export const deletePost = async (req, res) => {
   const id = req.params.id;
   const tokenUserId = req.userId;
-  // console.log('req', req);
+  
   // if (id !== tokenUserId) {
   //   return res.status(402).json({ message: "Not Authorized" });
   // }
@@ -142,7 +143,7 @@ export const getRandomPostsForUsers = async (req, res) => {
     });
 
     const updatedPost = await Promise.all(list);
-    //console.log("post2", updatedPost);
+   
     res.status(200).json({ posts: updatedPost });
   } catch (error) {
     console.error(error);

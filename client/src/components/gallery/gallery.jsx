@@ -19,10 +19,10 @@ const Gallery = () => {
     let jsonValue = await data.json();
 
     if (jsonValue.results) {
-      setLoader(false);
       setJsonData(jsonValue.results);
+      setLoader(false);
     } else {
-      //setLoader(false);
+      setLoader(false);
     }
   }
 

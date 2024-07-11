@@ -5,7 +5,7 @@ import { timeFormat, themeStyle } from "../../common/common";
 import apiRequest from "../../lib/apiRequest";
 import { AuthContext } from "../../context/auth-context";
 
-const StoryCard = ({ title, story, user, createdAt, id, theme }) => {
+const StoryCard = ({ title, story, user, createdAt, id, theme,removePost }) => {
   const navigate = useNavigate();
   const { currentUser, updateUser } = useContext(AuthContext);
 
@@ -18,12 +18,15 @@ const StoryCard = ({ title, story, user, createdAt, id, theme }) => {
     navigate(`/single_post/${id}`);
   };
 
-  const removePost = async (id) => {
+  const removePostHandler = async (id) => {
     try {
       let removePostRes = await apiRequest.delete(`/post/${id}`,{userId:currentUser});
       
-      //console.log("remove post", removePostRes);
+      if(removePostRes.status){
+        removePost(true)
+      }
     } catch (error) {
+      removePost(false)
       console.log(error);
     }
   };
@@ -60,7 +63,7 @@ const StoryCard = ({ title, story, user, createdAt, id, theme }) => {
               : story || "evrything about react"}
           </p>
           <div className="remove_post d-flex float end mt-2 mb-2">
-            <i className="bi bi-dash-circle text-danger" style={removeIconStyle} onClick={() => removePost(id)}></i>
+            <i className="bi bi-dash-circle text-danger" style={removeIconStyle} onClick={() => removePostHandler(id)}></i>
           </div>
         </div>
       </div>

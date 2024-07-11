@@ -11,11 +11,9 @@ const OurStory = () => {
   const [usersData, setUserData] = useState([]);
   const { currentUser, updateUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [deleteStatus, setDeleteStatus]=useState(false);
 
-  console.log("usersData", usersData);
-  //console.log('postData', postData);
   const params = useParams();
-  //console.log('params', params);
 
   useEffect(() => {
     (async () => {
@@ -37,7 +35,11 @@ const OurStory = () => {
         setLoading(false);
       }
     })();
-  }, []);
+  }, [deleteStatus]);
+
+  const removePostHandler=async (response)=>{
+    setDeleteStatus(response);
+}
 
   let buttonStyle = { borderRadius: "20px", fontSize: "14px" };
 
@@ -81,8 +83,10 @@ const OurStory = () => {
                     id={item.id}
                     user={currentUser}
                     title={item.title}
+                    theme={item.theme}
                     story={item.story}
                     createdAt={item.createdAt}
+                    removePost={removePostHandler}
                   />
                 );
               })
