@@ -3,8 +3,7 @@ import RecommendUserCard from "./refer-user-card";
 import { AuthContext } from "../../context/auth-context";
 
 const RecommendeUsers = ({ users }) => {
-  const {currentUser,updateUser} = useContext(AuthContext);
-  //console.log('users', users);
+  const {currentUser} = useContext(AuthContext);
   return (
     <div className="recommend-users mt-3">
       {users &&

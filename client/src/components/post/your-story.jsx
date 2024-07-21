@@ -9,7 +9,7 @@ const OurStory = () => {
   const [postData, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [usersData, setUserData] = useState([]);
-  const { currentUser, updateUser } = useContext(AuthContext);
+  const { currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const [deleteStatus, setDeleteStatus]=useState(false);
 
@@ -35,6 +35,7 @@ const OurStory = () => {
         setLoading(false);
       }
     })();
+    // eslint-disable-next-line
   }, [deleteStatus]);
 
   const removePostHandler=async (response)=>{

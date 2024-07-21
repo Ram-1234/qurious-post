@@ -1,16 +1,14 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../context/auth-context';
 import apiRequest from '../../lib/apiRequest';
 import { useNavigate,useLocation } from 'react-router-dom';
 import Gallery from '../gallery/gallery';
 import { themeStyle } from '../../common/common';
-
-
 import Modal from '../modal/modal';
 
 const CreatePost = (props) => {
     const [edit, setEdit]=useState(true);
-    const {currentUser, updateUser, url, modal,setURLHandler, setModalHandler} = useContext(AuthContext);
+    const {currentUser, url, modal,setURLHandler, setModalHandler} = useContext(AuthContext);
    
     const navigate = useNavigate();
     const location = useLocation();

@@ -8,7 +8,7 @@ const Gallery = () => {
   const [page, setPageNumber] = useState(1);
   const [jsonData, setJsonData] = useState([]);
   const [loader, setLoader] = useState(false);
-  const { currentUser, updateUser, setURLHandler,setModalHandler } = useContext(AuthContext);
+  const {setURLHandler,setModalHandler } = useContext(AuthContext);
 
   async function fetchApi(page) {
     setLoader(true);

@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import apiRequest from "../../lib/apiRequest";
 import StoryCard from "./story-card";
-import { AuthContext } from "../../context/auth-context";
 import RecommendeUsers from "./refer-usre-list";
 import "./style.css";
 
@@ -9,7 +8,6 @@ const ListofPosts = () => {
   const [postData, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [usersData, setUserData] = useState([]);
-  const { currentUser, updateUser } = useContext(AuthContext);
   const [deleteStatus, setDeleteStatus]=useState(false);
   
   useEffect(() => {

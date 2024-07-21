@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams ,useNavigate} from "react-router-dom";
 import apiRequest from "../../lib/apiRequest";
 import Avatar from "../../profile/avatar";
-import { When } from "../../helper";
+
 
 import { timeFormat } from "../../common/common";
 import "./style.css";
@@ -13,8 +13,7 @@ const SingleFullPost = () => {
   let [storyData, setStory] = useState(null);
   let [userData, setUserData] = useState(null);
   const navigate = useNavigate();
-  const { currentUser, updateUser } = useContext(AuthContext);
-
+  const { currentUser } = useContext(AuthContext);
   const params = useParams();
 
   useEffect(() => {
@@ -27,7 +26,6 @@ const SingleFullPost = () => {
           setUserData(userRes.data);
         }
         setStory(data.data.post);
-        // setStory(JSON.parse(data.data.post));
       }
     })();
   }, [params.id]);
@@ -81,7 +79,6 @@ const SingleFullPost = () => {
         <img src={storyData?.theme} alt="theme" style={themeStyle} />
       ) : null}
       <p className="single_post_story">{storyData?.story || "Story..."}</p>
-      {/* <Markdown remarkPlugins={[remarkGfm]} className="single_post_story">{storyData?.story.replace(/\n/gi, '\n &nbsp;') || "Story..."}</Markdown> */}
     </div>
   );
 };
