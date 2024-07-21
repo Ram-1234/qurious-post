@@ -61,6 +61,7 @@
     letter-spacing:1px;
     line-height: 1.52667;
     margin-top: 2rem;
+    white-space: pre-wrap;
 }
 
 /* single post */

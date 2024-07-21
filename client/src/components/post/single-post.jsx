@@ -27,6 +27,7 @@ const SingleFullPost = () => {
           setUserData(userRes.data);
         }
         setStory(data.data.post);
+        // setStory(JSON.parse(data.data.post));
       }
     })();
   }, [params.id]);
@@ -80,6 +81,7 @@ const SingleFullPost = () => {
         <img src={storyData?.theme} alt="theme" style={themeStyle} />
       ) : null}
       <p className="single_post_story">{storyData?.story || "Story..."}</p>
+      {/* <Markdown remarkPlugins={[remarkGfm]} className="single_post_story">{storyData?.story.replace(/\n/gi, '\n &nbsp;') || "Story..."}</Markdown> */}
     </div>
   );
 };
