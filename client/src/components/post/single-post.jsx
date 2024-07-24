@@ -34,6 +34,23 @@ const SingleFullPost = () => {
     navigate('/create_post',{state:{...storyData}});
   }
 
+  let LikeElement = ()=>{
+        return (
+              <div className="d-flex align-content-center justify-content-between">
+                <div className="left">
+                  <i className="bi single_post_icon bi-chat-dots"></i>
+                  <i className="bi single_post_icon bi-hand-thumbs-up"></i>
+                  <i className="bi single_post_icon bi-bookmark-plus"></i>
+                </div>
+                <div className="right">
+                  <i className="bi single_post_icon bi-play-circle"></i>
+                  {userData?.id !== currentUser?.id && <i className="bi single_post_icon bi-file-arrow-up"></i>}
+                  {userData?.id === currentUser?.id && <i className="bi single_post_icon bi-pencil-square" onClick={editHandler}></i>}
+                  <i className="bi single_post_icon bi-three-dots"></i>
+                </div>
+              </div>
+        )
+  }
 
 
   return (
@@ -59,19 +76,7 @@ const SingleFullPost = () => {
       </div>
       <div>
         <hr className="" />
-        <div className="d-flex align-content-center justify-content-between">
-          <div className="left">
-            <i className="bi single_post_icon bi-chat-dots"></i>
-            <i className="bi single_post_icon bi-hand-thumbs-up"></i>
-            <i className="bi single_post_icon bi-bookmark-plus"></i>
-          </div>
-          <div className="right">
-            <i className="bi single_post_icon bi-play-circle"></i>
-            {userData?.id !== currentUser?.id && <i className="bi single_post_icon bi-file-arrow-up"></i>}
-            {userData?.id === currentUser?.id && <i className="bi single_post_icon bi-pencil-square" onClick={editHandler}></i>}
-            <i className="bi single_post_icon bi-three-dots"></i>
-          </div>
-        </div>
+         <LikeElement/> 
         <hr className="" />
       </div>
       <h3 className="single_post_title">{storyData?.title || "Title"}</h3>
@@ -79,6 +84,10 @@ const SingleFullPost = () => {
         <img src={storyData?.theme} alt="theme" style={themeStyle} />
       ) : null}
       <p className="single_post_story">{storyData?.story || "Story..."}</p>
+
+      <div className="bottom_style">
+        <LikeElement/>
+      </div>
     </div>
   );
 };

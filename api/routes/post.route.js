@@ -16,13 +16,13 @@ router.get("/posts", getPosts);
 
 router.get("/random_posts",getRandomPostsForUsers);
 
-router.get("/posts/:id", userPosts);
+router.get("/posts/:id",verifyToken, userPosts);
 
-router.get("/:id", getPost);
+router.get("/:id",verifyToken, getPost);
 
-router.post("/create", createPost);
+router.post("/create",verifyToken, createPost);
 
-router.put("/:id", updatePost);
+router.put("/:id",verifyToken, updatePost);
 
 router.delete("/:id",verifyToken, deletePost);
 
