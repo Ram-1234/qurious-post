@@ -4,12 +4,13 @@ import StoryCard from "./story-card";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../../context/auth-context";
 import RecommendeUsers from "./refer-usre-list";
+import Loader from "../loader/loader";
 
 const OurStory = () => {
   const [postData, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const [usersData, setUserData] = useState([]);
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser,loading,setLoading } = useContext(AuthContext);
   const navigate = useNavigate();
   const [deleteStatus, setDeleteStatus]=useState(false);
 
@@ -24,11 +25,12 @@ const OurStory = () => {
         setUserData(userRes);
         if (userRes.status === 200) {
           setUserData(userRes.data.Users);
+          setLoading(false);
         }
         //console.log('res', res);
         if (res.status === 200) {
           setData(res.data.data);
-          setLoading(true);
+          setLoading(false);
         }
       } catch (error) {
         console.log(error);
@@ -75,7 +77,7 @@ const OurStory = () => {
             </div>
           </div>
           <div className="list-of-stroy">
-            {!!postData.length ? (
+            {!loading ? (
               postData?.map((item) => {
                 return (
                   <StoryCard
@@ -92,7 +94,7 @@ const OurStory = () => {
                 );
               })
             ) : (
-              <h4>You don't have any story!</h4>
+              <Loader/>
             )}
           </div>
         </div>
@@ -100,10 +102,10 @@ const OurStory = () => {
           className="right col-lg-4 col-md-0"
           style={{ borderLeft: "0.5px solid lightgrey" }}
         >
-          {usersData ? (
+          {(!loading) ? (
             <RecommendeUsers users={usersData} />
           ) : (
-            <h4>Recommended usres</h4>
+            <loader/>
           )}
         </div>
       </div>

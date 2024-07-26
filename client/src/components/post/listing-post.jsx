@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import apiRequest from "../../lib/apiRequest";
 import StoryCard from "./story-card";
 import RecommendeUsers from "./refer-usre-list";
 import "./style.css";
+import Loader from "../loader/loader";
+import { AuthContext } from "../../context/auth-context";
 
 const ListofPosts = () => {
   const [postData, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  //const [loading, setLoading] = useState(false);
   const [usersData, setUserData] = useState([]);
   const [deleteStatus, setDeleteStatus]=useState(false);
+  const {loading, setLoading}= useContext(AuthContext);
   
   useEffect(() => {
     (async () => {
@@ -22,17 +25,19 @@ const ListofPosts = () => {
         //console.log('users resp', userRes)
         if (userRes.status === 200) {
           setUserData(userRes.data.Users);
+          setLoading(false)
         }
-
+ 
         if (res.status) {
           setData(res.data.posts);
-          setLoading(true);
+          setLoading(false);
         }
       } catch (error) {
         console.log(error);
         setLoading(false);
       }
     })();
+    // eslint-disable-next-line
   }, [deleteStatus]);
 
   const removePostHandler=async (response)=>{
@@ -57,7 +62,7 @@ const ListofPosts = () => {
             <div>Coding</div>
           </div>
           <div className="list-of-stroy">
-            {postData &&
+            {!loading ?
               postData?.map((item, index) => {
                 return (
                   <StoryCard
@@ -72,17 +77,17 @@ const ListofPosts = () => {
                     removePost={removePostHandler}
                   />
                 );
-              })}
+              }):<Loader/>}
           </div>
         </div>
         <div
           className="right col-lg-3 col-md-0"
           style={{ borderLeft: "0.5px solid lightgrey" }}
         >
-          {usersData ? (
+          {!loading ? (
             <RecommendeUsers users={usersData} />
           ) : (
-            <h4>Recommended users</h4>
+            <Loader/>
           )}
         </div>
       </div>

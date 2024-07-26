@@ -1,18 +1,22 @@
-import React,{useState, useEffect} from 'react';
+import React,{useState, useEffect, useContext} from 'react';
 import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import apiRequest from '../../lib/apiRequest';
 import StoryCard from './story-card';
 import Avatar from '../../profile/avatar';
+import { AuthContext } from '../../context/auth-context';
+import Loader from '../loader/loader';
 
 
 
 const UserPostProfile = () => {
-  const [loading, setLoading]=useState();
+  //const [loading, setLoading]=useState();
   const [postData, setData]=useState();
 
   const navigate = useNavigate();
   const params = useParams();
   const {state} = useLocation();
+
+  const {loading, setLoading}=useContext(AuthContext)
 
 
   useEffect(() => {
@@ -23,7 +27,7 @@ const UserPostProfile = () => {
          //console.log('res', res);
         if (res.status === 200) {
           setData(res.data.data);
-          setLoading(true);
+          setLoading(false);
         }
       } catch (error) {
         console.log(error);
@@ -65,7 +69,7 @@ const UserPostProfile = () => {
             </div>
           </div>
           <div className="list-of-stroy">
-            {!!postData?.length ? (
+            {!loading ? (
               postData?.map((item) => {
                 return (
                   <StoryCard
@@ -82,7 +86,7 @@ const UserPostProfile = () => {
                 );
               })
             ) : (
-              <h4>You don't have any story!</h4>
+            <Loader/>
             )}
           </div>
         </div>

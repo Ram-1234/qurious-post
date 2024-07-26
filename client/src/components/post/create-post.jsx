@@ -8,7 +8,7 @@ import Modal from '../modal/modal';
 
 const CreatePost = (props) => {
     const [edit, setEdit]=useState(true);
-    const {currentUser, url, modal,setURLHandler, setModalHandler} = useContext(AuthContext);
+    const {currentUser, url, modal,setURLHandler,loading,setLoading, setModalHandler} = useContext(AuthContext);
    
     const navigate = useNavigate();
     const location = useLocation();
@@ -18,7 +18,7 @@ const CreatePost = (props) => {
         let story = document.getElementById('post_story').value;
         //debugger
         let bodyData = {title:title,story:story,theme:url||location?.state?.theme, authorId:currentUser.id}
-        
+        setLoading(true)
         if(title==='Title'){
           alert('enter valid title');
           return;
@@ -36,8 +36,10 @@ const CreatePost = (props) => {
             if(updatedPost.status===200){
               navigate(`/single_post/${location.state.id}`);
               setURLHandler('');
+              setLoading(false)
             }else{
               console.error('err');
+              setLoading(false)
             }
             return;
 
@@ -47,9 +49,10 @@ const CreatePost = (props) => {
             if(response.status===200){
               navigate(`/single_post/${response.data.data.id}`);
               setURLHandler('');
+              setLoading(false)
             }
+          } catch (error) {
             setEdit(false)
-        } catch (error) {
             console.log(error);
         }
     }
