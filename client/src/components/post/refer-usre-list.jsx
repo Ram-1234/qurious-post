@@ -20,6 +20,7 @@ const RecommendeUsers = ({ users }) => {
                 username={item?.username}
                 createdAt={item?.createAt}
                 id={item.id}
+                user={item}
               />
             );
           })}
