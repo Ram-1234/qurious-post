@@ -7,17 +7,12 @@ import { AuthContext } from '../../context/auth-context';
 import Loader from '../loader/loader';
 
 
-
 const UserPostProfile = () => {
-  //const [loading, setLoading]=useState();
   const [postData, setData]=useState();
-
   const navigate = useNavigate();
   const params = useParams();
   const {state} = useLocation();
-
   const {loading, setLoading}=useContext(AuthContext)
-
 
   useEffect(() => {
     (async () => {

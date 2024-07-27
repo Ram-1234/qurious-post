@@ -5,6 +5,7 @@ import { timeFormat } from "../../common/common";
 import apiRequest from "../../lib/apiRequest";
 import { AuthContext } from "../../context/auth-context";
 
+
 const StoryCard = ({ title, story, user, createdAt, id, theme,removePost }) => {
   const navigate = useNavigate();
   const { currentUser } = useContext(AuthContext);

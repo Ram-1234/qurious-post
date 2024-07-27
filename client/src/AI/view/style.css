@@ -1,0 +1,85 @@
+.form_container {
+    border: 1px solid rgb(197, 197, 197);
+    margin: auto;
+    width: 30%;
+    margin-top: 10%;
+    padding-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    position: relative;
+  }
+  
+  .chat_app_logo {
+    width: 150px;
+    height: auto;
+    margin-left: 35%;
+    box-sizing: border-box;
+  }
+  
+  .cg-logo {
+    width: 50px;
+    height: auto;
+    margin: 0 10px;
+  }
+  
+  .result_title {
+    margin: 2px 0;
+    line-height: 2;
+    font-family: sans-serif;
+    text-align: start;
+    padding: 5px 10px;
+  }
+  
+  input{
+    border: 1px solid lightgrey;
+  }
+  
+  .input_prompt {
+    padding: 12px;
+    width: 50%;
+    /* border:1px 0px 1px 1px solid black; */
+    outline: none;
+    border-right: 0;
+    /* border-radius: 0.3rem 0rem 0rem 1rem; */
+  }
+  
+  .input_button {
+    padding: 12px;
+    width: 20%;
+    /* border:1px 1px 1px 0 solid black; */
+    border-left: 0;
+    /* border-radius: 0rem 1rem 0.3rem 0rem; */
+  }
+  
+  .loader_title {
+    margin: auto;
+    width: auto;
+  }
+  
+  .response_text{
+      color:dodgerblue;
+      z-index:99; 
+      position:absolute;
+      right: 3%;
+      bottom: 3%;
+      box-shadow:rgba(0, 0, 0, 0.67) 0px 22px 70px 10px;
+      background:lightgrey;
+      margin-left: -5px;
+      padding:0 5px;
+      box-sizing: border-box;
+      display: flex;
+      word-wrap: break-word;
+      word-break: normal;
+  }
+  
+  .cg-logo.loading{
+      animation: rotation 5s infinite linear;
+  }
+  
+  @keyframes rotation{
+      from{
+          transform: rotate(0deg);
+      }
+      to{
+          transform: rotate(359deg);
+      }
+  }

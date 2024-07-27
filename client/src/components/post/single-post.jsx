@@ -2,12 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams ,useNavigate} from "react-router-dom";
 import apiRequest from "../../lib/apiRequest";
 import Avatar from "../../profile/avatar";
-
-
 import { timeFormat } from "../../common/common";
 import "./style.css";
 import { themeStyle } from "../../common/common";
 import { AuthContext } from "../../context/auth-context";
+
 
 const SingleFullPost = () => {
   let [storyData, setStory] = useState(null);
@@ -21,7 +20,6 @@ const SingleFullPost = () => {
       let data = await apiRequest.get(`/post/${params?.id}`);
       if (data.status === 200) {
         let userRes = await apiRequest.get(`/users/${data.data.post.authorId}`);
-
         if (userRes.status === 200) {
           setUserData(userRes.data);
         }
@@ -51,7 +49,6 @@ const SingleFullPost = () => {
               </div>
         )
   }
-
 
   return (
     <div className="conatiner w-75 ps-5 pe-5 mx-auto">

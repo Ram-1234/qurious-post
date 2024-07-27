@@ -6,13 +6,13 @@ import Gallery from '../gallery/gallery';
 import { themeStyle } from '../../common/common';
 import Modal from '../modal/modal';
 
+
 const CreatePost = (props) => {
     const [edit, setEdit]=useState(true);
     const {currentUser, url, modal,setURLHandler,loading,setLoading, setModalHandler} = useContext(AuthContext);
-   
     const navigate = useNavigate();
     const location = useLocation();
-
+    
     const handleCreatePost=async()=>{
         let title = document.getElementById('post_title').innerText;
         let story = document.getElementById('post_story').value;

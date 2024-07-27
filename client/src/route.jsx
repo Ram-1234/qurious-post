@@ -15,6 +15,7 @@ import ListofPosts from './components/post/listing-post';
 import SingleFullPost from './components/post/single-post';
 import OurStory from './components/post/your-story';
 import UserPostProfile from './components/post/user-post-profile';
+import AIChat from './AI/view/message';
 
 // import UploadWidget from './uploadWidget/UploadWidget';
 
@@ -55,6 +56,7 @@ function RoutePage1(){
       <Route path="/single_post/:id" exact element={<SingleFullPost/>}/>
       <Route path="/our_story/:id" exact element={<OurStory/>}/>
       <Route path="/user_post_profile/:id" exact element={<UserPostProfile/>}/>
+      <Route path="/ai_chat" exact element={<AIChat/>}/>
       
     </Route>
       <Route path="/" exact element={<Home/>} />

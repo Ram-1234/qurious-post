@@ -1,17 +1,21 @@
 import React, { useContext, useEffect, useState } from "react";
 import GalleryCard from "./gallerycard";
 import "./style.css"
-
 import { AuthContext } from "../../context/auth-context";
+import Loader from "../loader/loader";
+
 
 const Gallery = () => {
   const [page, setPageNumber] = useState(1);
   const [jsonData, setJsonData] = useState([]);
-  const [loader, setLoader] = useState(false);
-  const {setURLHandler,setModalHandler } = useContext(AuthContext);
+  const {setURLHandler,setModalHandler,setLoading, loading} = useContext(AuthContext);
+
+  useEffect(() => {
+    fetchApi(page);
+  }, [page]);
 
   async function fetchApi(page) {
-    setLoader(true);
+    setLoading(true);
     let apikey = "eU0_yrynUCuQzPuxAVlq1yeKDngODdQbRDxKbZX2sXI";
     let url = `https://api.unsplash.com/search/photos?page=${page}&query=office&client_id=${apikey}`;
 
@@ -20,15 +24,11 @@ const Gallery = () => {
 
     if (jsonValue.results) {
       setJsonData(jsonValue.results);
-      setLoader(false);
+      setLoading(false);
     } else {
-      setLoader(false);
+      setLoading(false);
     }
   }
-
-  useEffect(() => {
-    fetchApi(page);
-  }, [page]);
 
   const selectedImage = (url) => {
     setURLHandler(url);
@@ -37,7 +37,7 @@ const Gallery = () => {
 
   return (
     <div className="gallery_box">
-      {jsonData?.length &&
+      {!loading ?
         jsonData.map((item) => {
           return (
             <GalleryCard
@@ -46,7 +46,7 @@ const Gallery = () => {
               url={item.urls.small}
             />
           );
-        })}
+        }):<Loader/>}
       <div className="gallery_button" style={{ display: "flex" }}>
         <button className="prev_button" onClick={() => setPageNumber(page - 1)}>prev</button>
         <button className="next_button" onClick={() => setPageNumber(page + 1)}>next</button>

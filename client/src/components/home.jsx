@@ -30,8 +30,8 @@ const Home = () => {
       <section className='main_box'>
         <div className='amaz_info'>
           <h1>Learn from experts & explore.</h1>
-          <h6>Let's Discover stories, thinking, and expertise from writers on any topic. More exciting about you can also share your ideas with amzing people and gets feedback and support!</h6>
-          <Button buttonStyle={buttonColor} title={"Let's Continue"} callback={eventHandler} />
+          <h6>Discover stories, insights, and expertise from writers on any topic, and share your own ideas with amazing people to receive feedback and support!</h6>
+          <Button buttonStyle={buttonColor} title={"Let's explore"} callback={eventHandler} />
         </div>
         <div className='amaz_walp'><img src={thoutsImg} alt='thought' /></div>
       </section>

@@ -8,6 +8,7 @@ import { AuthContext } from '../context/auth-context';
 import noavatar from "../assets/noavatar.jpeg";
 
 
+
 const Navbar = () => {
     const {currentUser, updateUser} = useContext(AuthContext);
         //console.log('currentUser', currentUser);
@@ -52,6 +53,11 @@ const Navbar = () => {
                     <li className="nav-item">
                     <NavLink className="nav-link text-light" to="/create_post">
                     <i className="bi bi-pencil-square"></i> Write
+                    </NavLink>
+                    </li>
+                    <li className="nav-item">
+                    <NavLink className="nav-link text-light" to="/ai_chat">
+                    <i className="bi bi-discord"></i> AI 
                     </NavLink>
                     </li>
                     <li className="nav-item">
