@@ -1,33 +1,30 @@
-import React, { useContext, useEffect, useState } from "react";
-import apiRequest from "../../lib/apiRequest";
-import StoryCard from "./story-card";
-import { useNavigate, useParams } from "react-router-dom";
-import { AuthContext } from "../../context/auth-context";
-import RecommendeUsers from "./refer-usre-list";
-import Loader from "../loader/loader";
+import React,{useState, useEffect, useContext} from 'react';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
+import apiRequest from '../../lib/apiRequest';
+import StoryCard from './story-card';
+import Avatar from '../../profile/avatar';
+import { AuthContext } from '../../context/auth-context';
+import Loader from '../loader/loader';
 
-const OurStory = () => {
-  const [postData, setData] = useState([]);
-  // const [loading, setLoading] = useState(false);
-  const [usersData, setUserData] = useState([]);
-  const { currentUser,loading,setLoading } = useContext(AuthContext);
+
+
+const UserPostProfile = () => {
+  //const [loading, setLoading]=useState();
+  const [postData, setData]=useState();
+
   const navigate = useNavigate();
-  const [deleteStatus, setDeleteStatus]=useState(false);
-
   const params = useParams();
+  const {state} = useLocation();
+
+  const {loading, setLoading}=useContext(AuthContext)
+
 
   useEffect(() => {
     (async () => {
       setLoading(true);
       try {
         let res = await apiRequest.get(`/post/posts/${params.id}`);
-        let userRes = await apiRequest.get(`/users/`);
-        setUserData(userRes);
-        if (userRes.status === 200) {
-          setUserData(userRes.data.Users);
-          setLoading(false);
-        }
-        //console.log('res', res);
+         //console.log('res', res);
         if (res.status === 200) {
           setData(res.data.data);
           setLoading(false);
@@ -38,14 +35,9 @@ const OurStory = () => {
       }
     })();
     // eslint-disable-next-line
-  }, [deleteStatus]);
-
-  const removePostHandler=async (response)=>{
-    setDeleteStatus(response);
-}
+  }, []);
 
   let buttonStyle = { borderRadius: "20px", fontSize: "14px" };
-
   return (
     <div className="listitng-post container">
       <div className="row col-12">
@@ -84,34 +76,33 @@ const OurStory = () => {
                     autherId={item.authorId}
                     key={item.id}
                     id={item.id}
-                    user={currentUser}
+                    user={state?.user&&state?.user}
                     title={item.title}
                     theme={item.theme}
                     story={item.story}
                     createdAt={item.createdAt}
-                    removePost={removePostHandler}
+                    removePost={()=>{}}
                   />
                 );
               })
             ) : (
-              <Loader/>
+            <Loader/>
             )}
           </div>
         </div>
         <div
-          className="right col-lg-4 col-md-0"
+          className="user-post-right col-lg-4 col-md-0"
           style={{ borderLeft: "0.5px solid lightgrey" }}
         >
-          {(!loading) ? (
-            <RecommendeUsers users={usersData} />
-          ) : (
-            <loader/>
-          )}
+        <Avatar 
+          title={state?.user?.username.slice(0,1)}
+        />
+        <h4>{state?.user?.username}</h4>
         </div>
       </div>
       <div></div>
     </div>
-  );
-};
+  )
+}
 
-export default OurStory;
+export default UserPostProfile;

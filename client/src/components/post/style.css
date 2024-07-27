@@ -61,6 +61,7 @@
     letter-spacing:1px;
     line-height: 1.52667;
     margin-top: 2rem;
+    white-space: pre-wrap;
 }
 
 /* single post */
@@ -74,4 +75,9 @@
     font-size: 1.3rem;
     font-weight: 600;
     
+}
+
+.bottom_style{
+    margin: 2rem 0;
+    padding: 2rem 0;
 }

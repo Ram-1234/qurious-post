@@ -28,13 +28,13 @@ const UserProfile = ({username,firstname, email,location,about,linkedin, github,
   return (
     <div className='profile_main_box container'>
         <div className='profile_top_box'>
-            <h2>Profile</h2>
+            <h2>PROFILE</h2>
             <p>I'm a Creative Web Developer</p>
         </div>
         <div className='profile_bottom_box row-lg-12 justify-content-between'>
             {/* details */}
             <div className='profile_dettails col-lg-4'>
-                <h2>Details</h2>
+                <h2>DETAILS</h2>
                 <div className='profile_details_info'>
                     <h4>Username</h4>
                     <p>{currentUser.username||"Ramnayan Yadav"}</p>
@@ -50,7 +50,7 @@ const UserProfile = ({username,firstname, email,location,about,linkedin, github,
             </div>
             {/* about */}
             <div className='profile_about col-lg-4'>
-                <h2>About Me</h2>
+                <h2>ABOUT ME</h2>
                 <p>{about||"It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."}</p>
                 <Button title={'Contact Me'} callback={contactMe} />
             </div>
