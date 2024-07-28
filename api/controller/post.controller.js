@@ -1,6 +1,7 @@
 import prisma from "../lib/prisma.js";
 import bcrypt from "bcrypt";
 
+
 export const getPosts = async (req, res) => {
   const { start, end } = req.body;
   try {
@@ -44,11 +45,8 @@ export const createPost = async (req, res) => {
   //const id = req.params.id;
   //const tokenUserId = req.userId;
   const data = req.body;
- 
-
   try {
     const resp = await prisma.post.create({ data });
-    
     res.status(200).json({ message: "Post Created Successfully", data: resp });
   } catch (error) {
     console.log("error", error);

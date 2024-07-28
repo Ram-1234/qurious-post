@@ -13,6 +13,8 @@ model User {
   username String   @unique
   password String
   avatar   String?
+  about    String?
+  jobrole  String?
   posts    Post[]
   createAt DateTime @default(now())
   //likes Like[]

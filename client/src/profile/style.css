@@ -38,13 +38,13 @@
     font-size: 2rem;
     font-weight: 600;
     line-height: 1.2rem;
-    padding: 0.5rem 0;
-    margin-bottom: 1rem;
+    /* padding: 0.5rem 0; */
+    /* margin-bottom: 1rem; */
 }
 
 .profile_about>p{
     margin: 1rem 0;
-    padding: 1rem 0;
+    /* padding: 1rem 0; */
     /* border: 1px solid red; */
 }
 

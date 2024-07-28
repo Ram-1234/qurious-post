@@ -6,15 +6,14 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth-context';
 import UploadWidget from '../components/uploadWidget/Wrap';
 
+
 const UserProfile = ({username,firstname, email,location,about,linkedin, github,twitter}) => {
-    
-
     const [avatar, setAvatar]=useState(user_img);
-
     const navigate = useNavigate();
     const {currentUser, updateUser} = useContext(AuthContext);
 
- 
+    console.log('profile', currentUser);
+
 
     const updateProfile=()=>{
         navigate("/update_profile");
@@ -29,7 +28,7 @@ const UserProfile = ({username,firstname, email,location,about,linkedin, github,
     <div className='profile_main_box container'>
         <div className='profile_top_box'>
             <h2>PROFILE</h2>
-            <p>I'm a Creative Web Developer</p>
+            {/* <p className='pt-2'>I'm a Creative {currentUser?.jobrole||"Software Engineer"}</p> */}
         </div>
         <div className='profile_bottom_box row-lg-12 justify-content-between'>
             {/* details */}
@@ -50,8 +49,9 @@ const UserProfile = ({username,firstname, email,location,about,linkedin, github,
             </div>
             {/* about */}
             <div className='profile_about col-lg-4'>
-                <h2>ABOUT ME</h2>
-                <p>{about||"It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."}</p>
+                <h2 className='m-0 p-0'>ABOUT ME</h2>
+                <p className=''>I'm a Creative {currentUser?.jobrole||"Software Engineer"}</p>
+                <h6 className='text-start ps-3 pb-2'>{currentUser?.about||"It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."}</h6>
                 <Button title={'Contact Me'} callback={contactMe} />
             </div>
             {/* avatar */}
@@ -60,10 +60,10 @@ const UserProfile = ({username,firstname, email,location,about,linkedin, github,
                     <img src={avatar} alt="avatar" />
                     <i className="bi bi-pencil-square" ></i>
                 </div>
-               <UploadWidget/>
+               {/* <UploadWidget/> */}
                 <div className='bottom_info'>
                     <h4>{`Hello, I'M ${currentUser.username||"RAM"}`}</h4>
-                    <p>{about||"It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."}</p>
+                    <p>{currentUser?.about||"It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."}</p>
                     <div className='social_media'>
                         <i style={{...styles.socialMediaIcon,width:"100px", height:"50px"}} className="bi bi-linkedin social_icon"></i>
                         <i style={{...styles.socialMediaIcon,width:"100px", height:"50px"}} className="bi bi-github social_icon"></i>
