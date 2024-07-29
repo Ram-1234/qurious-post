@@ -6,7 +6,7 @@ import apiRequest from "../../lib/apiRequest";
 import { AuthContext } from "../../context/auth-context";
 
 
-const StoryCard = ({ title, story, user, createdAt, id, theme,removePost }) => {
+const StoryCard = ({ title, story, user, createdAt, id, theme,removePost,autherId }) => {
   const navigate = useNavigate();
   const { currentUser } = useContext(AuthContext);
 
@@ -63,9 +63,9 @@ const StoryCard = ({ title, story, user, createdAt, id, theme,removePost }) => {
               ? story.slice(0, 450) + "..."
               : story || "evrything about react"}
           </p>
-          <div className="remove_post d-flex float end mt-2 mb-2">
+         {autherId === currentUser.id && <div className="remove_post d-flex float end mt-2 mb-2">
             <i className="bi bi-dash-circle text-danger" style={removeIconStyle} onClick={() => removePostHandler(id)}></i>
-          </div>
+          </div>}
         </div>
       </div>
     </div>

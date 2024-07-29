@@ -36,14 +36,10 @@ const Navbar = () => {
         <div className="container">
             <NavLink className="navbarr-brand" to="/"> <i className="bi bi-bullseye"></i> Curious</NavLink>
             <button className="navbar-toggler text-light" type="button" data-bs-toggle="collapse" data-bs-target="xnavbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon text-light"></span>
+                <span className="navbar-toggler-icon text-light"></span>
             </button>
             <div className="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
-                <form className="d-flex visually-hidden" role="search">
-                    <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                    <button className="btn btn-outline-success" type="submit">Search</button>
-                </form>
-                <ul className="navbar-nav mb-2 mb-lg-0 d-flex align-items-center borde">
+                <ul className="navbar-nav mr-auto mb-2 mb-lg-0 d-flex align-items-center">
                     <li className="nav-item">
                     <NavLink className="nav-link active text-light" aria-current="page" to="/">Home</NavLink>
                     </li>
