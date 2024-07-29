@@ -39,10 +39,12 @@
 
 .story_description{
     font-family: "SharpGrotesk", myriad-pro, Arial, sans-serif;
-    font-size: 1.1875rem;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    line-height: 1.52667;
+    font-size: 0.9rem;
+    font-weight: 510;
+    letter-spacing:1.5px;
+    line-height: 1.6rem;
+    margin-top: 2rem;
+    white-space: pre-wrap;
 }
 
 /* single post story */
@@ -50,16 +52,17 @@
     font-family: "SharpGrotesk", myriad-pro, Arial, sans-serif;
     font-size: 2.8875rem;
     font-weight: 600;
-    letter-spacing: 1px;
-    line-height: 1.02667;
+    word-spacing: 2px;
+    letter-spacing: 1.2px;
+    line-height: 2.5rem;
 }
 
 .single_post_story{
     font-family: "SharpGrotesk", myriad-pro, Arial, sans-serif;
-    font-size: 1.1875rem;
-    font-weight: 400;
-    letter-spacing:1px;
-    line-height: 1.52667;
+    font-size: 0.8rem;
+    font-weight: 510;
+    letter-spacing:1.5px;
+    line-height: 1.6rem;
     margin-top: 2rem;
     white-space: pre-wrap;
 }

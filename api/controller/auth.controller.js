@@ -52,7 +52,7 @@ export const login = async (req, res) => {
       .status(200)
       .json({
         message: "Login success!",
-        user: { email: user.email, username: username, id: user.id },
+        user:user,
       });
     //  HASH THE PASSWORD
   } catch (error) {

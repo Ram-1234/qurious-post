@@ -87,7 +87,7 @@ const UserPostProfile = () => {
         </div>
         <div
           className="user-post-right col-lg-4 col-md-0"
-          style={{ borderLeft: "0.5px solid lightgrey", display:"flex", justifyContent:"center", marginTop:"4rem" }}
+          style={{ borderLeft: "0.5px solid lightgrey", display:"flex", justifyContent:"flex-start", marginTop:"4rem" }}
         >
           <div className='user-profile-roght' style={{height:"fit-content", marginLeft:"1rem"}}>
             <Avatar 

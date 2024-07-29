@@ -17,6 +17,7 @@ import OurStory from './components/post/your-story';
 import UserPostProfile from './components/post/user-post-profile';
 import AIChat from './AI/view/message';
 
+
 // import UploadWidget from './uploadWidget/UploadWidget';
 
 
@@ -62,6 +63,7 @@ function RoutePage1(){
       <Route path="/" exact element={<Home/>} />
       <Route path="/register" exact element={HocRegister} />
       <Route path="/login" exact element={HocLogin} />
+      <Route path="/about" exact element={<About/>}/>
    </Routes>
   )
 }

@@ -3,11 +3,14 @@ import './home.css';
 import thoutsImg from "../assets/amaz.jpeg";
 import Button from './button';
 import Footer from './footer';
+import { useNavigate } from 'react-router-dom';
+
 
 const Home = () => {
+const navigate = useNavigate();
 
   let eventHandler=()=>{
-    alert('event')
+    navigate('/login');
   }
 
   useEffect(()=>{
