@@ -12,13 +12,16 @@ const UpdateProfile = ({ email, username, password }) => {
 
   const { register, handleSubmit } = useForm({
     defaultValues: {
-      username: currentUser.username,
-      email: currentUser.email,
+      username: currentUser?.username,
+      jobrole:currentUser?.jobrole,
+      about:currentUser?.about,
+      email: currentUser?.email,
       password: "",
     },
   });
 
   async function onSubmit(data) {
+    // console.log('submit', data);
     try {
       const res = await apiRequest.put(`/users/${currentUser.id}`, data);
       if (res.status) {
@@ -49,6 +52,42 @@ const UpdateProfile = ({ email, username, password }) => {
             className="form-control"
             id="inlineFormInputGroup"
             placeholder="Username"
+          />
+        </div>
+      </div>
+      <div className="col-auto">
+        <label className="sr-only mb-2" htmlFor="inlineFormInputGroup">
+          Job Profile
+        </label>
+        <div className="input-group mb-2">
+          <div className="input-group-prepend">
+            <div className="input-group-text">@</div>
+          </div>
+          <input
+            type="text"
+            {...register("jobrole")}
+            name="jobrole"
+            className="form-control"
+            id="inlineFormInputGroup"
+            placeholder="job profile"
+          />
+        </div>
+      </div>
+      <div className="col-auto">
+        <label className="sr-only mb-2" htmlFor="inlineFormInputGroup">
+          About
+        </label>
+        <div className="input-group mb-2">
+          <div className="input-group-prepend">
+            <div className="input-group-text">@</div>
+          </div>
+          <textarea
+            rows={4}
+            {...register("about")}
+            name="about"
+            className="form-control"
+            id="inlineFormInputGroup"
+            placeholder="about"
           />
         </div>
       </div>

@@ -7,17 +7,12 @@ import { AuthContext } from '../../context/auth-context';
 import Loader from '../loader/loader';
 
 
-
 const UserPostProfile = () => {
-  //const [loading, setLoading]=useState();
   const [postData, setData]=useState();
-
   const navigate = useNavigate();
   const params = useParams();
   const {state} = useLocation();
-
   const {loading, setLoading}=useContext(AuthContext)
-
 
   useEffect(() => {
     (async () => {
@@ -92,12 +87,18 @@ const UserPostProfile = () => {
         </div>
         <div
           className="user-post-right col-lg-4 col-md-0"
-          style={{ borderLeft: "0.5px solid lightgrey" }}
+          style={{ borderLeft: "0.5px solid lightgrey", display:"flex", justifyContent:"flex-start", marginTop:"4rem" }}
         >
-        <Avatar 
-          title={state?.user?.username.slice(0,1)}
-        />
-        <h4>{state?.user?.username}</h4>
+          <div className='user-profile-roght' style={{height:"fit-content", marginLeft:"1rem"}}>
+            <Avatar 
+              title={state?.user?.username.slice(0,1)}
+              propsStyle={{width:"5rem", height:"5rem", border:"1px solid red"}}
+              propsTitleStyle={{fontSize:"2rem"}}
+            />
+            <h4>{state?.user?.username}</h4>
+            <p>{state?.user?.jobrole||"Software developer"}</p>
+            <p>{state?.user?.about||"I'm a Web developer who is always looking to learn more and eat too much chocolate."}</p>
+          </div>
         </div>
       </div>
       <div></div>

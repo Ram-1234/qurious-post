@@ -3,9 +3,10 @@ import {timeFormat} from "../../common/common.js";
 import Avatar from "../../profile/avatar";
 import { useNavigate } from 'react-router-dom';
 
+
 const RecommendUserCard = ({ id, username, createdAt,user }) => {
   const navigate = useNavigate();
-
+  
   const handleClickEvent=()=>{
     navigate(`/user_post_profile/${id}`,{state:{user}})
   }

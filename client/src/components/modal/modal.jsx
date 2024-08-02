@@ -2,7 +2,6 @@ import React from "react";
 import './style.css';
 
 
-
 const Modal = ({ title, closeHandle, Element}) => {
       let iconStyle={ position: "absolute", top: "8px", right: "10px", cursor: "pointer", fontSize: "14px" }
 

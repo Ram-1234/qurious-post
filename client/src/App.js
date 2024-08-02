@@ -1,4 +1,4 @@
-import {BrowserRouter as Router} from 'react-router-dom';
+import {BrowserRouter as Router, HashRouter} from 'react-router-dom';
 import './App.css';
 import {RoutePage, RoutePage1} from "./route";
 import Navbar from './navbar';
@@ -6,10 +6,10 @@ import Navbar from './navbar';
 
 function App() {
   return (
-    <Router>
+    <HashRouter>
         <header><Navbar/></header>
         <RoutePage1/>
-      </Router>
+      </HashRouter>
   );
 }
 

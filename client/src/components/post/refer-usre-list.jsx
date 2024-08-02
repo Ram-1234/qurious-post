@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import RecommendUserCard from "./refer-user-card";
 import { AuthContext } from "../../context/auth-context";
 
-const RecommendeUsers = ({ users }) => {
 
+const RecommendeUsers = ({ users }) => {
   const {currentUser} = useContext(AuthContext);
 
   return (
@@ -13,7 +13,6 @@ const RecommendeUsers = ({ users }) => {
             if(item.username===currentUser.username){
               return;
             }
-
             return (
               <RecommendUserCard
                 key ={item.id}

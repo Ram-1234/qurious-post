@@ -6,14 +6,13 @@ import { AuthContext } from "../../context/auth-context";
 import RecommendeUsers from "./refer-usre-list";
 import Loader from "../loader/loader";
 
+
 const OurStory = () => {
   const [postData, setData] = useState([]);
-  // const [loading, setLoading] = useState(false);
   const [usersData, setUserData] = useState([]);
   const { currentUser,loading,setLoading } = useContext(AuthContext);
   const navigate = useNavigate();
   const [deleteStatus, setDeleteStatus]=useState(false);
-
   const params = useParams();
 
   useEffect(() => {
@@ -42,7 +41,7 @@ const OurStory = () => {
 
   const removePostHandler=async (response)=>{
     setDeleteStatus(response);
-}
+  }
 
   let buttonStyle = { borderRadius: "20px", fontSize: "14px" };
 

@@ -6,9 +6,9 @@ import "./style.css";
 import Loader from "../loader/loader";
 import { AuthContext } from "../../context/auth-context";
 
+
 const ListofPosts = () => {
   const [postData, setData] = useState([]);
-  //const [loading, setLoading] = useState(false);
   const [usersData, setUserData] = useState([]);
   const [deleteStatus, setDeleteStatus]=useState(false);
   const {loading, setLoading}= useContext(AuthContext);
