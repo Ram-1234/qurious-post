@@ -5,6 +5,7 @@ import postRoute from "./routes/post.route.js";
 import userAuth from "./routes/auth.route.js";
 import testRoute from "./routes/test.route.js";
 import userRoute from "./routes/user.route.js";
+import newsRoute from "./routes/news.route.js";
 import dotenv from "dotenv";
 dotenv.config()
 
@@ -28,6 +29,7 @@ app.use("/api/post", postRoute);
 app.use("/api/auth", userAuth);
 app.use("/api/users", userRoute);
 app.use("/api/test", testRoute);
+app.use("/api/news", newsRoute);
 
 app.listen(process.env.PORT, ()=>{
     console.log(`Server running on port ${PORT}`)

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Footer = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <footer className='footer'>
@@ -16,6 +16,7 @@ const Footer = () => {
        <span>Support</span>
        <span>Team of Services</span>
        <span>Copyright Policy</span>
+       <span onClick={()=>navigate("/news")}>News</span>
       </footer>
   )
 }

@@ -16,6 +16,7 @@ import AIChat from './AI/view/message';
 import Home from "./components/home";
 import Login from './users/login';
 import User from './users/user';
+import News from './components/news/News';
 // import UploadWidget from './uploadWidget/UploadWidget';
 
 
@@ -59,9 +60,10 @@ function RoutePage1(){
       </Route>
       {/* public route */}
       <Route path="/" exact element={<Home/>} />
+      <Route path="/about" exact element={<About/>}/>
+      <Route path="/news" exact element={<News/>}/>
       <Route path="/register" exact element={HocRegister} />
       <Route path="/login" exact element={HocLogin} />
-      <Route path="/about" exact element={<About/>}/>
    </Routes>
   )
 }
