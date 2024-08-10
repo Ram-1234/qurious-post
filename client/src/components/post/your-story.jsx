@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../../context/auth-context";
 import RecommendeUsers from "./refer-usre-list";
 import Loader from "../loader/loader";
+import Footer from "../footer";
 
 
 const OurStory = () => {
@@ -46,70 +47,73 @@ const OurStory = () => {
   let buttonStyle = { borderRadius: "20px", fontSize: "14px" };
 
   return (
-    <div className="listitng-post container">
-      <div className="row col-12">
-        <div className="left col-lg-8 col-md-12">
-          <div className="your-story border-bottom p-2 mt-5 mb-2">
-            <div className="d-flex justify-content-between mb-3">
-              <h1>Your Story</h1>
-              <div className="d-flex justify-content-between">
-                <button
-                  className="btn btn-success m-3"
-                  onClick={() => navigate("/create_post")}
-                  style={buttonStyle}
-                >
-                  Write a Story
-                </button>
-                <button
-                  className="btn btn-danger m-3"
-                  onClick={() => alert("comming soon!")}
-                  style={buttonStyle}
-                >
-                  Import a Story
-                </button>
+      <>
+        <div className="listitng-post container">
+          <div className="row col-12">
+            <div className="left col-lg-8 col-md-12">
+              <div className="your-story border-bottom p-2 mt-5 mb-2">
+                <div className="d-flex justify-content-between mb-3">
+                  <h1>Your Story</h1>
+                  <div className="d-flex justify-content-between">
+                    <button
+                      className="btn btn-success m-3"
+                      onClick={() => navigate("/create_post")}
+                      style={buttonStyle}
+                    >
+                      Write a Story
+                    </button>
+                    <button
+                      className="btn btn-danger m-3"
+                      onClick={() => alert("comming soon!")}
+                      style={buttonStyle}
+                    >
+                      Import a Story
+                    </button>
+                  </div>
+                </div>
+                <div className="d-flex justify-content-between w-50">
+                  <div>Drafts</div>
+                  <div>Published</div>
+                  <div>Responses</div>
+                </div>
+              </div>
+              <div className="list-of-stroy">
+                {!loading ? (
+                  postData?.map((item) => {
+                    return (
+                      <StoryCard
+                        autherId={item.authorId}
+                        key={item.id}
+                        id={item.id}
+                        user={currentUser}
+                        title={item.title}
+                        theme={item.theme}
+                        story={item.story}
+                        createdAt={item.createdAt}
+                        removePost={removePostHandler}
+                      />
+                    );
+                  })
+                ) : (
+                  <Loader/>
+                )}
               </div>
             </div>
-            <div className="d-flex justify-content-between w-50">
-              <div>Drafts</div>
-              <div>Published</div>
-              <div>Responses</div>
+            <div
+              className="right col-lg-4 col-md-0"
+              style={{ borderLeft: "0.5px solid lightgrey" }}
+            >
+              {(!loading) ? (
+                <RecommendeUsers users={usersData} />
+              ) : (
+                <loader/>
+              )}
             </div>
           </div>
-          <div className="list-of-stroy">
-            {!loading ? (
-              postData?.map((item) => {
-                return (
-                  <StoryCard
-                    autherId={item.authorId}
-                    key={item.id}
-                    id={item.id}
-                    user={currentUser}
-                    title={item.title}
-                    theme={item.theme}
-                    story={item.story}
-                    createdAt={item.createdAt}
-                    removePost={removePostHandler}
-                  />
-                );
-              })
-            ) : (
-              <Loader/>
-            )}
-          </div>
+          <div></div>
         </div>
-        <div
-          className="right col-lg-4 col-md-0"
-          style={{ borderLeft: "0.5px solid lightgrey" }}
-        >
-          {(!loading) ? (
-            <RecommendeUsers users={usersData} />
-          ) : (
-            <loader/>
-          )}
-        </div>
-      </div>
-      <div></div>
-    </div>
+        {!loading && <Footer/>}
+      </>
   );
 };
 

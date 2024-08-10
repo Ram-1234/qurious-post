@@ -7,6 +7,7 @@ import { themeStyle } from '../../common/common';
 import Modal from '../modal/modal';
 
 
+
 const CreatePost = (props) => {
     const [edit, setEdit]=useState(true);
     const {currentUser, url, modal,setURLHandler,loading,setLoading, setModalHandler} = useContext(AuthContext);
@@ -31,6 +32,7 @@ const CreatePost = (props) => {
 
 
         try {
+          setLoading(true)
           if(location.state && location.state.id){
             let updatedPost = await apiRequest.put(`post/${location.state.id}`,bodyData);
             if(updatedPost.status===200){

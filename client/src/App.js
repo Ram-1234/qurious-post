@@ -9,6 +9,7 @@ function App() {
     <HashRouter>
         <header><Navbar/></header>
         <RoutePage1/>
+       
       </HashRouter>
   );
 }

@@ -1,10 +1,10 @@
-import React, { useContext, useEffect,useState,createContext, useRef } from 'react'
+import React, { useContext, useState} from 'react'
+import { useNavigate } from 'react-router-dom';
 import './style.css';
 import user_img from "../assets/avatar.jpg";
 import Button from '../components/button';
-import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth-context';
-import UploadWidget from '../components/uploadWidget/Wrap';
+import UploadWidget from '../components/upload_widget/Wrap';
 
 
 const UserProfile = ({username,firstname, email,location,about,linkedin, github,twitter}) => {
