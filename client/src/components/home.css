@@ -47,11 +47,13 @@ body{
 
 .amaz_walp{
     width: 50%;
-    min-height: 100%;
+    min-height: 410px;
+    height: 100%;
 }
 
 .amaz_walp>img{
     width: 100%;
     height: 100%;
     border-radius: 1rem;
+    /* display: none; */
 }

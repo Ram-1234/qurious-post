@@ -112,7 +112,7 @@ const OurStory = () => {
           </div>
           <div></div>
         </div>
-        <Footer/>
+        {!loading && <Footer/>}
       </>
   );
 };

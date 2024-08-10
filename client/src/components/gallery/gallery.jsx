@@ -47,10 +47,10 @@ const Gallery = () => {
             />
           );
         }):<Loader/>}
-      <div className="gallery_button" style={{ display: "flex" }}>
+      {!loading && <div className="gallery_button" style={{ display: "flex" }}>
         <button className="prev_button" onClick={() => setPageNumber(page - 1)}>prev</button>
         <button className="next_button" onClick={() => setPageNumber(page + 1)}>next</button>
-      </div>
+      </div>}
     </div>
   );
 };

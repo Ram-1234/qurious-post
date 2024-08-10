@@ -13,8 +13,8 @@ import { verifyToken } from "../middleware/verifyToken.js";
 
 const router = express.Router();
 
-router.get("/posts", getPosts);
-router.get("/random_posts",getRandomPostsForUsers);
+router.get("/posts", verifyToken, getPosts);
+router.get("/random_posts",verifyToken,getRandomPostsForUsers);
 router.get("/posts/:id",verifyToken, userPosts);
 router.get("/:id",verifyToken, getPost);
 router.post("/create",verifyToken, createPost);

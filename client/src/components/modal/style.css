@@ -1,6 +1,7 @@
 .container_modal {
     width: 90%;
     height: auto;
+    min-height: 300px;
     border: 2px solid lightgray;
     border-radius: 15px;
     position: fixed;
