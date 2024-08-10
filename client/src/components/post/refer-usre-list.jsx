@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import RecommendUserCard from "./refer-user-card";
 import { AuthContext } from "../../context/auth-context";
+import Footer from "../footer";
 
 
 const RecommendeUsers = ({ users }) => {

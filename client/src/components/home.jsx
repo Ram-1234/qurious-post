@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './home.css';
 import thoutsImg from "../assets/amaz.jpeg";
 import Button from './button';
@@ -8,13 +8,18 @@ import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
 const navigate = useNavigate();
+const [user, setUser]=useState(localStorage.getItem('user'));
 
   let eventHandler=()=>{
-    navigate('/login');
+    if(user){
+      navigate("/posts")
+    }else{
+      navigate('/login');
+    }
   }
 
   useEffect(()=>{
-    let user = localStorage.getItem('user');
+    //let user = localStorage.getItem('user');
     if(!user){
       localStorage.clear();
     }

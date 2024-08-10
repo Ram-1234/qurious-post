@@ -16,7 +16,7 @@ import AIChat from './AI/view/message';
 import Home from "./components/home";
 import Login from './users/login';
 import User from './users/user';
-import News from './components/news/News';
+import News from './components/chatwith_ai/News';
 // import UploadWidget from './uploadWidget/UploadWidget';
 
 

@@ -7,6 +7,7 @@ import { themeStyle } from '../../common/common';
 import Modal from '../modal/modal';
 
 
+
 const CreatePost = (props) => {
     const [edit, setEdit]=useState(true);
     const {currentUser, url, modal,setURLHandler,loading,setLoading, setModalHandler} = useContext(AuthContext);
