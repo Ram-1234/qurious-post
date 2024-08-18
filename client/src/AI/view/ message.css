@@ -127,7 +127,7 @@
 }
 
 #onsubmit>i{
-    color: lightgrey;
+    color: rgb(245, 139, 139);
     font-size: 1.8rem;
     filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=0.5);
     transform: rotate(45deg);
@@ -203,7 +203,7 @@
 /* sugesstion messages */
 .suggetion_box{
     position: absolute;
-    top: 5%;
+    top: 15%;
     left: 10%;
     width: 80%!important;
 }
@@ -218,11 +218,16 @@
 .top_box>.techsagar_logo_icon{
     position: relative;
     margin: auto;
-    width: 5rem;
-    height: 5rem;
-    display: block;
-    object-fit: contain;
-    /* border: 1px solid red; */
+    width: 4rem;
+    height: 4rem;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* object-fit: contain; */
+    color: #ef2f42;
+    border: 0.2px solid red;
+    border-radius: 50%;
 }
 
 .top_box>.techsagar_logo_icon:hover:after{
@@ -264,9 +269,24 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    padding: 0.5rem 0;
-    background: #e5f0fd;
-    min-height: 14rem;
+    /* padding: 0.5rem 0; */
+    /* background: #e5f0fd; */
+    background: #fce4e4;
+    /* min-height: 14rem; */
+    height: 100%;
+}
+
+.prompt_container{
+    width: 65%;
+    margin: auto;
+}
+
+.prompt_box{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: stretch;
 }
 
 .send_arrow{
@@ -287,8 +307,8 @@
 }
 
 .suggetionQ>.prompt_icon{
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
     margin: 0.5rem 0;
     border-radius: 50%;
     background-color: #dc3545;
@@ -308,10 +328,10 @@
 }
 
 .suggetionQ>p{
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-family: Metropolis, -apple-system, BlinkMacSystemFont, Ubuntu, Segoe UI, Roboto, Oxygen, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     font-weight: 500;
-    line-height: 1.5rem;
+    line-height: 1rem;
     padding: 0.1rem 0.5rem; 
     text-align: center;
     color: #545454;

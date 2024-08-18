@@ -5,6 +5,7 @@ import { run } from "../api/service";
 import "./style.css";
 import ReadMore from "./read_more";
 
+
 const ChatApp = () => {
   const [inputPrompt, setPrompt] = useState("");
   const [response, setResponse] = useState(null);
@@ -26,8 +27,6 @@ const ChatApp = () => {
       setPrompt("");
     }
   };
-
-  //class="container-fluid">
 
   return (
     <form onSubmit={submitForm} className="container-fluid form_container">
