@@ -86,10 +86,6 @@ const SingleFullPost = () => {
           <img src={storyData?.theme} alt="theme" style={themeStyle} />
         ) : null}
         <p className="single_post_story">{storyData?.story || "Story..."}</p>
-
-        <div className="bottom_style">
-          <LikeElement/>
-        </div>
       </div>:<Loader/>}
       {!loading && <Footer/>}
     </>
