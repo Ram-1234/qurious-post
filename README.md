@@ -21,14 +21,14 @@
 ### Single post with full content
 <img width="1280" alt="Screenshot 2024-08-19 at 9 11 28 PM" src="https://github.com/user-attachments/assets/95861a85-4e8b-462b-8c70-33f1dffd3b96">
 
-### AI search page
+### AI chat/search page
 <img width="1280" alt="Screenshot 2024-08-19 at 9 14 38 PM" src="https://github.com/user-attachments/assets/7a61dc44-700c-4afc-9772-9a06fcadbf6d">
 
 ### AI result after submiting prompt
 <img width="1280" alt="Screenshot 2024-08-19 at 9 15 04 PM" src="https://github.com/user-attachments/assets/77a77a32-f103-4362-88e3-3ae00c69a574">
 <img width="1280" alt="Screenshot 2024-08-19 at 9 15 16 PM" src="https://github.com/user-attachments/assets/4bb62137-ee93-460c-9ec4-8928ca39eacb">
 
-### Headlines AI,ML and technology news page
+### News headlines of AI,ML and technology
 <img width="1280" alt="Screenshot 2024-08-19 at 9 19 25 PM" src="https://github.com/user-attachments/assets/ba725f9c-4b7a-495a-8c01-b01b9fd8ec10">
 
 ### Post writing and editing page
