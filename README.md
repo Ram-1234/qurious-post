@@ -24,7 +24,7 @@
 ### AI search page
 <img width="1280" alt="Screenshot 2024-08-19 at 9 14 38 PM" src="https://github.com/user-attachments/assets/7a61dc44-700c-4afc-9772-9a06fcadbf6d">
 
-### AI result after submiting promt
+### AI result after submiting prompt
 <img width="1280" alt="Screenshot 2024-08-19 at 9 15 04 PM" src="https://github.com/user-attachments/assets/77a77a32-f103-4362-88e3-3ae00c69a574">
 <img width="1280" alt="Screenshot 2024-08-19 at 9 15 16 PM" src="https://github.com/user-attachments/assets/4bb62137-ee93-460c-9ec4-8928ca39eacb">
 
