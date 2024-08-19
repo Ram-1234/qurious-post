@@ -64,7 +64,7 @@ const CreatePost = (props) => {
         <h3 className='post-title pt-2 pb-2' suppressContentEditableWarning={true}  id='post_title' contentEditable={edit}> { location.state && location.state.title ||  "Title"}</h3>
         {(url.length || location?.state?.theme) ? <img src={url || location.state.theme} alt="theme" style={themeStyle} /> : <button onClick={()=>setModalHandler(true)} className='btn btn-danger mt-2 mb-2'>Upload <i className="bi bi-card-image"></i></button>}
         {/* <p className='post-story pt-2 pb-2' suppressContentEditableWarning={true}  id='post_story' contentEditable={edit}>{location.state && location.state.story ||"Tell your story"}</p> */}
-        <textarea rows={10} style={{width:"100%", margin:"1rem 0", padding:'1rem', border:"0.5px solid #727272"}} defaultValue={location.state && location.state.story} className='post-story pt-2 pb-2' suppressContentEditableWarning={true}  id='post_story' contentEditable={edit}/>
+        <textarea rows={10} style={{width:"100%", margin:"1rem 0", padding:'1rem', border:"0.5px solid #727272"}} defaultValue={location.state && location.state.story} placeholder='write your story' className='post-story pt-2 pb-2' suppressContentEditableWarning={true}  id='post_story' contentEditable={edit}/>
         <div><button id="publish_button" disabled={!edit} onClick={handleCreatePost} type='button' className='btn btn-success'>Publish</button></div>
         {modal && <Modal Element={Gallery} title="Gallery" closeHandle={setModalHandler} />}
     </div>

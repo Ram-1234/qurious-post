@@ -52,7 +52,7 @@ const AIChat = () => {
     document.onclick=function(e){
         let clickedItemClass = e.target.classList[0];
         let questionMessage = e.target.innerText;
-        if(!clickedItemClass && questionMessage?.length){
+        if(!clickedItemClass && questionMessage?.length<100){
             submitForm(e, questionMessage);
         }
     }

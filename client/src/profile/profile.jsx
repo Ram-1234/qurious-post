@@ -1,7 +1,7 @@
 import React, { useContext, useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import './style.css';
-import user_img from "../assets/avatar.jpg";
+import user_img from "../assets/noavatar.jpeg";
 import Button from '../components/button';
 import { AuthContext } from '../context/auth-context';
 import UploadWidget from '../components/upload_widget/Wrap';
@@ -57,7 +57,7 @@ const UserProfile = ({username,firstname, email,location,about,linkedin, github,
             {/* avatar */}
             <div className='profile_avatar col-lg-4' >
                 <div className='avatar_box border' >
-                    <img src={avatar} alt="avatar" />
+                    <img src={user_img} alt="avatar" />
                     <i className="bi bi-pencil-square" ></i>
                 </div>
                {/* <UploadWidget/> */}
