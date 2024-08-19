@@ -10,26 +10,27 @@
 # Some pages and their screenshots
 
 ### Home page
-<img width="1280" alt="Screenshot 2024-08-19 at 8 53 01 PM" src="https://github.com/user-attachments/assets/77a00878-c776-4c82-8250-9f270210a2ff">
+<img width="1280" alt="Screenshot 2024-08-19 at 9 10 20 PM" src="https://github.com/user-attachments/assets/211c9b5b-25fd-4a5b-8d8e-2f050efb4710">
 
-### Registration page
-<img width="1280" alt="Screenshot 2024-08-19 at 8 53 55 PM" src="https://github.com/user-attachments/assets/0f5369b2-dfaf-4888-a162-c28bbd5c4659">
+### Registration and login page
+<img width="1280" alt="Screenshot 2024-08-19 at 9 10 40 PM" src="https://github.com/user-attachments/assets/43bc1595-06e1-4796-a6b4-848a6c6a4977">
 
 ### News page
-<img width="1280" alt="Screenshot 2024-08-19 at 8 53 08 PM" src="https://github.com/user-attachments/assets/51bd2820-e0ec-4a11-87a2-e5f7afaf4f67">
+<img width="1280" alt="Screenshot 2024-08-19 at 9 19 25 PM" src="https://github.com/user-attachments/assets/ba725f9c-4b7a-495a-8c01-b01b9fd8ec10">
 
 ### List of posts
-<img width="1280" alt="Screenshot 2024-08-19 at 8 52 37 PM" src="https://github.com/user-attachments/assets/718e785f-43a5-434e-8f3b-f5d023c24a87">
+<img width="1280" alt="Screenshot 2024-08-19 at 9 11 15 PM" src="https://github.com/user-attachments/assets/58d3efb6-2c42-4583-83dd-eb7444d539e9">
 
 ### Single post with full content
-<img width="1280" alt="Screenshot 2024-08-19 at 8 49 55 PM" src="https://github.com/user-attachments/assets/b5f825a5-729d-455c-866c-ace9f435506b">
+<img width="1280" alt="Screenshot 2024-08-19 at 9 11 28 PM" src="https://github.com/user-attachments/assets/95861a85-4e8b-462b-8c70-33f1dffd3b96">
 
 ### AI search page
-<img width="1280" alt="Screenshot 2024-08-19 at 8 50 12 PM" src="https://github.com/user-attachments/assets/64af8bb7-980c-48f7-9066-ac6cb630ddd6">
+<img width="1280" alt="Screenshot 2024-08-19 at 9 14 38 PM" src="https://github.com/user-attachments/assets/7a61dc44-700c-4afc-9772-9a06fcadbf6d">
 
 ### AI result after submiting promt
-<img width="1280" alt="Screenshot 2024-08-19 at 9 02 20 PM" src="https://github.com/user-attachments/assets/164e051f-90a9-47a5-953e-405bb365841a">
-<img width="1280" alt="Screenshot 2024-08-19 at 9 02 38 PM" src="https://github.com/user-attachments/assets/09b185e4-e7e0-4d37-9438-0f9cb2e45f8b">
+<img width="1280" alt="Screenshot 2024-08-19 at 9 15 04 PM" src="https://github.com/user-attachments/assets/77a77a32-f103-4362-88e3-3ae00c69a574">
+<img width="1280" alt="Screenshot 2024-08-19 at 9 15 16 PM" src="https://github.com/user-attachments/assets/4bb62137-ee93-460c-9ec4-8928ca39eacb">
+
 
 
 
