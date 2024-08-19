@@ -28,7 +28,7 @@
 <img width="1280" alt="Screenshot 2024-08-19 at 9 15 04 PM" src="https://github.com/user-attachments/assets/77a77a32-f103-4362-88e3-3ae00c69a574">
 <img width="1280" alt="Screenshot 2024-08-19 at 9 15 16 PM" src="https://github.com/user-attachments/assets/4bb62137-ee93-460c-9ec4-8928ca39eacb">
 
-### News page
+### Headlines AI,ML and technology news page
 <img width="1280" alt="Screenshot 2024-08-19 at 9 19 25 PM" src="https://github.com/user-attachments/assets/ba725f9c-4b7a-495a-8c01-b01b9fd8ec10">
 
 ### Post writing and editing page
