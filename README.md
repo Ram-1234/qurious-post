@@ -11,10 +11,11 @@
 # Some pages and their screenshots
 
 ### Home page
-<img width="1280" alt="Screenshot 2024-08-19 at 9 10 20 PM" src="https://github.com/user-attachments/assets/211c9b5b-25fd-4a5b-8d8e-2f050efb4710">
+<img width="1280" alt="Screenshot 2024-10-06 at 6 37 34 PM" src="https://github.com/user-attachments/assets/7ab55af3-6799-4ced-8aa5-4119e92e5071">
 
 ### Registration and login page
-<img width="1280" alt="Screenshot 2024-10-06 at 6 37 34 PM" src="https://github.com/user-attachments/assets/7ab55af3-6799-4ced-8aa5-4119e92e5071">
+<img width="1280" alt="Screenshot 2024-10-06 at 6 45 28 PM" src="https://github.com/user-attachments/assets/054defc3-dbe9-4b73-ae24-f7b17a932490">
+
 
 
 ### List of posts
@@ -31,6 +32,9 @@
 <img width="1280" alt="Screenshot 2024-08-19 at 9 15 16 PM" src="https://github.com/user-attachments/assets/4bb62137-ee93-460c-9ec4-8928ca39eacb">
 
 ### News headlines of AI,ML and technology
+<img width="1280" alt="Screenshot 2024-10-06 at 6 40 13 PM" src="https://github.com/user-attachments/assets/15380dd9-1cd6-4349-b372-df84aba49ef4">
+
+
 <img width="1280" alt="Screenshot 2024-10-06 at 6 40 21 PM" src="https://github.com/user-attachments/assets/adb53521-2b4d-4eae-8162-c3964774426a">
 
 
