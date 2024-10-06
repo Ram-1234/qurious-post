@@ -1,21 +1,20 @@
-import React, {useState} from 'react';
+import React from 'react';
 import noavatar from "../assets/noavatar.jpeg";
 
 const UserProfile = ({avatar,styles}) => {
-    const [userAvatar, setAvatar]=useState(avatar);
 
     const imageStyles={
         image:{
             width:"100%",
             height:"100%",
-            padding:"5px",
+            padding:"2px",
             border:"0.5px solid #727272", 
             borderRadius:"50%",
             objectFit:"cover"
             },
         imageBox:{
-            width:"2.6rem",
-            height:"2.6rem",
+            width:"3.2rem",
+            height:"3.2rem",
             marginRight:"0.5rem"
             }
     }

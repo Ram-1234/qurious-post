@@ -66,7 +66,7 @@ const CreatePost = (props) => {
         {/* <p className='post-story pt-2 pb-2' suppressContentEditableWarning={true}  id='post_story' contentEditable={edit}>{location.state && location.state.story ||"Tell your story"}</p> */}
         <textarea rows={10} style={{width:"100%", margin:"1rem 0", padding:'1rem', border:"0.5px solid #727272"}} defaultValue={location.state && location.state.story} placeholder='write your story' className='post-story pt-2 pb-2' suppressContentEditableWarning={true}  id='post_story' contentEditable={edit}/>
         <div><button id="publish_button" disabled={!edit} onClick={handleCreatePost} type='button' className='btn btn-success'>Publish</button></div>
-        {modal && <Modal Element={Gallery} title="Gallery" closeHandle={setModalHandler} />}
+        {modal && <Modal Element={Gallery} title="Gallery" closeHandle={setModalHandler} modalStyle={{width:"90%", minHeight:"360px"}} />}
     </div>
   )
 }
