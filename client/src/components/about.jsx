@@ -1,10 +1,11 @@
 import React from 'react';
 
 const About = () => {
+
   return (
     <div>
         <h2 className='text-center mt-2 mb-2'>Content Ideas</h2>
-        <p className='ps-5 pe-5' style={{lineHeight:"1.5rem",fontWeight:"500", wordSpacing:"2px"}}>
+        <p className='ps-5 pe-5' style={{lineHeight:"1.5rem",fontWeight:"500", wordSpacing:"2px", fontVariant:"small-caps"}}>
         User Profiles: Allow users to create and customize their profiles. Include sections for their bio, interests, and a list of their posts and interactions.
 
         Categories and Tags: Organize content into categories and tags to help users find posts relevant to their interests. Categories could be broad (e.g., Technology, Health, Entertainment) while tags could be more specific (e.g., AI, Fitness, Movies).

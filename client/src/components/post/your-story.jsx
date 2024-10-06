@@ -47,8 +47,8 @@ const OurStory = () => {
   let buttonStyle = { borderRadius: "20px", fontSize: "14px" };
 
   return (
-      <>
-        <div className="listitng-post container">
+      <div style={{position:"relative"}}>
+        <div className="listitng-post container" >
           <div className="row col-12">
             <div className="left col-lg-8 col-md-12">
               <div className="your-story border-bottom p-2 mt-5 mb-2">
@@ -112,8 +112,10 @@ const OurStory = () => {
           </div>
           <div></div>
         </div>
-        {!loading && <Footer/>}
-      </>
+       <div style={{height:"70px"}}>
+       {!loading && <Footer/>}
+       </div>
+      </div>
   );
 };
 

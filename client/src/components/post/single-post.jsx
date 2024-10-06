@@ -55,7 +55,7 @@ const SingleFullPost = () => {
   }
 
   return (
-    <>
+    <div style={{position:"relative"}}>
      {!loading ? <div className="conatiner w-75 ps-5 pe-5 mx-auto">
         <div className="single_post_user_info d-flex align-items-center">
           <Avatar
@@ -87,8 +87,10 @@ const SingleFullPost = () => {
         ) : null}
         <p className="single_post_story">{storyData?.story || "Story..."}</p>
       </div>:<Loader/>}
-      {!loading && <Footer/>}
-    </>
+     <div style={{height:"70px"}}>
+     {!loading && <Footer/>}
+     </div>
+    </div>
   );
 };
 

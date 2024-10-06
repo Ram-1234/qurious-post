@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import noavatar from "../assets/noavatar.jpeg";
 
 const UserProfile = ({avatar,styles}) => {
+    const [userAvatar, setAvatar]=useState(avatar);
 
     const imageStyles={
         image:{

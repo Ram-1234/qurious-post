@@ -17,8 +17,10 @@ const AIChat = () => {
     let scrollDown = document.getElementById('scroll_down');
     let suggestionBox=document.getElementById('suggetion_box_id');
    
-
-     const submitForm = async (e,prompt='') => {
+    // str.split("\n");
+    // return str.replace(/\*/g, '');
+     
+    const submitForm = async (e,prompt='') => {
         e.preventDefault();
         setLoading(true);
         setTyping(false);
@@ -38,14 +40,12 @@ const AIChat = () => {
     };
 
     const selectPromptCard=(e)=>{
-        //alert('hii')
         let prompt = e.target?.innerText;
         if(prompt?.length){
             submitForm(e,prompt);
         }else{
             console.error('Something went wrong')
         }
-           
     }
 
     //important logic
@@ -68,6 +68,45 @@ const AIChat = () => {
                 setTyping(false);
                }
         }
+    }
+
+    function displayAnswer1(question=ques, ans=str){
+        let id = Math.random() * 100;
+        let div = document.createElement('div');
+        div.setAttribute('class', 'wrap_response_msg');
+        div.setAttribute('id', id);
+        // wrapper for p & h tag element
+        let wrapfh = document.createElement('div');
+        let wrapfp = document.createElement('div');
+        wrapfh.setAttribute('class','message_user_prompt_box')
+        wrapfp.setAttribute('class','message_user_response_box')
+    
+        let htag = document.createElement('h4');
+        let ptag = document.createElement('p');
+        let ul = document.createElement('ul');
+        let li = document.createElement('li');
+    
+        let techSagarIcon = document.createElement('i');
+
+        techSagarIcon.setAttribute('class','bi bi-robot prompt_techsagar_icon');
+        techSagarIcon.setAttribute('title','AI');
+        
+        
+        let userIcon = document.createElement('i');
+        userIcon.setAttribute('class','bi bi-person-circle prompt_user_icon');
+        userIcon.setAttribute('title','You');
+    
+        htag.innerText = question;
+        wrapfh.append(htag,userIcon);
+    
+        ptag.innerText =  ans.trim();
+        wrapfp.append(techSagarIcon,ptag);
+    
+        div.classList.add('container');
+        div.append(wrapfh,wrapfp);
+    
+        messageBox?.append(div);
+        div.scrollIntoView({bewhavior:"smooth"});
     }
 
     function displayAnswer(question, ans){
@@ -210,3 +249,31 @@ export default AIChat;
 const styles={
     arrowStyle:{borderRadius: "50%",background: "transparent",color:"#fff",marginLeft:"0.5rem"}
 } 
+
+const ques = `What is React and javascript?.`
+
+const str = `**React**
+
+React is an open-source JavaScript library for building user interfaces. It is developed and maintained by Facebook and is used to create efficient, flexible, and reusable web applications.
+
+**Key Features of React:**
+
+* **Component-based:** React applications are composed of reusable components, making it easy to maintain and update the UI.
+* **Virtual DOM:** React uses a virtual DOM (Document Object Model) to track changes in the UI and efficiently update only the necessary parts.
+* **One-way data flow:** React follows a one-way data flow model, which improves application stability and reduces the risk of data inconsistency.
+* **State management:** React provides features for managing and updating application state, allowing developers to easily track and manipulate data.
+
+**JavaScript**
+
+JavaScript is a programming language used to create dynamic and interactive web pages. It is a lightweight, interpreted language that is supported by all major web browsers.
+
+**Key Features of JavaScript:**
+
+* **Client-side scripting:** JavaScript is executed on the client's browser, making it possible to create interactive and responsive web pages.
+* **Document manipulation:** JavaScript can access and modify the elements and properties of the HTML document, allowing developers to dynamically update the UI.
+* **Event handling:** JavaScript allows developers to define actions that will be performed when specific events occur, such as mouse clicks or keyboard presses.
+* **AJAX:** JavaScript can be used to make asynchronous requests to the server, which enables the transfer of data without reloading the entire page.
+
+**Relationship between React and JavaScript**
+
+React is a JavaScript library, which means it is written in JavaScript and requires JavaScript to run. React uses JavaScript to create, manage, and update UI components. However, React provides a higher level of abstraction and simplifies the process of building complex user interfaces by leveraging JavaScript's capabilities.`

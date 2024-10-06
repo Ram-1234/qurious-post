@@ -10,7 +10,7 @@ const Modal = ({ title, closeHandle, Element}) => {
             <div className="container_modal border border-success">
                 <div className="title">{title}</div>
                 <i className="bi bi-x-circle-fill" onClick={() => closeHandle(false)} style={iconStyle}></i>
-                <Element />
+                <Element/>
             </div>
         </React.Fragment>
     )
