@@ -21,12 +21,13 @@ const UpdateProfile = ({ email, username, password }) => {
   });
 
   async function onSubmit(data) {
-    // console.log('submit', data);
+    ////console.log('profile upate', data);
     try {
       const res = await apiRequest.put(`/users/${currentUser.id}`, data);
       if (res.status) {
-        updateUser(res.data);
-        localStorage.setItem("user", JSON.stringify(res.data));
+        console.log(currentUser.avatar)
+        updateUser({...res.data, avatar:currentUser.avatar});
+        localStorage.setItem("user", JSON.stringify({...res.data, avatar:currentUser.avatar}));
         navigate("/profile");
       }
     } catch (error) {

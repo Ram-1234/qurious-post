@@ -5,7 +5,7 @@ import user_img from "../assets/noavatar.jpeg";
 import Button from '../components/button';
 import { AuthContext } from '../context/auth-context';
 import Modal from '../components/modal/modal';
-import reportWebVitals from '../reportWebVitals';
+import apiRequest from '../lib/apiRequest';
 
 
 const UserProfile = ({username,firstname, email,location,about,linkedin, github,twitter}) => {
@@ -14,8 +14,6 @@ const UserProfile = ({username,firstname, email,location,about,linkedin, github,
 
     const navigate = useNavigate();
     const {currentUser, updateUser} = useContext(AuthContext);
-
-    //console.log('current avatar', avatar);
 
     const updateProfile=()=>{
         navigate("/update_profile");
@@ -29,14 +27,14 @@ const UserProfile = ({username,firstname, email,location,about,linkedin, github,
         setUpdate(false)
     }
 
-    const updateAvatar=(event)=>{
+    const updateAvatar=async(event)=>{
         if(event.target.files[0]){
             let file = event.target.files[0]
             const photoURL = URL.createObjectURL(file);
-            console.log('photo', photoURL)
+            const res = await apiRequest.put(`/users/${currentUser.id}`, { avatar:photoURL});
             setAvatar(photoURL)
             setUpdate(false)
-            updateUser({...currentUser, avatar:photoURL})
+            updateUser(res.data)
         }else{
             alert('Photo not found!')
         }
