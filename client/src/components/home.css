@@ -6,7 +6,10 @@ body{
 
 .home-container{
     background-color: #b61924;
-    z-index: 10000;
+    /* z-index: 10000; */
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .main_box{

@@ -37,7 +37,7 @@ const UpdateProfile = ({ email, username, password }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="container mt-3 mb-3 w-50">
+    <form onSubmit={handleSubmit(onSubmit)} className="container mt-3 mb-3 w-50" enctype="multipart/form-data">
       <div className="col-auto">
         <label className="sr-only mb-2" htmlFor="inlineFormInputGroup">
           Username

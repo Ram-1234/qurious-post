@@ -14,7 +14,7 @@ const UserProfile = ({username,firstname, email,location,about,linkedin, github,
 
     const navigate = useNavigate();
     const {currentUser, updateUser} = useContext(AuthContext);
-
+    
     const updateProfile=()=>{
         navigate("/update_profile");
     }
@@ -28,8 +28,9 @@ const UserProfile = ({username,firstname, email,location,about,linkedin, github,
     }
 
     const updateAvatar=async(event)=>{
-        if(event.target.files[0]){
-            let file = event.target.files[0]
+        event.preventDefault()
+        if(event.target[0].files[0]){
+            let file = event.target[0].files[0]
             const photoURL = URL.createObjectURL(file);
             const res = await apiRequest.put(`/users/${currentUser.id}`, { avatar:photoURL});
             setAvatar(photoURL)
@@ -41,7 +42,10 @@ const UserProfile = ({username,firstname, email,location,about,linkedin, github,
     }
 
     const UploadAvatar =()=>{
-        return(<input className='border text-center' onChange={(e)=>updateAvatar(e)} type='file' accept="image/*" style={{width:"fit-content"}} />)
+        return(<form onSubmit={updateAvatar} method="post" enctype="multipart/form-data">
+            <input className='border text-center'  name="profileImage" type='file'  accept="image/*" style={{width:"fit-content"}} />
+            <button type='submit' className='profile-upload-btn'>Upload File</button>
+        </form>)
     }
 
     
@@ -95,7 +99,7 @@ const UserProfile = ({username,firstname, email,location,about,linkedin, github,
         </div>
         {/* update-avatar */}
       { update && 
-            <Modal closeHandle={closeModal} title={"Upadte Avatar"} Element={UploadAvatar} modalStyle={{width:"25%", minHeight:"30%"}} />
+            <Modal closeHandle={closeModal} title={"Upadte Avatar"} Element={UploadAvatar} modalStyle={{width:"30%", minHeight:"30%"}} />
         }
     </div>
   )

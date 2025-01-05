@@ -16,9 +16,6 @@ const AIChat = () => {
     let messageBox = document.getElementById('msg_root');
     let scrollDown = document.getElementById('scroll_down');
     let suggestionBox=document.getElementById('suggetion_box_id');
-   
-    // str.split("\n");
-    // return str.replace(/\*/g, '');
      
     const submitForm = async (e,prompt='') => {
         e.preventDefault();
@@ -49,13 +46,13 @@ const AIChat = () => {
     }
 
     //important logic
-    document.onclick=function(e){
-        let clickedItemClass = e.target.classList[0];
-        let questionMessage = e.target.innerText;
-        if(!clickedItemClass && questionMessage?.length<100){
-            submitForm(e, questionMessage);
-        }
-    }
+    // document.onclick=function(e){
+    //     let clickedItemClass = e.target.classList[0];
+    //     let questionMessage = e.target.innerText;
+    //     if(!clickedItemClass && questionMessage?.length<100){
+    //         submitForm(e, questionMessage);
+    //     }
+    // }
 
     document.onkeydown=function(e){
         // e.preventDefault();

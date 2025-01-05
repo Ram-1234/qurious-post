@@ -4,7 +4,6 @@
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
     overflow: hidden;
     background: #fff;
-   
 }
 
 /* message area */
@@ -12,8 +11,8 @@
     text-align: start;
     z-index: -5;
     overflow-y: scroll;
-    max-height: 30rem;
-    height: 29rem;
+    max-height: 40em;
+    height: 37.8em;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
