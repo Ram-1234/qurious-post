@@ -60,3 +60,13 @@ body{
     border-radius: 1rem;
     /* display: none; */
 }
+
+.homepage-btn{
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-radius: 1rem!important;
+    background: #fff!important;
+    color: #000!important;
+}
