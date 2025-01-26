@@ -6,7 +6,10 @@ body{
 
 .home-container{
     background-color: #b61924;
-    z-index: 10000;
+    /* z-index: 10000; */
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .main_box{
@@ -56,4 +59,14 @@ body{
     height: 100%;
     border-radius: 1rem;
     /* display: none; */
+}
+
+.homepage-btn{
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-radius: 1rem!important;
+    background: #fff!important;
+    color: #000!important;
 }

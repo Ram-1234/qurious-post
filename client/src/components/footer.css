@@ -4,12 +4,16 @@ footer{
     padding: 0.5rem 0;
     border-top: 2px solid #111;
     height: auto;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
 }
 
 footer>span{
     margin: 0 1rem;
     font-size: 0.8rem;
     font-family: sans-serif;
+    cursor: progress;
 }
 
 .footer_icon{

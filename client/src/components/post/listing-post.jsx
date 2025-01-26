@@ -46,8 +46,8 @@ const ListofPosts = () => {
   }
 
   return (
-    <>
-      <div className="listitng-post container">
+    <div style={{position:"relative"}}>
+      <div className="listitng-post container" >
         <div className="row col-12">
           <div className="left col-lg-9 col-md-12">
             <div className="select-topics d-flex justify-content-between border-bottom p-2 mt-5 mb-2">
@@ -95,8 +95,10 @@ const ListofPosts = () => {
         </div>
         <div></div>
       </div>
+      <div style={{height:"70px"}}>
       {!loading && <Footer/>}
-    </>
+      </div>
+    </div>
   );
 };
 

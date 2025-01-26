@@ -6,9 +6,10 @@ import userAuth from "./routes/auth.route.js";
 import testRoute from "./routes/test.route.js";
 import userRoute from "./routes/user.route.js";
 import newsRoute from "./routes/news.route.js";
+import multer from "multer";
+
 import dotenv from "dotenv";
 dotenv.config()
-
 
 const PORT = process.env.PORT || 8000
 
@@ -30,6 +31,24 @@ app.use("/api/auth", userAuth);
 app.use("/api/users", userRoute);
 app.use("/api/test", testRoute);
 app.use("/api/news", newsRoute);
+
+
+
+// file upload
+
+const upload = multer({dest:"uploads/"})
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, '/tmp/my-uploads')
+    },
+    filename: function (req, file, cb) {
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+      cb(null, file.fieldname + '-' + uniqueSuffix)
+    }
+  })
+  
+  //const upload = multer({ storage: storage })
 
 app.listen(process.env.PORT, ()=>{
     console.log(`Server running on port ${PORT}`)

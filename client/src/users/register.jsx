@@ -19,7 +19,7 @@ const Register = () => {
 
     try {
       let resposne = await apiRequest.post('/auth/register',{email,username,password})
-      // console.log('res', resposne);
+      console.log('res', resposne);
       if(resposne.status===200){
         navigate('/login');
       }

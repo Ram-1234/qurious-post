@@ -28,11 +28,11 @@ const News = () => {
     },[])
 
   return (
-      <>
-        <div className='container-fluid' style={{display:"flex", flexWrap:"wrap",}}>
+    <div style={{position:"relative"}}>
+        <div className='container-fluid' style={{display:"flex", flexWrap:"wrap", position:"relative"}}>
             {!loading ? newsData.map((item,index)=>(
                 <div key={index+'technews'} className='col-lg-4'>
-                   <div className='m-2'>
+                   <div className='p-2' style={{height:"100%"}}>
                         <NewsCard
                             title={item.title}
                             description={item.description}
@@ -46,9 +46,11 @@ const News = () => {
                 </div>
                 ))
             :<Loader/>}
-      </div>
-     {!loading && <Footer/>}
-      </>
+        </div>
+        <div style={{height:"80px"}}>
+        {!loading && <Footer/>}
+        </div>
+    </div>
     )
 }
 

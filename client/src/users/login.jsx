@@ -42,7 +42,7 @@ const Login = () => {
 
     try {
       let response = await apiRequest.post('auth/login',{username,password})
-      console.log('res', response);
+      //console.log('res', response);
       localStorage.setItem('user', JSON.stringify(response.data.user));
       updateUser(response.data.user)
       if(response.status===200){

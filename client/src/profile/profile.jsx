@@ -1,26 +1,51 @@
 import React, { useContext, useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import './style.css';
-import user_img from "../assets/avatar.jpg";
+import user_img from "../assets/noavatar.jpeg";
 import Button from '../components/button';
 import { AuthContext } from '../context/auth-context';
-import UploadWidget from '../components/upload_widget/Wrap';
+import Modal from '../components/modal/modal';
+import apiRequest from '../lib/apiRequest';
 
 
 const UserProfile = ({username,firstname, email,location,about,linkedin, github,twitter}) => {
     const [avatar, setAvatar]=useState(user_img);
+    const [update, setUpdate]=useState(false);
+
     const navigate = useNavigate();
     const {currentUser, updateUser} = useContext(AuthContext);
-
-    console.log('profile', currentUser);
-
-
+    
     const updateProfile=()=>{
         navigate("/update_profile");
     }
 
     const contactMe=()=>{
         alert("conatct me")
+    }
+
+    const closeModal=()=>{
+        setUpdate(false)
+    }
+
+    const updateAvatar=async(event)=>{
+        event.preventDefault()
+        if(event.target[0].files[0]){
+            let file = event.target[0].files[0]
+            const photoURL = URL.createObjectURL(file);
+            const res = await apiRequest.put(`/users/${currentUser.id}`, { avatar:photoURL});
+            setAvatar(photoURL)
+            setUpdate(false)
+            updateUser(res.data)
+        }else{
+            alert('Photo not found!')
+        }
+    }
+
+    const UploadAvatar =()=>{
+        return(<form onSubmit={updateAvatar} method="post" enctype="multipart/form-data">
+            <input className='border text-center'  name="profileImage" type='file'  accept="image/*" style={{width:"fit-content"}} />
+            <button type='submit' className='profile-upload-btn'>Upload File</button>
+        </form>)
     }
 
     
@@ -57,8 +82,8 @@ const UserProfile = ({username,firstname, email,location,about,linkedin, github,
             {/* avatar */}
             <div className='profile_avatar col-lg-4' >
                 <div className='avatar_box border' >
-                    <img src={avatar} alt="avatar" />
-                    <i className="bi bi-pencil-square" ></i>
+                    <img src={currentUser.avatar||avatar} alt="avatar" />
+                    <i onClick={()=>setUpdate(true)} className="bi bi-pencil-square" ></i>
                 </div>
                {/* <UploadWidget/> */}
                 <div className='bottom_info'>
@@ -72,6 +97,10 @@ const UserProfile = ({username,firstname, email,location,about,linkedin, github,
                 </div>
             </div>
         </div>
+        {/* update-avatar */}
+      { update && 
+            <Modal closeHandle={closeModal} title={"Upadte Avatar"} Element={UploadAvatar} modalStyle={{width:"30%", minHeight:"30%"}} />
+        }
     </div>
   )
 }
