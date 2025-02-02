@@ -37,12 +37,13 @@ const AIChat = () => {
     };
 
     const selectPromptCard=(e)=>{
-        let prompt = e.target?.innerText;
-        if(prompt?.length){
-            submitForm(e,prompt);
-        }else{
-            console.error('Something went wrong')
-        }
+        // let prompt = e.target?.innerText;
+        // if(prompt?.length){
+        //     submitForm(e,prompt);
+        // }else{
+        //     console.error('Something went wrong')
+        // }
+        console.log('not working')
     }
 
     //important logic
