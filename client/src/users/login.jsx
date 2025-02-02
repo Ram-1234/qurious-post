@@ -3,13 +3,10 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import apiRequest from '../lib/apiRequest.js';
 import { AuthContext } from '../context/auth-context.jsx';
 
-
 const Login = () => {
   const [isLoading, setIsLoading]=useState(false);
   const [errorMsg, setError]=useState();
-
   const {updateUser} = useContext(AuthContext);
-
   const navigate = useNavigate();
 
   const alertHandle=()=>{
@@ -29,7 +26,7 @@ const Login = () => {
     } catch (error) {
         console.log(error)
     }
-}
+  }
  
   const onSubmitHandle=async function(e){
     e.preventDefault();
@@ -46,7 +43,7 @@ const Login = () => {
       localStorage.setItem('user', JSON.stringify(response.data.user));
       updateUser(response.data.user)
       if(response.status===200){
-        setTimeout(alertHandle, 10000*60*60*2);
+        setTimeout(alertHandle, 1000*60*60);
         navigate(`/posts`);
       }
     } catch (error) {
