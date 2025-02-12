@@ -4,6 +4,7 @@
     /* background: #eafbe6; */
     /* height: 100vh; */
     /* width: 100vw; */
+    z-index: 1000;
 }
 
 .profile_top_box{

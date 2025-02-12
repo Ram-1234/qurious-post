@@ -6,6 +6,7 @@ import "./style.css";
 import Loader from "../loader/loader";
 import { AuthContext } from "../../context/auth-context";
 import Footer from "../footer";
+import Background from "../particles/Background";
 
 
 const ListofPosts = () => {
@@ -47,6 +48,7 @@ const ListofPosts = () => {
 
   return (
     <div style={{position:"relative"}}>
+    <Background/>
       <div className="listitng-post container" >
         <div className="row col-12">
           <div className="left col-lg-9 col-md-12">

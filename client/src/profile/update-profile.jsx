@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import apiRequest from "../lib/apiRequest";
 import { AuthContext } from "../context/auth-context";
+import Background from "../components/particles/Background";
 
 const UpdateProfile = ({ email, username, password }) => {
   const [error, setError] = useState("");
@@ -38,6 +39,7 @@ const UpdateProfile = ({ email, username, password }) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="container mt-3 mb-3 w-50" enctype="multipart/form-data">
+    <Background/>
       <div className="col-auto">
         <label className="sr-only mb-2" htmlFor="inlineFormInputGroup">
           Username

@@ -1,9 +1,11 @@
 import React from 'react';
+import Background from "./particles/Background";
 
 const About = () => {
 
   return (
     <div>
+    <Background/>
         <h2 className='text-center mt-2 mb-2'>Content Ideas</h2>
         <p className='ps-5 pe-5' style={{lineHeight:"1.5rem",fontWeight:"500", wordSpacing:"2px", fontVariant:"small-caps"}}>
         User Profiles: Allow users to create and customize their profiles. Include sections for their bio, interests, and a list of their posts and interactions.

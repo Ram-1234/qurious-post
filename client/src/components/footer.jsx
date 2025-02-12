@@ -1,13 +1,14 @@
 import React from 'react';
 import "./footer.css";
 import { useNavigate } from 'react-router-dom';
+import  Background  from './particles/Background';
 
 
-const Footer = () => {
+const Footer = ({styles}) => {
   const navigate = useNavigate();
 
   return (
-    <footer className='footer'>
+    <footer style={styles} className='footer'>
        <span>Help</span>
        <span onClick={()=>navigate("/about")}>About us</span>
        <span>Status</span>
@@ -23,6 +24,7 @@ const Footer = () => {
         <i className="footer_icon bi bi-github"></i>
         </div>
         <p className='m-0 p-0'>&copy; qurious web post application</p>
+      {/* <Background/> */}
       </footer>
   )
 }

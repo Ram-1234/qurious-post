@@ -35,7 +35,7 @@ const [user, setUser]=useState(localStorage.getItem('user'));
         </div>
         <div className='amaz_walp'  ><img src={thoutsImg} alt='thought' loading='lazy' width='350' height="300" /></div>
       </section>
-      <Footer/>
+      <Footer styles={{background:"#fff"}}/>
     </div>
   )
 }

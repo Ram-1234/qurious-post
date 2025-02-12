@@ -5,6 +5,7 @@ import { useNavigate,useLocation } from 'react-router-dom';
 import Gallery from '../gallery/gallery';
 import { themeStyle } from '../../common/common';
 import Modal from '../modal/modal';
+import Background from '../particles/Background';
 
 
 
@@ -60,6 +61,8 @@ const CreatePost = (props) => {
     }
     
   return (
+    <>
+    <Background/>
     <div id="create_post_id" className='creat-post container w-75 border mt-4 p-4'>
         <h3 className='post-title pt-2 pb-2' suppressContentEditableWarning={true}  id='post_title' contentEditable={edit}> { location.state && location.state.title ||  "Title"}</h3>
         {(url.length || location?.state?.theme) ? <img src={url || location.state.theme} alt="theme" style={themeStyle} /> : <button onClick={()=>setModalHandler(true)} className='btn btn-danger mt-2 mb-2'>Upload <i className="bi bi-card-image"></i></button>}
@@ -68,6 +71,7 @@ const CreatePost = (props) => {
         <div><button id="publish_button" disabled={!edit} onClick={handleCreatePost} type='button' className='btn btn-success'>Publish</button></div>
         {modal && <Modal Element={Gallery} title="Gallery" closeHandle={setModalHandler} modalStyle={{width:"90%", minHeight:"360px"}} />}
     </div>
+    </>
   )
 }
 

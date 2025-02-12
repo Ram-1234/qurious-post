@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { timeFormat } from "../../common/common";
 import apiRequest from "../../lib/apiRequest";
 import { AuthContext } from "../../context/auth-context";
+import Background from "../particles/Background";
 
 
 const StoryCard = ({ title, story, user, createdAt, id, theme,removePost,autherId }) => {
@@ -35,6 +36,7 @@ const StoryCard = ({ title, story, user, createdAt, id, theme,removePost,autherI
   const removeIconStyle={fontSize:"1rem"}
   return (
     <div className="story_card_wrap">
+    <Background/>
       <div className="story_card">
         <div className="user_profile d-flex align-items-center mb-2">
           <Avatar

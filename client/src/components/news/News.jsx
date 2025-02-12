@@ -4,6 +4,7 @@ import NewsCard from './newscard';
 import { AuthContext } from '../../context/auth-context';
 import Loader from '../loader/loader';
 import Footer from "../footer";
+import Background from '../particles/Background';
 
 
 const News = () => {
@@ -29,9 +30,10 @@ const News = () => {
 
   return (
     <div style={{position:"relative"}}>
-        <div className='container-fluid' style={{display:"flex", flexWrap:"wrap", position:"relative"}}>
+    <Background/>
+        <div className='container' style={{display:"flex", flexWrap:"wrap", position:"relative"}}>
             {!loading ? newsData.map((item,index)=>(
-                <div key={index+'technews'} className='col-lg-4'>
+                <div key={index+'technews'} className='col-lg-4 col-xxl-3'>
                    <div className='p-2' style={{height:"100%"}}>
                         <NewsCard
                             title={item.title}
