@@ -42,7 +42,7 @@
 <img width="1280" alt="Screenshot 2024-08-19 at 9 25 07 PM" src="https://github.com/user-attachments/assets/34cd430d-ae21-458a-b64b-96da748c1577">
 
 ### Updating profile and avatar
-<img width="1280" alt="Screenshot 2024-10-06 at 6 34 07 PM" src="https://github.com/user-attachments/assets/6c374b1b-8f20-4a4d-bf51-06981cd7fc85">
+<img width="1280" alt="Screenshot 2025-02-13 at 6 10 08 PM" src="https://github.com/user-attachments/assets/ceb2a203-bc98-4656-898e-4572f4cf8b22" />
 
 <img width="1280" alt="Screenshot 2024-10-06 at 6 39 04 PM" src="https://github.com/user-attachments/assets/720da882-55fe-4ffb-9449-3445b15677ec">
 
