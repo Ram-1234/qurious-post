@@ -3,7 +3,7 @@ import React from 'react'
 const Avatar = ({url, title, propsStyle, propsTitleStyle}) => {
   return (
     <div className='avatar-box' style={{...styles.avatarBox,...propsStyle,}}>
-        {url?<img src={url} alt='avatar' style={styles.imageStyle} />:<p style={{...styles.titleStyle, ...propsTitleStyle}}>{title}</p>}
+        {url?<img src={url} alt='avatar' loading='lazy' style={styles.imageStyle} />:<p style={{...styles.titleStyle, ...propsTitleStyle}}>{title}</p>}
     </div>
   )
 }

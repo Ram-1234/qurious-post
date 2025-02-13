@@ -2,9 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams ,useNavigate} from "react-router-dom";
 import apiRequest from "../../lib/apiRequest";
 import Avatar from "../../profile/avatar";
-import { timeFormat } from "../../common/common";
+import { timeFormat, themeStyle } from "../../utils/common";
 import "./style.css";
-import { themeStyle } from "../../common/common";
 import { AuthContext } from "../../context/auth-context";
 import Footer from "../footer";
 import Loader from "../loader/loader";
@@ -83,7 +82,7 @@ const SingleFullPost = () => {
         </div>
         <h3 className="single_post_title">{storyData?.title || "Title"}</h3>
         {storyData?.theme?.length ? (
-          <img src={storyData?.theme} alt="theme" style={themeStyle} />
+          <img src={storyData?.theme} loading="lazy" alt="theme" style={themeStyle} />
         ) : null}
         <p className="single_post_story">{storyData?.story || "Story..."}</p>
       </div>:<Loader/>}

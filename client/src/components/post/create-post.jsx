@@ -3,10 +3,9 @@ import { AuthContext } from '../../context/auth-context';
 import apiRequest from '../../lib/apiRequest';
 import { useNavigate,useLocation } from 'react-router-dom';
 import Gallery from '../gallery/gallery';
-import { themeStyle } from '../../common/common';
+import { themeStyle } from '../../utils/common.js';
 import Modal from '../modal/modal';
 import Background from '../particles/Background';
-
 
 
 const CreatePost = (props) => {
@@ -30,7 +29,6 @@ const CreatePost = (props) => {
           alert('enter valid story');
           return
         }
-
 
         try {
           setLoading(true)
@@ -61,7 +59,7 @@ const CreatePost = (props) => {
     }
     
   return (
-    <>
+    <React.Fragment>
     <Background/>
     <div id="create_post_id" className='creat-post container w-75 border mt-4 p-4'>
         <h3 className='post-title pt-2 pb-2' suppressContentEditableWarning={true}  id='post_title' contentEditable={edit}> { location.state && location.state.title ||  "Title"}</h3>
@@ -71,7 +69,7 @@ const CreatePost = (props) => {
         <div><button id="publish_button" disabled={!edit} onClick={handleCreatePost} type='button' className='btn btn-success'>Publish</button></div>
         {modal && <Modal Element={Gallery} title="Gallery" closeHandle={setModalHandler} modalStyle={{width:"90%", minHeight:"360px"}} />}
     </div>
-    </>
+    </React.Fragment>
   )
 }
 

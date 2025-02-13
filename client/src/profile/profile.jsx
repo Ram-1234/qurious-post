@@ -12,10 +12,10 @@ import Background from "../components/particles/Background";
 const UserProfile = ({username,firstname, email,location,about,linkedin, github,twitter}) => {
     const [avatar, setAvatar]=useState(user_img);
     const [update, setUpdate]=useState(false);
+    const {currentUser, updateUser} = useContext(AuthContext);
 
     const navigate = useNavigate();
-    const {currentUser, updateUser} = useContext(AuthContext);
-    
+
     const updateProfile=()=>{
         navigate("/update_profile");
     }
@@ -51,7 +51,7 @@ const UserProfile = ({username,firstname, email,location,about,linkedin, github,
 
     
   return (
-    <>
+    <React.Fragment>
         <Background />
         <div className='profile_main_box container'>
             <div className='profile_top_box'>
@@ -70,10 +70,7 @@ const UserProfile = ({username,firstname, email,location,about,linkedin, github,
                         <h4>Location</h4>
                         <p>{location||"Chiraiyakot, Mau"}</p>
                     </div>
-                    <Button
-                        title={"Update"}
-                        callback={updateProfile}
-                    />
+                    <Button title={"Update"} callback={updateProfile} />
                 </div>
                 {/* about */}
                 <div className='profile_about col-lg-4'>
@@ -105,7 +102,7 @@ const UserProfile = ({username,firstname, email,location,about,linkedin, github,
                 <Modal closeHandle={closeModal} title={"Upadte Avatar"} Element={UploadAvatar} modalStyle={{width:"30%", minHeight:"30%"}} />
             }
         </div>
-    </>
+    </React.Fragment>
   )
 }
 

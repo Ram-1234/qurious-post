@@ -31,18 +31,8 @@ const ChatApp = () => {
   return (
     <form onSubmit={submitForm} className="container-fluid form_container">
       <img src={logo} alt="logo" className="chat_app_logo" />
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <img
-          src={loader}
-          alt="loader"
-          className={loading ? "cg-logo loading" : "cg-logo"}
-        />
+      <div style={{ display: "flex", justifyContent: "center", alignItems: "center", }} >
+        <img src={loader} loading="lazy" alt="loader" className={loading ? "cg-logo loading" : "cg-logo"} />
         <input
           type="text"
           value={inputPrompt}
@@ -53,18 +43,9 @@ const ChatApp = () => {
           required
           autoComplete="off"
         />
-        <input
-          type="submit"
-          value="Ask me"
-          title="ask"
-          className="input_button"
-        />
+        <input type="submit" value="Ask me" title="ask" className="input_button" />
       </div>
-      {
-        <div className="result_title">
-          <ReadMore text={response} />
-        </div>
-      }
+      { <div className="result_title"> <ReadMore text={response} /> </div> }
       {loading && <div className="loader_title">Loading...</div>}
     </form>
   );

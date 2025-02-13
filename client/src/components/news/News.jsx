@@ -12,17 +12,17 @@ const News = () => {
     const { currentUser,loading,setLoading } = useContext(AuthContext);
 
    const fetchApi=async()=>{
-    try {
-        setLoading(true);
-        let resp = await apiRequest.get("/news/technews");
-        if(resp?.status===200){
-            setNewsdata(resp?.data?.articles)
-            setLoading(false);
+        try {
+            setLoading(true);
+            let resp = await apiRequest.get("/news/technews");
+            if(resp?.status===200){
+                setNewsdata(resp?.data?.articles)
+                setLoading(false);
+            }
+        } catch (error) {
+            console.log(error)
         }
-    } catch (error) {
-        console.log(error)
     }
-}
 
     useEffect(()=>{
         fetchApi()

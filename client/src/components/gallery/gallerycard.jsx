@@ -6,6 +6,7 @@ const GalleryCard = ({ url, selectImage }) => {
     <img
       src={url}
       alt={url}
+      loading="lazy"
       onClick={() => selectImage(url)}
       style={{ width: "150px", height: "150px", margin: "5px" }}
     />

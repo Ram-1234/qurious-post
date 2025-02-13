@@ -84,15 +84,10 @@ const ListofPosts = () => {
                 }):<Loader/>}
             </div>
           </div>
-          <div
-            className="right col-lg-3 col-md-0"
-            style={{ borderLeft: "0.5px solid lightgrey" }}
-          >
+          <div className="right col-lg-3 col-md-0" style={{ borderLeft: "0.5px solid lightgrey" }} >
             {!loading ? (
               <RecommendeUsers users={usersData} />
-            ) : (
-              <Loader/>
-            )}
+            ) : ( <Loader/> )}
           </div>
         </div>
         <div></div>
