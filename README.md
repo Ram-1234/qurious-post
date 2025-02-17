@@ -44,7 +44,8 @@
 ### Updating profile and avatar
 <img width="1280" alt="Screenshot 2025-02-13 at 6 10 08 PM" src="https://github.com/user-attachments/assets/ceb2a203-bc98-4656-898e-4572f4cf8b22" />
 
-<img width="1280" alt="Screenshot 2024-10-06 at 6 39 04 PM" src="https://github.com/user-attachments/assets/720da882-55fe-4ffb-9449-3445b15677ec">
+<img width="1280" alt="Screenshot 2025-02-17 at 8 59 25 PM" src="https://github.com/user-attachments/assets/13323158-c232-4f29-b6d0-883a497271e8" />
+
 
 
 
