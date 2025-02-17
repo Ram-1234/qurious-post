@@ -39,12 +39,14 @@
 
 
 ### Post writing and editing page
-<img width="1280" alt="Screenshot 2024-08-19 at 9 25 07 PM" src="https://github.com/user-attachments/assets/34cd430d-ae21-458a-b64b-96da748c1577">
+<img width="1280" alt="Screenshot 2025-02-17 at 9 04 05 PM" src="https://github.com/user-attachments/assets/05719be6-5a6b-4912-a4b3-d8aaa326358d" />
+
 
 ### Updating profile and avatar
 <img width="1280" alt="Screenshot 2025-02-13 at 6 10 08 PM" src="https://github.com/user-attachments/assets/ceb2a203-bc98-4656-898e-4572f4cf8b22" />
 
-<img width="1280" alt="Screenshot 2025-02-17 at 8 59 25 PM" src="https://github.com/user-attachments/assets/13323158-c232-4f29-b6d0-883a497271e8" />
+<img width="1280" alt="Screenshot 2025-02-17 at 9 03 57 PM" src="https://github.com/user-attachments/assets/ed66b080-6993-41cb-a3df-eb7d4656ef90" />
+
 
 
 
