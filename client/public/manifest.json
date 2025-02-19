@@ -1,25 +1,49 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "icons": [
-    {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
-}
+    "short_name": "Qurious post",
+    "name": "Qurious allow to write and explore blogs",
+    "icons": [
+        {
+            "src": "favicon.ico",
+            "sizes": "64x64 32x32 24x24 16x16",
+            "type": "image/x-icon",
+            "purpose": "any maskable"
+        },
+      {
+        "src": "logo192.png",
+        "type": "image/png",
+        "sizes": "192x192",
+        "purpose": "any maskable"
+      },
+      {
+        "src": "logo512.png",
+        "type": "image/png",
+        "sizes": "512x512",
+        "purpose": "any maskable"
+      }
+    ],
+    "id": "index.html",
+    "start_url": ".",
+    "background_color": "#3367D6",
+    "display": "standalone",
+    "scope": "./index.html",
+    "theme_color": "#3367D6",
+    "display_override": ["window-control-overlay", "minimal-ui"],
+    "shortcuts": [
+      {
+        "name": "Write an simple post and share it!!",
+        "short_name": "Share Qurious Post",
+        "description": "Explore new technology and new post blog",
+        "url": "./index.html",
+        "icons": [{ "src": ".logo192.png", "sizes": "192x192" }]
+      },
+      {
+        "name": "Write an simple post and share it!!",
+        "short_name": "Today",
+        "description": "Explore you skills and learn from experts",
+        "url": "./index.html",
+        "icons": [{ "src": "logo192.png", "sizes": "192x192" }]
+      }
+    ],
+
+    "description": "Explore you skills and learn from experts"
+  }

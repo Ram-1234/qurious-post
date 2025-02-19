@@ -99,7 +99,7 @@ const UserProfile = ({username,firstname, email,location,about,linkedin, github,
             </div>
             {/* update-avatar */}
         { update && 
-                <Modal closeHandle={closeModal} title={"Upadte Avatar"} Element={UploadAvatar} modalStyle={{width:"30%", minHeight:"30%"}} />
+                <Modal closeHandle={closeModal} title={"Update Avatar"} Element={UploadAvatar} modalStyle={{width:"30%", minHeight:"30%"}} />
             }
         </div>
     </React.Fragment>
