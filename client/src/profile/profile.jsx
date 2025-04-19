@@ -4,7 +4,6 @@ import './style.css';
 import user_img from "../assets/avatar.jpg";
 import Button from '../components/button';
 import { AuthContext } from '../context/auth-context';
-import UploadWidget from '../components/upload_widget/Wrap';
 
 
 const UserProfile = ({username,firstname, email,location,about,linkedin, github,twitter}) => {
