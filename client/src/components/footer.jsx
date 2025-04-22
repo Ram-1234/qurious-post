@@ -1,7 +1,6 @@
 import React from 'react';
 import "./footer.css";
 import { useNavigate } from 'react-router-dom';
-import  Background  from './particles/Background';
 
 
 const Footer = ({styles}) => {

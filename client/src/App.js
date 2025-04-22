@@ -1,6 +1,6 @@
-import {BrowserRouter as Router, HashRouter} from 'react-router-dom';
+import { HashRouter} from 'react-router-dom';
 import './App.css';
-import {RoutePage, RoutePage1} from "./route";
+import { RoutePage1} from "./route";
 import Navbar from './navbar';
 
 

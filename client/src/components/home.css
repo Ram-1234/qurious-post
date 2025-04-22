@@ -1,23 +1,20 @@
 body{ 
     margin:0; 
     font:normal 75% Arial, Helvetica, sans-serif; 
+    height: 100%;
+    width: 100%;
+    background-color: #b61924;
 }
 
-
 .home-container{
-    background-color: #b61924;
-    /* z-index: 10000; */
-    height: 85vh;
-    display: flex;
-    flex-direction: column;
+    /* padding: 2% 3%; */
 }
 
 .main_box{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    /* margin: 2rem 1rem; */
-    padding: 2rem 1rem;
+    padding: 0 2%;
 }
 
 .amaz_info{
@@ -49,9 +46,11 @@ body{
 }
 
 .amaz_walp{
-    width: 50%;
-    min-height: 410px;
-    height: 100%;
+    /* width: 50%; */
+    /* min-height: 410px; */
+    /* height: 100%; */
+    margin-top: 100px;
+
 }
 
 .amaz_walp>img{

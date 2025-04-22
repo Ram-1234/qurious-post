@@ -26,16 +26,20 @@ const [user, setUser]=useState(localStorage.getItem('user'));
   },[])
 
   return (
-    <div className='home-container'>
-      <section className='main_box'>
-        <div className='amaz_info'>
+    <div className='home-container container-fluid'>
+      <section className='main_box row col-12'>
+        <div className='amaz_info col-lg-7 col-sm-12'>
           <h1>Learn from experts & explore.</h1>
           <h6>Discover stories, insights, and expertise from writers on any topic, and share your own ideas with amazing people to receive feedback and support!</h6>
           <Button styleclass="homepage-btn"  title={"Let's explore"} callback={eventHandler} />
         </div>
-        <div className='amaz_walp'  ><img src={thoutsImg} alt='thought' loading='lazy' width='350' height="300" /></div>
+        <div className='amaz_walp col-lg-5 col-sm-12'>
+          <img src={thoutsImg} alt='thought' loading='lazy' width='350' height="300" />
+        </div>
       </section>
+     <div className='row'>
       <Footer styles={{background:"#fff"}}/>
+     </div>
     </div>
   )
 }
