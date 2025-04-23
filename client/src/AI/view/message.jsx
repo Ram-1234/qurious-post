@@ -222,7 +222,7 @@ const AIChat = () => {
                 </div>
             </div>
             {/* input text area */}
-            <div className="form_container_bottom">
+            <div className="form_container_bottom w-100">
                     <div className="scrollDown" id="scroll_down">
                         <i className="bi bi-arrow-down-circle"></i>
                     </div>

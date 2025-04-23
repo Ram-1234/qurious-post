@@ -61,7 +61,7 @@ const CreatePost = (props) => {
   return (
     <React.Fragment>
     <Background/>
-    <div id="create_post_id" className='creat-post container w-75 border mt-4 p-4'>
+    <div id="create_post_id" className='creat-post post-listing-wrap container w-75 border p-4'>
         <h3 className='post-title pt-2 pb-2' suppressContentEditableWarning={true}  id='post_title' contentEditable={edit}> { location.state && location.state.title ||  "Title"}</h3>
         {(url.length || location?.state?.theme) ? <img src={url || location.state.theme} alt="theme" style={themeStyle} /> : <button onClick={()=>setModalHandler(true)} className='btn btn-danger mt-2 mb-2'>Upload <i className="bi bi-card-image"></i></button>}
         {/* <p className='post-story pt-2 pb-2' suppressContentEditableWarning={true}  id='post_story' contentEditable={edit}>{location.state && location.state.story ||"Tell your story"}</p> */}

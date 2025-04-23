@@ -38,7 +38,7 @@ const [user, setUser]=useState(localStorage.getItem('user'));
         </div>
       </section>
      <div className='row'>
-      <Footer styles={{background:"#fff"}}/>
+      <Footer/>
      </div>
     </div>
   )

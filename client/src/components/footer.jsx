@@ -7,7 +7,7 @@ const Footer = ({styles}) => {
   const navigate = useNavigate();
 
   return (
-    <footer style={styles} className='footer'>
+    <footer style={{...styles, background:"#fff"}} className='footer'>
        <span>Help</span>
        <span onClick={()=>navigate("/about")}>About us</span>
        <span>Status</span>

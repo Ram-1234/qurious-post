@@ -1,13 +1,14 @@
 body{ 
     margin:0; 
     font:normal 75% Arial, Helvetica, sans-serif; 
-    height: 100%;
+    /* height: 100%; */
     width: 100%;
-    background-color: #b61924;
+    /* background-color: #b61924; */
 }
 
 .home-container{
     /* padding: 2% 3%; */
+    background-color: #b61924;
 }
 
 .main_box{
@@ -15,6 +16,7 @@ body{
     align-items: center;
     justify-content: space-around;
     padding: 0 2%;
+    height: 95vh;
 }
 
 .amaz_info{

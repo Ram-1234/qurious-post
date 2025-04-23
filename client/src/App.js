@@ -7,7 +7,9 @@ import Navbar from './navbar';
 function App() {
   return (
     <HashRouter>
-        <header><Navbar/></header>
+        <header>
+          <Navbar/>
+        </header>
         <RoutePage1/>
       </HashRouter>
   );

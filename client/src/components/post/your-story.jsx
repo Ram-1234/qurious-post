@@ -47,7 +47,7 @@ const OurStory = () => {
   let buttonStyle = { borderRadius: "20px", fontSize: "14px" };
 
   return (
-      <div style={{position:"relative"}}>
+      <div className="post-listing-wrap">
         <div className="listitng-post container" >
           <div className="row col-12">
             <div className="left col-lg-8 col-md-12">

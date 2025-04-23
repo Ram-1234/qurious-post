@@ -37,7 +37,7 @@ const SingleFullPost = () => {
 
   let LikeElement = ()=>{
         return (
-              <div className="d-flex align-content-center justify-content-between">
+              <div className="post-listing-wrap d-flex align-content-center justify-content-between">
                 <div className="left">
                   <i className="bi single_post_icon bi-chat-dots"></i>
                   <i className="bi single_post_icon bi-hand-thumbs-up"></i>

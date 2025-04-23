@@ -47,7 +47,7 @@ const ListofPosts = () => {
   }
 
   return (
-    <div style={{position:"relative"}}>
+    <div className="post-listing-wrap">
     <Background/>
       <div className="listitng-post container" >
         <div className="row col-12">

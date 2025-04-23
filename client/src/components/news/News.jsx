@@ -29,7 +29,7 @@ const News = () => {
     },[])
 
   return (
-    <div style={{position:"relative"}}>
+    <div className='news-list-wrap'>
     <Background/>
         <div className='container' style={{display:"flex", flexWrap:"wrap", position:"relative"}}>
             {!loading ? newsData.map((item,index)=>(

@@ -6,7 +6,6 @@ import userAuth from "./routes/auth.route.js";
 import testRoute from "./routes/test.route.js";
 import userRoute from "./routes/user.route.js";
 import newsRoute from "./routes/news.route.js";
-import multer from "multer";
 
 import dotenv from "dotenv";
 dotenv.config()

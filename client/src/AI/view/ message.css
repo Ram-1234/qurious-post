@@ -4,6 +4,8 @@
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
     overflow: hidden;
     background: #fff;
+    /* margin-top: 3%; */
+    height: 100vh;
 }
 
 /* message area */
@@ -98,6 +100,8 @@
 /* search area */
 .form_container_bottom{
     /* box-shadow: 0 -30px 20px 0px #d3d1d1; */
+    position: absolute;
+    bottom: 0px;
 }
 .search_area{
     z-index: 10;
