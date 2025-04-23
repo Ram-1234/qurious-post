@@ -1,11 +1,6 @@
 import  React from 'react';
 import tempImg from "../../assets/news-intro-template.jpg"
-
-
-
-
-
-
+import "./style.css"
 
 export default function NewsCard({description,content, title, thumbnail, date, author, url}) {
   const [expanded, setExpanded] = React.useState(false);
@@ -15,8 +10,8 @@ export default function NewsCard({description,content, title, thumbnail, date, a
   };
 
   return (
-    <div class="card border border-grey">
-      <img src={thumbnail||tempImg} class="card-img-top" alt="..."/>
+    <div class="card border border-grey" style={{height:"100%"}}>
+      <img src={thumbnail||tempImg} loading='lazy' class="card-img-top" alt="..."/>
       <div class="card-body">
         <h5 class="card-title">{author}</h5>
         <p class="card-text">{title}</p>

@@ -5,7 +5,8 @@ import prisma from "../lib/prisma.js";
 
 export const register = async (req, res) => {
   const { password, ...rest } = req.body;
-  
+  //console.log("req", req.body);
+  //console.log("rest", rest);
   try {
     let hashedPassword = await bcrypt.hash(password, 10);
     const newUser = await prisma.user.create({
@@ -23,12 +24,15 @@ export const register = async (req, res) => {
 
 export const login = async (req, res) => {
   const { email, username, password } = req.body;
+  //console.log("req login", req.body);
+  //console.log("rest login", username, password);
   
   try {
     // check if the user exist
     const user = await prisma.user.findUnique({
       where: { username },
     });
+    console.log("user", user);
     if (!user) return res.status(401).json({ message: "Invalid username!" });
     // check if the password is correct
     const isPasswordValid = await bcrypt.compare(password, user.password);
@@ -56,6 +60,7 @@ export const login = async (req, res) => {
       });
     //  HASH THE PASSWORD
   } catch (error) {
+      console.log("error", error)
     res.status(500).json({ message: "Failed to login!" });
   }
 };

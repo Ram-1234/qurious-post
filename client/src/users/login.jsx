@@ -3,13 +3,10 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import apiRequest from '../lib/apiRequest.js';
 import { AuthContext } from '../context/auth-context.jsx';
 
-
 const Login = () => {
   const [isLoading, setIsLoading]=useState(false);
   const [errorMsg, setError]=useState();
-
   const {updateUser} = useContext(AuthContext);
-
   const navigate = useNavigate();
 
   const alertHandle=()=>{
@@ -29,7 +26,7 @@ const Login = () => {
     } catch (error) {
         console.log(error)
     }
-}
+  }
  
   const onSubmitHandle=async function(e){
     e.preventDefault();
@@ -46,7 +43,7 @@ const Login = () => {
       localStorage.setItem('user', JSON.stringify(response.data.user));
       updateUser(response.data.user)
       if(response.status===200){
-        setTimeout(alertHandle, 10000*60*60*2);
+        setTimeout(alertHandle, 1000*60*60);
         navigate(`/posts`);
       }
     } catch (error) {
@@ -91,6 +88,7 @@ const styles={
     zIndex:5,
     borderRadius:"1rem",
     position:"absolute",
+    top:"15%",
     boxShadow: "rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px",
     // boxShadow: "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px",
   },

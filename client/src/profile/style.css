@@ -4,6 +4,7 @@
     /* background: #eafbe6; */
     /* height: 100vh; */
     /* width: 100vw; */
+    z-index: 1000;
 }
 
 .profile_top_box{
@@ -106,6 +107,7 @@
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
+    vertical-align: middle;
 }
 
 .profile_avatar>.bottom_info{
@@ -149,6 +151,15 @@
     cursor: pointer;
     z-index: 11;
     /* display: none; */
+}
+
+.profile-upload-btn{
+    display: block;
+    justify-self: center;
+    margin-top: 1rem;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 0.8rem 2rem;
 }
 
 

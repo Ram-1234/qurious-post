@@ -6,6 +6,7 @@ import "./style.css";
 import Loader from "../loader/loader";
 import { AuthContext } from "../../context/auth-context";
 import Footer from "../footer";
+import Background from "../particles/Background";
 
 
 const ListofPosts = () => {
@@ -46,8 +47,9 @@ const ListofPosts = () => {
   }
 
   return (
-    <>
-      <div className="listitng-post container">
+    <div className="post-listing-wrap">
+    <Background/>
+      <div className="listitng-post container" >
         <div className="row col-12">
           <div className="left col-lg-9 col-md-12">
             <div className="select-topics d-flex justify-content-between border-bottom p-2 mt-5 mb-2">
@@ -82,21 +84,18 @@ const ListofPosts = () => {
                 }):<Loader/>}
             </div>
           </div>
-          <div
-            className="right col-lg-3 col-md-0"
-            style={{ borderLeft: "0.5px solid lightgrey" }}
-          >
+          <div className="right col-lg-3 col-md-0" style={{ borderLeft: "0.5px solid lightgrey" }} >
             {!loading ? (
               <RecommendeUsers users={usersData} />
-            ) : (
-              <Loader/>
-            )}
+            ) : ( <Loader/> )}
           </div>
         </div>
         <div></div>
       </div>
+      <div style={{height:"70px"}}>
       {!loading && <Footer/>}
-    </>
+      </div>
+    </div>
   );
 };
 

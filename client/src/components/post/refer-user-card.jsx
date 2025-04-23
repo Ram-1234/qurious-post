@@ -1,5 +1,5 @@
 import React from "react";
-import {timeFormat} from "../../common/common.js";
+import {timeFormat} from "../../utils/common.js";
 import Avatar from "../../profile/avatar";
 import { useNavigate } from 'react-router-dom';
 

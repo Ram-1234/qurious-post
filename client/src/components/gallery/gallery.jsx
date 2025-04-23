@@ -4,7 +4,6 @@ import "./style.css"
 import { AuthContext } from "../../context/auth-context";
 import Loader from "../loader/loader";
 
-
 const Gallery = () => {
   const [page, setPageNumber] = useState(1);
   const [jsonData, setJsonData] = useState([]);
@@ -36,22 +35,18 @@ const Gallery = () => {
   };
 
   return (
-    <div className="gallery_box">
-      {!loading ?
-        jsonData.map((item) => {
-          return (
-            <GalleryCard
-              selectImage={selectedImage}
-              key={item.urls.full}
-              url={item.urls.small}
-            />
-          );
-        }):<Loader/>}
-      {!loading && <div className="gallery_button" style={{ display: "flex" }}>
-        <button className="prev_button" onClick={() => setPageNumber(page - 1)}>prev</button>
-        <button className="next_button" onClick={() => setPageNumber(page + 1)}>next</button>
-      </div>}
-    </div>
+      <div className="gallery_box">
+        {!loading ?
+          jsonData.map((item) => {
+            return (
+              <GalleryCard selectImage={selectedImage} key={item.urls.full} url={item.urls.small} />
+            );
+          }):<Loader/>}
+        {!loading && <div className="gallery_button" style={{ display: "flex" }}>
+          <button className="prev_button" onClick={() => setPageNumber(page - 1)}>prev</button>
+          <button className="next_button" onClick={() => setPageNumber(page + 1)}>next</button>
+        </div>}
+      </div>
   );
 };
 

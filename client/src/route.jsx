@@ -17,13 +17,11 @@ import Home from "./components/home";
 import Login from './users/login';
 import User from './users/user';
 import News from './components/news/News';
-// import UploadWidget from './uploadWidget/UploadWidget';
 
 
 const RoutePage = () => {
   const HocLogin = <User><Login/></User>
   const HocRegister = <User><Register/></User>
- 
   
   return (
    <Routes>

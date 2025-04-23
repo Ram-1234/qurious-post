@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import Avatar from "../../profile/avatar";
 import { useNavigate } from "react-router-dom";
-import { timeFormat } from "../../common/common";
+import { timeFormat } from "../../utils/common";
 import apiRequest from "../../lib/apiRequest";
 import { AuthContext } from "../../context/auth-context";
+import Background from "../particles/Background";
 
 
 const StoryCard = ({ title, story, user, createdAt, id, theme,removePost,autherId }) => {
@@ -35,13 +36,10 @@ const StoryCard = ({ title, story, user, createdAt, id, theme,removePost,autherI
   const removeIconStyle={fontSize:"1rem"}
   return (
     <div className="story_card_wrap">
+    <Background/>
       <div className="story_card">
         <div className="user_profile d-flex align-items-center mb-2">
-          <Avatar
-            url=""
-            title={(user?.username && user.username.slice(0, 1)) || "U"}
-            propsStyle={avatartStyle}
-          />
+          <Avatar url="" title={(user?.username && user.username.slice(0, 1)) || "U"} propsStyle={avatartStyle} />
           <h5 className="user_name_story m-1 mt-0 mb-0">
             {user?.username || "User"}
           </h5>
@@ -52,11 +50,7 @@ const StoryCard = ({ title, story, user, createdAt, id, theme,removePost,autherI
         <div className="user_story">
           <h1 className="story_title mb-2" onClick={() => storyClicked(id)}>{title || "What is react"}</h1>
           {theme?.length ? (
-            <img
-              src={theme}
-              alt="theme"
-              style={{ width: "100%", height: "350px", objectFit: "cover" }}
-            />
+            <img src={theme} alt="theme" style={{ width: "100%", height: "350px", objectFit: "cover" }} />
           ) : null}
           <p className="story_description">
             {story.length > 450

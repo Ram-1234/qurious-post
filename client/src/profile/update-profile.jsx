@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import apiRequest from "../lib/apiRequest";
 import { AuthContext } from "../context/auth-context";
+import Background from "../components/particles/Background";
 
 const UpdateProfile = ({ email, username, password }) => {
   const [error, setError] = useState("");
@@ -21,12 +22,13 @@ const UpdateProfile = ({ email, username, password }) => {
   });
 
   async function onSubmit(data) {
-    // console.log('submit', data);
+    ////console.log('profile upate', data);
     try {
       const res = await apiRequest.put(`/users/${currentUser.id}`, data);
       if (res.status) {
-        updateUser(res.data);
-        localStorage.setItem("user", JSON.stringify(res.data));
+        console.log(currentUser.avatar)
+        updateUser({...res.data, avatar:currentUser.avatar});
+        localStorage.setItem("user", JSON.stringify({...res.data, avatar:currentUser.avatar}));
         navigate("/profile");
       }
     } catch (error) {
@@ -36,7 +38,8 @@ const UpdateProfile = ({ email, username, password }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="container mt-3 mb-3 w-50">
+    <form onSubmit={handleSubmit(onSubmit)} className="container mt-3 mb-3 w-50" enctype="multipart/form-data">
+    <Background/>
       <div className="col-auto">
         <label className="sr-only mb-2" htmlFor="inlineFormInputGroup">
           Username

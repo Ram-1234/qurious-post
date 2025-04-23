@@ -4,6 +4,7 @@ import NewsCard from './newscard';
 import { AuthContext } from '../../context/auth-context';
 import Loader from '../loader/loader';
 import Footer from "../footer";
+import Background from '../particles/Background';
 
 
 const News = () => {
@@ -11,28 +12,29 @@ const News = () => {
     const { currentUser,loading,setLoading } = useContext(AuthContext);
 
    const fetchApi=async()=>{
-    try {
-        setLoading(true);
-        let resp = await apiRequest.get("/news/technews");
-        if(resp?.status===200){
-            setNewsdata(resp?.data?.articles)
-            setLoading(false);
+        try {
+            setLoading(true);
+            let resp = await apiRequest.get("/news/technews");
+            if(resp?.status===200){
+                setNewsdata(resp?.data?.articles)
+                setLoading(false);
+            }
+        } catch (error) {
+            console.log(error)
         }
-    } catch (error) {
-        console.log(error)
     }
-}
 
     useEffect(()=>{
         fetchApi()
     },[])
 
   return (
-      <>
-        <div className='container-fluid' style={{display:"flex", flexWrap:"wrap",}}>
+    <div className='news-list-wrap'>
+    <Background/>
+        <div className='container' style={{display:"flex", flexWrap:"wrap", position:"relative"}}>
             {!loading ? newsData.map((item,index)=>(
-                <div key={index+'technews'} className='col-lg-4'>
-                   <div className='m-2'>
+                <div key={index+'technews'} className='col-lg-4 col-xxl-3'>
+                   <div className='p-2' style={{height:"100%"}}>
                         <NewsCard
                             title={item.title}
                             description={item.description}
@@ -46,9 +48,11 @@ const News = () => {
                 </div>
                 ))
             :<Loader/>}
-      </div>
-     {!loading && <Footer/>}
-      </>
+        </div>
+        <div style={{height:"80px"}}>
+        {!loading && <Footer/>}
+        </div>
+    </div>
     )
 }
 

@@ -1,20 +1,22 @@
 body{ 
     margin:0; 
     font:normal 75% Arial, Helvetica, sans-serif; 
+    /* height: 100%; */
+    width: 100%;
+    /* background-color: #b61924; */
 }
 
-
 .home-container{
+    /* padding: 2% 3%; */
     background-color: #b61924;
-    z-index: 10000;
 }
 
 .main_box{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    /* margin: 2rem 1rem; */
-    padding: 2rem 1rem;
+    padding: 0 2%;
+    height: 95vh;
 }
 
 .amaz_info{
@@ -46,9 +48,11 @@ body{
 }
 
 .amaz_walp{
-    width: 50%;
-    min-height: 410px;
-    height: 100%;
+    /* width: 50%; */
+    /* min-height: 410px; */
+    /* height: 100%; */
+    margin-top: 100px;
+
 }
 
 .amaz_walp>img{
@@ -56,4 +60,14 @@ body{
     height: 100%;
     border-radius: 1rem;
     /* display: none; */
+}
+
+.homepage-btn{
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-radius: 1rem!important;
+    background: #fff!important;
+    color: #000!important;
 }

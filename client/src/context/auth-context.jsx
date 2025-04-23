@@ -8,7 +8,6 @@ export const AuthContextProvider=({children})=>{
     const [modal, setModal]=useState(false);
     const [loading, setLoading] = useState(false);
 
-
     const updateUser=(data)=>{
         setCurrUser(data)
     }

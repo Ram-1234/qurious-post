@@ -5,6 +5,7 @@ import StoryCard from './story-card';
 import Avatar from '../../profile/avatar';
 import { AuthContext } from '../../context/auth-context';
 import Loader from '../loader/loader';
+import Background from '../particles/Background';
 
 
 const UserPostProfile = () => {
@@ -35,6 +36,7 @@ const UserPostProfile = () => {
   let buttonStyle = { borderRadius: "20px", fontSize: "14px" };
   return (
     <div className="listitng-post container">
+    <Background/>
       <div className="row col-12">
         <div className="left col-lg-8 col-md-12">
           <div className="your-story border-bottom p-2 mt-5 mb-2">
