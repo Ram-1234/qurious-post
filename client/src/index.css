@@ -14,3 +14,11 @@ code {
     monospace;
 }
 
+.App{
+  height: 100vh;
+  padding-top: 6%;
+  /* display: flex;
+  justify-content: flex-end;
+  align-items: flex-end; */
+}
+

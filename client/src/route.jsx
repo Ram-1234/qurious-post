@@ -17,6 +17,7 @@ import Home from "./components/home";
 import Login from './users/login';
 import User from './users/user';
 import News from './components/news/News';
+import WebBrowser from './webbrowser';
 
 
 const RoutePage = () => {
@@ -55,6 +56,7 @@ function RoutePage1(){
         <Route path="/our_story/:id" exact element={<OurStory/>}/>
         <Route path="/user_post_profile/:id" exact element={<UserPostProfile/>}/>
         <Route path="/ai_chat" exact element={<AIChat/>}/>
+        <Route path="/websearch" exact element={<WebBrowser/>}/>
       </Route>
       {/* public route */}
       <Route path="/" exact element={<Home/>} />

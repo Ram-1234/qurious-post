@@ -1,0 +1,37 @@
+.webbrowser-container{
+    /* border: 1px solid red; */
+   /* margin-top: 10%; */
+   /* margin-top: 100px; */
+}
+
+.websearch-result-box{
+    max-height: 420px;
+    height: 390px;
+    border: 0.5px solid grey;
+    border-radius: 1rem;
+    overflow: auto;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+.websearch-input-container{
+
+}
+
+.webbrowser-input-wrap>textarea{
+    border-radius: 0.5rem;
+    resize: none;
+    border: none;
+    background: #c9c9c9;
+    padding-left: 1rem;
+}
+
+/* textarea::placeholder{
+    text-align: center;
+ } */
+
+.search-btn{
+    padding: 1.9% 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+

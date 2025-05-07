@@ -7,10 +7,8 @@ import { AuthContextProvider } from './context/auth-context';
 import swPWA from './swdev';
 
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    
   <React.StrictMode>
       <AuthContextProvider>
         <App />

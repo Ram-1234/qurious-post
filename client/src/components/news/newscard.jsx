@@ -10,7 +10,7 @@ export default function NewsCard({description,content, title, thumbnail, date, a
   };
 
   return (
-    <div class="card border border-grey" style={{height:"100%"}}>
+    <div class="card" style={{height:"100%"}}>
       <img src={thumbnail||tempImg} loading='lazy' class="card-img-top" alt="..."/>
       <div class="card-body">
         <h5 class="card-title">{author}</h5>

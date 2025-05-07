@@ -14,8 +14,8 @@ const Footer = ({styles}) => {
        <span>Terms</span>
        <span>Career</span>
        <span>Support</span>
-      
        <span onClick={()=>navigate("/news")} target="_blank">News</span>
+       <span onClick={()=>navigate("/websearch")} target="_blank">Websearch</span>
        <div className='d-flex m-0 justify-content-center align-items-center'>
        
         <i className="footer_icon bi bi-linkedin"></i>
