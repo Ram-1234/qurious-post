@@ -31,7 +31,7 @@ const News = () => {
   return (
     <div className='news-list-wrap'>
     <Background/>
-        <div className='container' style={{display:"flex", flexWrap:"wrap", position:"relative"}}>
+        <div className='container pt-5' style={{display:"flex", flexWrap:"wrap", position:"relative"}}>
             {!loading ? newsData.map((item,index)=>(
                 <div key={index+'technews'} className='col-lg-4 col-xxl-3'>
                    <div className='p-2' style={{height:"100%"}}>

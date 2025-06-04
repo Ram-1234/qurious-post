@@ -25,6 +25,7 @@ const AIChat = () => {
         let finalPrompt = inputPrompt || prompt;
         suggestionBox?.classList?.add('suggetion_toggle');
         const resp = await RunPrompt(finalPrompt);
+        console.log("resp",resp);
        
        resp && displayAnswer(finalPrompt,resp);
         setLoading(false);
@@ -55,18 +56,18 @@ const AIChat = () => {
     //     }
     // }
 
-    document.onkeydown=function(e){
-        // e.preventDefault();
-        if(e.key?.toLowerCase()==='enter'){
-            let trimedValue = inputPrompt.trim();
-            if(trimedValue.length){
-                suggestionBox.classList.add('suggetion_toggle');
-                submitForm(e);
-                setPrompt("");
-                setTyping(false);
-               }
-        }
-    }
+    // document.onkeydown=function(e){
+    //     // e.preventDefault();
+    //     if(e.key?.toLowerCase()==='enter'){
+    //         let trimedValue = inputPrompt.trim();
+    //         if(trimedValue.length){
+    //             suggestionBox.classList.add('suggetion_toggle');
+    //             submitForm(e);
+    //             setPrompt("");
+    //             setTyping(false);
+    //            }
+    //     }
+    // }
 
     function displayAnswer1(question=ques, ans=str){
         let id = Math.random() * 100;

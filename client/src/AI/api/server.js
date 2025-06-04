@@ -1,11 +1,13 @@
-const { GoogleGenerativeAI } = require("@google/generative-ai");
+import { GoogleGenAI } from "@google/genai";
+//console.log(process.env.REACT_APP_GEMINI_API_KEY)
 
-export const genAI = new GoogleGenerativeAI(process.env.REACT_APP_GEMINI_API_KEY2);
+export const genAI = new GoogleGenAI({apiKey:process.env.REACT_APP_GEMINI_API_KEY});
 
 export async function RunPrompt(prompt) {
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-  const result = await model.generateContent(prompt);
-  const response = await result.response;
-  const text = response.text();
+  const response = genAI.models.generateContent({ model: "gemini-2.0-flash",contents :prompt});
+  console.log("Result:", response);
+  //const response = await result.response;
+  //console.log("Response:", response);
+  const text = response.text;
   return text;
 }
