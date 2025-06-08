@@ -17,7 +17,7 @@ export const getUser = async (req, res) => {
     const user = await prisma.user.findUnique({ where: { id } });
     res.status(200).json(user);
   } catch (error) {
-    console.log("err", error);
+    console.error(error);
     res.status(500).json({ message: "failed to get user!" });
   }
 };
@@ -51,7 +51,7 @@ export const updateUser = async (req, res) => {
     });
     res.status(200).json(updatedUser);
   } catch (error) {
-    console.log(error);
+    console.error(error);
     res.status(500).json({ message: "failed to update user!" });
   }
   return;
@@ -67,7 +67,7 @@ export const deleteUser = async (req, res) => {
     const deletedUser = await prisma.user.delete({ where: { id } });
     res.status(200).send(deletedUser);
   } catch (error) {
-    console.log(error);
+    console.error(error);
     res.status(500).json({ message: "failed to delete user!" });
   }
 };
