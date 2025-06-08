@@ -1,4 +1,4 @@
-import React, { useContext, useState} from 'react'
+import React, { useContext, useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
 import './style.css';
 import user_img from "../assets/noavatar.jpeg";
@@ -10,7 +10,7 @@ import Background from "../components/particles/Background";
 
 
 const UserProfile = ({username,firstname, email,location,about,linkedin, github,twitter}) => {
-    const [avatar, setAvatar]=useState(user_img);
+    const [avatar, setAvatar]=useState('');
     const [update, setUpdate]=useState(false);
     const {currentUser, updateUser} = useContext(AuthContext);
 
@@ -28,15 +28,32 @@ const UserProfile = ({username,firstname, email,location,about,linkedin, github,
         setUpdate(false)
     }
 
+     useEffect(()=>{
+        (async()=>{
+            try {
+                const res = await apiRequest.put(`/users/${currentUser.id}`, { avatar:avatar});
+                console.log("res",res);
+                setUpdate(false);
+                updateUser(res.data);
+            } catch (error) {
+                console.log(error)
+            }
+        })();
+    },[avatar])
+
     const updateAvatar=async(event)=>{
         event.preventDefault()
         if(event.target[0].files[0]){
-            let file = event.target[0].files[0]
-            const photoURL = URL.createObjectURL(file);
-            const res = await apiRequest.put(`/users/${currentUser.id}`, { avatar:photoURL});
-            setAvatar(photoURL)
-            setUpdate(false)
-            updateUser(res.data)
+            let file = event.target[0].files[0];
+            if (!file) return;
+            let fileReader = new FileReader();
+            fileReader.onloadend=()=>{
+                setAvatar(fileReader.result)
+            }
+            fileReader.readAsDataURL(file);       // Reads file as Base64
+            //const photoURL = URL.createObjectURL(file);
+            //setAvatar(fileReader.result);
+           
         }else{
             alert('Photo not found!')
         }
