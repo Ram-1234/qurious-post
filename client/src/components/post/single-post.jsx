@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams ,useNavigate} from "react-router-dom";
+import { useParams ,useNavigate, useLocation} from "react-router-dom";
 import apiRequest from "../../lib/apiRequest";
 import Avatar from "../../profile/avatar";
 import { timeFormat, themeStyle } from "../../utils/common";
@@ -7,6 +7,7 @@ import "./style.css";
 import { AuthContext } from "../../context/auth-context";
 import Footer from "../footer";
 import Loader from "../loader/loader";
+import { use } from "react";
 
 
 const SingleFullPost = () => {
@@ -15,6 +16,8 @@ const SingleFullPost = () => {
   const navigate = useNavigate();
   const { currentUser,loading, setLoading } = useContext(AuthContext);
   const params = useParams();
+  const location = useLocation();
+  //console.log("user", location);
 
   useEffect(() => {
     (async () => {
@@ -58,8 +61,8 @@ const SingleFullPost = () => {
      {!loading ? <div className="conatiner w-75 ps-5 pe-5 mx-auto">
         <div className="single_post_user_info d-flex align-items-center">
           <Avatar
-            title={userData?.username.slice(0, 1)}
-            propsStyle={{ border: "2px solid #717171" }}
+            url={((userData?.id && params?.id) ? userData?.avatar : userData?.avatar)||" "}
+            title={!location.state?.avatar && userData?.username.slice(0, 1)}
             propsTitleStyle={{
               fontSize: "1.85rem",
               color: "#656565",

@@ -4,7 +4,7 @@ import Avatar from "../../profile/avatar";
 import { useNavigate } from 'react-router-dom';
 
 
-const RecommendUserCard = ({ id, username, createdAt,user }) => {
+const RecommendUserCard = ({ id,user }) => {
   const navigate = useNavigate();
   
   const handleClickEvent=()=>{
@@ -13,10 +13,10 @@ const RecommendUserCard = ({ id, username, createdAt,user }) => {
 
   return (
     <div key={id} onClick={handleClickEvent} className="d-flex align-items-start">
-      <Avatar title={username.slice(0,1)} propsStyle={{width:"35px", height:"35px"}} />
+      <Avatar url={user.avatar} title={!user.avatar && user?.username.slice(0,1)} propsStyle={{width:"45px", height:"45px"}} />
      <div className="ms-2"> 
-      <h4 className="recommend_username">{username}</h4>
-      <p className="recommend_user_date">{timeFormat(createdAt, "WW MM DD YY")}</p>
+      <h4 className="recommend_username">{user?.username}</h4>
+      <p className="recommend_user_date">{timeFormat(user?.createdAt, "WW MM DD YY")}</p>
      </div>
     </div>
   );

@@ -13,11 +13,11 @@ const StoryCard = ({ title, story, user, createdAt, id, theme,removePost,autherI
 
   const avatartStyle = {
     width: "45px",
-    height: "45px",
+    height: "45px"
   };
 
-  const storyClicked = (id) => {
-    navigate(`/single_post/${id}`);
+  const storyClicked = (id, user) => {
+    navigate(`/single_post/${id}`, { user });
   };
 
   const removePostHandler = async (id) => {
@@ -39,7 +39,7 @@ const StoryCard = ({ title, story, user, createdAt, id, theme,removePost,autherI
     <Background/>
       <div className="story_card">
         <div className="user_profile d-flex align-items-center mb-2">
-          <Avatar url="" title={(user?.username && user.username.slice(0, 1)) || "U"} propsStyle={avatartStyle} />
+          <Avatar url={user?.avatar||""} title={!user?.avatar && (user?.username && user.username.slice(0, 1))} propsStyle={avatartStyle} />
           <h5 className="user_name_story m-1 mt-0 mb-0">
             {user?.username || "User"}
           </h5>
@@ -48,9 +48,9 @@ const StoryCard = ({ title, story, user, createdAt, id, theme,removePost,autherI
           </p>
         </div>
         <div className="user_story">
-          <h1 className="story_title mb-2" onClick={() => storyClicked(id)}>{title || "What is react"}</h1>
+          <h1 className="story_title mb-2" onClick={() => storyClicked(id, user)}>{title}</h1>
           {theme?.length ? (
-            <img src={theme} alt="theme" style={{ width: "100%", height: "350px", objectFit: "cover" }} />
+            <img onClick={() => storyClicked(id, user)} src={theme} className="story-banner" alt="theme" />
           ) : null}
           <p className="story_description">
             {story.length > 450

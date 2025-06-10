@@ -46,6 +46,10 @@ const ListofPosts = () => {
         setDeleteStatus(response);
   }
 
+  const postClicked =(id,user)=>{
+
+  }
+
   return (
     <div className="post-listing-wrap">
     <Background/>
@@ -79,6 +83,7 @@ const ListofPosts = () => {
                       theme={item.theme}
                       createdAt={item.createdAt}
                       removePost={removePostHandler}
+                      postClicked={postClicked}
                     />
                   );
                 }):<Loader/>}

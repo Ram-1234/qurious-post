@@ -11,9 +11,6 @@ const RecommendeUsers = ({ users }) => {
             return (
               <RecommendUserCard
                 key ={item.id}
-                username={item?.username}
-                createdAt={item?.createAt}
-                id={item.id}
                 user={item}
               />
             );
