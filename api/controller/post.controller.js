@@ -42,8 +42,7 @@ export const userPosts = async (req, res) => {
 };
 
 export const createPost = async (req, res) => {
-  //const id = req.params.id;
-  //const tokenUserId = req.userId;
+
   const data = req.body;
   try {
     const resp = await prisma.post.create({ data });
@@ -118,7 +117,6 @@ export const getRandomPostsForUsers = async (req, res) => {
     const randomPosts = [];
     const randomUsers = await prisma.user.findMany();
   
-
     for (let user of randomUsers) {
       const userPosts = await prisma.post.findMany({
         where: {

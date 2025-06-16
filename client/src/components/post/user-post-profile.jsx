@@ -7,13 +7,12 @@ import { AuthContext } from '../../context/auth-context';
 import Loader from '../loader/loader';
 import Background from '../particles/Background';
 
-
 const UserPostProfile = () => {
   const [postData, setData]=useState();
   const navigate = useNavigate();
   const params = useParams();
   const {state} = useLocation();
-  const {loading, setLoading}=useContext(AuthContext)
+  const {loading, setLoading}=useContext(AuthContext);
 
   useEffect(() => {
     (async () => {
@@ -96,6 +95,7 @@ const UserPostProfile = () => {
               title={state?.user?.username.slice(0,1)}
               propsStyle={{width:"5rem", height:"5rem", border:"1px solid red"}}
               propsTitleStyle={{fontSize:"2rem"}}
+              url={state?.user?.avatar}
             />
             <h4>{state?.user?.username}</h4>
             <p>{state?.user?.jobrole||"Software developer"}</p>

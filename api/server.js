@@ -8,9 +8,8 @@ import userRoute from "./routes/user.route.js";
 import newsRoute from "./routes/news.route.js";
 
 import dotenv from "dotenv";
-dotenv.config()
-
-const PORT = process.env.PORT || 8000
+dotenv.config();
+const PORT = process.env.PORT || 8000;
 
 const app = express();
 app.use(express.json({limit: '50mb'}));
@@ -29,14 +28,13 @@ app.use(express.json());
 app.use(cookieParser());
 app.use("/uploads", express.static("uploads"));
 
-
 app.use("/api/post", postRoute);
 app.use("/api/auth", userAuth);
 app.use("/api/users", userRoute);
 app.use("/api/test", testRoute);
 app.use("/api/news", newsRoute);
 
-
 app.listen(process.env.PORT, ()=>{
-    console.log(`Server running on port ${PORT}`)
+    console.log(`Server running on port ${PORT}`);
 });
+

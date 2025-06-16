@@ -24,7 +24,8 @@ const styles={
     imageStyle:{
         width:"100%",
         height:"100%", 
-        margin:"1px"
+        margin:"1px",
+        borderRadius:"50%",
     },
     titleStyle:{
         width:"100%",

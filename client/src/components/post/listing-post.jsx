@@ -8,7 +8,6 @@ import { AuthContext } from "../../context/auth-context";
 import Footer from "../footer";
 import Background from "../particles/Background";
 
-
 const ListofPosts = () => {
   const [postData, setData] = useState([]);
   const [usersData, setUserData] = useState([]);
@@ -46,6 +45,10 @@ const ListofPosts = () => {
         setDeleteStatus(response);
   }
 
+  const postClicked =(id,user)=>{
+
+  }
+
   return (
     <div className="post-listing-wrap">
     <Background/>
@@ -79,6 +82,7 @@ const ListofPosts = () => {
                       theme={item.theme}
                       createdAt={item.createdAt}
                       removePost={removePostHandler}
+                      postClicked={postClicked}
                     />
                   );
                 }):<Loader/>}
