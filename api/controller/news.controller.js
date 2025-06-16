@@ -1,7 +1,5 @@
 import NewsApi from 'newsapi';
 
-
-
 export const fetchNews=async(req,res)=>{
     const newsapi = new NewsApi(process.env.REACT_APP_NEWS_API_KEY2);
   try {
@@ -11,7 +9,6 @@ export const fetchNews=async(req,res)=>{
         language: 'en',
         country: 'us'
         })
-    console.log({resp})
        res.send(resp)
   } catch (error) {
     console.log(error)

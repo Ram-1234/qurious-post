@@ -8,7 +8,6 @@ import { AuthContext } from "../../context/auth-context";
 import Footer from "../footer";
 import Background from "../particles/Background";
 
-
 const ListofPosts = () => {
   const [postData, setData] = useState([]);
   const [usersData, setUserData] = useState([]);

@@ -39,7 +39,7 @@ const StoryCard = ({ title, story, user, createdAt, id, theme,removePost,autherI
     <Background/>
       <div className="story_card">
         <div className="user_profile d-flex align-items-center mb-2">
-          <Avatar url={user?.avatar||""} title={!user?.avatar && (user?.username && user.username.slice(0, 1))} propsStyle={avatartStyle} />
+          <Avatar url={user?.avatar||""} title={!user?.username} propsStyle={avatartStyle} />
           <h5 className="user_name_story m-1 mt-0 mb-0">
             {user?.username || "User"}
           </h5>

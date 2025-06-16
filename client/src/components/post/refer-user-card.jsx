@@ -3,16 +3,15 @@ import {timeFormat} from "../../utils/common.js";
 import Avatar from "../../profile/avatar";
 import { useNavigate } from 'react-router-dom';
 
-
-const RecommendUserCard = ({ id,user }) => {
+const RecommendUserCard = ({ user }) => {
   const navigate = useNavigate();
   
   const handleClickEvent=()=>{
-    navigate(`/user_post_profile/${id}`,{state:{user}})
+    navigate(`/user_post_profile/${user?.id}`,{state:{user}});
   }
 
   return (
-    <div key={id} onClick={handleClickEvent} className="d-flex align-items-start">
+    <div key={user?.id} onClick={handleClickEvent} className="d-flex align-items-start">
       <Avatar url={user.avatar} title={!user.avatar && user?.username.slice(0,1)} propsStyle={{width:"45px", height:"45px"}} />
      <div className="ms-2"> 
       <h4 className="recommend_username">{user?.username}</h4>

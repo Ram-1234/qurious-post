@@ -85,7 +85,7 @@ const OurStory = () => {
                         autherId={item.authorId}
                         key={item.id}
                         id={item.id}
-                        user={item.user}
+                        user={item?.author}
                         title={item.title}
                         theme={item.theme}
                         story={item.story}

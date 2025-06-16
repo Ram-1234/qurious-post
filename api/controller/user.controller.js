@@ -23,38 +23,38 @@ export const getUser = async (req, res) => {
 };
 
 export const updateUser = async (req, res) => {
-  const id = req.params.id;
-  const tokenUserId = req.userId;
-  const body = req.body;
-  const { password, avatar, ...inputs } = req.body;
-  
+    const id = req.params.id;
+    const tokenUserId = req.userId;
+    const body = req.body;
+    const { password, avatar, ...inputs } = req.body;
+    
 
-  if (id !== tokenUserId) {
-    return res.status(401).json({ message: "Not Authorized!" });
-  }
-  let updatedPassword = null;
-
-  if (id !== tokenUserId) {
-    return res.status(403).json({ message: "Not Athorized" });
-  }
-  try {
-    if (password) {
-      updatedPassword = await bcrypt.hash(password, 10);
+    if (id !== tokenUserId) {
+      return res.status(401).json({ message: "Not Authorized!" });
     }
-    const updatedUser = await prisma.user.update({
-      where: { id },
-      data: {
-        ...inputs,
-        ...(updatedPassword && { password: updatedPassword }),
-        ...(avatar && { avatar }),
-      },
-    });
-    res.status(200).json(updatedUser);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "failed to update user!" });
-  }
-  return;
+    let updatedPassword = null;
+
+    if (id !== tokenUserId) {
+      return res.status(403).json({ message: "Not Athorized" });
+    }
+    try {
+      if (password) {
+        updatedPassword = await bcrypt.hash(password, 10);
+      }
+      const updatedUser = await prisma.user.update({
+        where: { id },
+        data: {
+          ...inputs,
+          ...(updatedPassword && { password: updatedPassword }),
+          ...(avatar && { avatar }),
+        },
+      });
+      res.status(200).json(updatedUser);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "failed to update user!" });
+    }
+    return;
 };
 
 export const deleteUser = async (req, res) => {
