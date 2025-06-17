@@ -10,9 +10,10 @@ import Background from "../components/particles/Background";
 
 
 const UserProfile = ({username,firstname, email,location,about,linkedin, github,twitter}) => {
-    const [avatar, setAvatar]=useState('');
+    const [useravatar, setAvatar]=useState('');
     const [update, setUpdate]=useState(false);
     const {currentUser, updateUser} = useContext(AuthContext);
+    const [profilePic, setProfilePic] = useState('');;
 
     const navigate = useNavigate();
 
@@ -31,15 +32,18 @@ const UserProfile = ({username,firstname, email,location,about,linkedin, github,
      useEffect(()=>{
         (async()=>{
             try {
-                const res = await apiRequest.put(`/users/${currentUser.id}`, { avatar:avatar});
-                console.log("res",res);
+                const res = await apiRequest.put(`/users/${currentUser.id}`, { avatar:useravatar});
+                //console.log("res",res);
                 setUpdate(false);
-                updateUser(res.data);
+                const {avatar, ...restInfo}= res.data;
+                setProfilePic(avatar)
+                //console.log('user', res.data);
+                updateUser(restInfo);
             } catch (error) {
                 console.log(error)
             }
         })();
-    },[avatar])
+    },[useravatar])
 
     const updateAvatar=async(event)=>{
         event.preventDefault()
@@ -99,7 +103,7 @@ const UserProfile = ({username,firstname, email,location,about,linkedin, github,
                 {/* avatar */}
                 <div className='profile_avatar col-lg-4' >
                     <div className='avatar_box border' >
-                        <img src={currentUser.avatar||avatar} alt="avatar" />
+                        <img src={profilePic||''} alt="avatar" />
                         <i onClick={()=>setUpdate(true)} className="bi bi-pencil-square" ></i>
                     </div>
                 {/* <UploadWidget/> */}

@@ -39,14 +39,18 @@ const Login = () => {
 
     try {
       let response = await apiRequest.post('auth/login',{username,password})
-      //console.log('res', response);
-      localStorage.setItem('user', JSON.stringify(response.data.user));
+      console.log('res', response);
+      localStorage.clear();
+      const{avatar, ...restInfo}=response.data.user;
+      console.log('restInfo', restInfo);
+      localStorage.setItem('user', JSON.stringify(restInfo));
       updateUser(response.data.user)
       if(response.status===200){
         setTimeout(alertHandle, 1000*60*60);
         navigate(`/posts`);
       }
     } catch (error) {
+      console.log("error", error)
       console.log(error);
       setError(error?.message);
     } finally{
