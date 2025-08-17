@@ -3,10 +3,10 @@ import React, { useContext, useEffect } from 'react';
 import "./style.css";
 import { FaRegUserCircle } from "react-icons/fa";
 import { NavLink, useNavigate } from 'react-router-dom';
-import UserProfile from '../components/user-profile';
-import apiRequest from '../lib/apiRequest';
-import { AuthContext } from '../context/auth-context';
-import noavatar from "../assets/noavatar.jpeg";
+import apiRequest from '../../lib/apiRequest';
+import { AuthContext } from '../../context/auth-context';
+import noavatar from "../../assets/noavatar.jpeg";
+import UserProfile from "../../pages/user-profile";
 
 
 const Navbar = () => {

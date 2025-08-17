@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import GalleryCard from "./gallerycard";
 import "./style.css"
 import { AuthContext } from "../../context/auth-context";
-import Loader from "../loader/loader";
+import Loader from "../loader";
 
 const Gallery = () => {
   const [page, setPageNumber] = useState(1);

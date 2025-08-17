@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import logo from "../assets/Chat_Logo.png";
-import loader from "../assets/loader.png";
-import { run } from "../api/service";
+// import logo from "../../../assets/Chat_Logo.png";
+// import loader from "../../../assets/loader.png";
+import RunPrompt from "../api/server"
 import "./style.css";
-import ReadMore from "./read_more";
+// import ReadMore from "./read_more";
 
 
 const ChatApp = () => {
@@ -16,7 +16,7 @@ const ChatApp = () => {
       setResponse("");
       e.preventDefault();
       setLoading(true);
-      const res = await run(inputPrompt);
+      const res = await RunPrompt(inputPrompt);
       setLoading(false);
       setResponse(res);
       setPrompt("");
@@ -30,9 +30,9 @@ const ChatApp = () => {
 
   return (
     <form onSubmit={submitForm} className="container-fluid form_container">
-      <img src={logo} alt="logo" className="chat_app_logo" />
+      <img src={'https://i.gifer.com/origin/b4/b4d657e7ef262b88eb5f7ac021edda87.gif'} alt="logo" className="chat_app_logo" />
       <div style={{ display: "flex", justifyContent: "center", alignItems: "center", }} >
-        <img src={loader} loading="lazy" alt="loader" className={loading ? "cg-logo loading" : "cg-logo"} />
+        <img src={'https://i.gifer.com/origin/b4/b4d657e7ef262b88eb5f7ac021edda87.gif'} loading="lazy" alt="loader" className={loading ? "cg-logo loading" : "cg-logo"} />
         <input
           type="text"
           value={inputPrompt}
@@ -45,7 +45,7 @@ const ChatApp = () => {
         />
         <input type="submit" value="Ask me" title="ask" className="input_button" />
       </div>
-      { <div className="result_title"> <ReadMore text={response} /> </div> }
+      {/* { <div className="result_title"> <ReadMore text={response} /> </div> } */}
       {loading && <div className="loader_title">Loading...</div>}
     </form>
   );

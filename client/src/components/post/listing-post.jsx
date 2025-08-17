@@ -3,10 +3,10 @@ import apiRequest from "../../lib/apiRequest";
 import StoryCard from "./story-card";
 import RecommendeUsers from "./refer-usre-list";
 import "./style.css";
-import Loader from "../loader/loader";
+import Loader from "../loader";
 import { AuthContext } from "../../context/auth-context";
-import Footer from "../footer";
-import Background from "../particles/Background";
+import {Footer} from "../../pages";
+import {Background} from "../../components";
 
 const ListofPosts = () => {
   const [postData, setData] = useState([]);

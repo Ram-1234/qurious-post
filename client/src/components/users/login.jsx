@@ -1,7 +1,7 @@
 import React,{useContext, useState} from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import apiRequest from '../lib/apiRequest.js';
-import { AuthContext } from '../context/auth-context.jsx';
+import apiRequest from '../../lib/apiRequest'; 
+import { AuthContext } from '../../context/auth-context.jsx';
 
 const Login = () => {
   const [isLoading, setIsLoading]=useState(false);

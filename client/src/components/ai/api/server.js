@@ -3,7 +3,7 @@ import { GoogleGenAI } from "@google/genai";
 
 export const genAI = new GoogleGenAI({apiKey:process.env.REACT_APP_GEMINI_API_KEY});
 
-export async function RunPrompt(prompt) {
+async function RunPrompt(prompt) {
   const response = genAI.models.generateContent({ model: "gemini-2.0-flash",contents :prompt});
   console.log("Result:", response);
   //const response = await result.response;
@@ -11,3 +11,5 @@ export async function RunPrompt(prompt) {
   const text = response.text;
   return text;
 }
+
+export default RunPrompt;

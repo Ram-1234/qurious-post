@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink,useNavigate } from 'react-router-dom';
-import apiRequest from '../lib/apiRequest.js';
+import apiRequest from '../../lib/apiRequest'; 
 
 const Register = () => {
   const [errorMsg, setError]=useState();

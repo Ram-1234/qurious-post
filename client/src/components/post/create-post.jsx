@@ -2,10 +2,9 @@ import React, { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../../context/auth-context';
 import apiRequest from '../../lib/apiRequest';
 import { useNavigate,useLocation } from 'react-router-dom';
-import Gallery from '../gallery/gallery';
+import {Gallery,Background, Modal} from '../../components';
 import { themeStyle } from '../../utils/common.js';
-import Modal from '../modal/modal';
-import Background from '../particles/Background';
+
 
 
 const CreatePost = (props) => {

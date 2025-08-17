@@ -1,6 +1,6 @@
 import React from "react";
 import {timeFormat} from "../../utils/common.js";
-import Avatar from "../../profile/avatar";
+import Avatar from "../profile/avatar.jsx";
 import { useNavigate } from 'react-router-dom';
 
 const RecommendUserCard = ({ user }) => {

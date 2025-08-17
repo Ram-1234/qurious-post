@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import Avatar from "../../profile/avatar";
+import Avatar from "../profile/avatar.jsx";
 import { useNavigate } from "react-router-dom";
 import { timeFormat } from "../../utils/common";
 import apiRequest from "../../lib/apiRequest";
 import { AuthContext } from "../../context/auth-context";
-import Background from "../particles/Background";
+import {Background} from "../../components";
 
 
 const StoryCard = ({ title, story, user, createdAt, id, theme,removePost,autherId }) => {
