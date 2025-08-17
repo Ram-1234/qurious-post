@@ -2,9 +2,9 @@ import React, { useEffect, useState, useContext } from 'react';
 import apiRequest from '../../lib/apiRequest';
 import NewsCard from './newscard';
 import { AuthContext } from '../../context/auth-context';
-import Loader from '../loader/loader';
-import Footer from "../footer";
-import Background from '../particles/Background';
+import Loader from "../loader";
+import Footer from "../../pages/footer";
+import Background from '../particles';
 
 
 const News = () => {

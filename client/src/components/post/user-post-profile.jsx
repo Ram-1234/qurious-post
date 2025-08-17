@@ -2,10 +2,10 @@ import React,{useState, useEffect, useContext} from 'react';
 import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import apiRequest from '../../lib/apiRequest';
 import StoryCard from './story-card';
-import Avatar from '../../profile/avatar';
+import Avatar from '../profile/avatar';
 import { AuthContext } from '../../context/auth-context';
-import Loader from '../loader/loader';
-import Background from '../particles/Background';
+import Loader from '../loader';
+import {Background} from '../../components';
 
 const UserPostProfile = () => {
   const [postData, setData]=useState();

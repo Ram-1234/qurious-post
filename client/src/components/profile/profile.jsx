@@ -1,12 +1,11 @@
 import React, { useContext, useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
 import './style.css';
-import user_img from "../assets/noavatar.jpeg";
-import Button from '../components/button';
-import { AuthContext } from '../context/auth-context';
-import Modal from '../components/modal/modal';
-import apiRequest from '../lib/apiRequest';
-import Background from "../components/particles/Background";
+import user_img from "../../assets/noavatar.jpeg";
+import {Button} from '../../pages';
+import { AuthContext } from '../../context/auth-context';
+import apiRequest from '../../lib/apiRequest';
+import {Background, Modal} from "../../components";
 
 
 const UserProfile = ({username,firstname, email,location,about,linkedin, github,twitter}) => {

@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams ,useNavigate, useLocation} from "react-router-dom";
 import apiRequest from "../../lib/apiRequest";
-import Avatar from "../../profile/avatar";
+import Avatar from "../profile/avatar.jsx";
 import { timeFormat, themeStyle } from "../../utils/common";
 import "./style.css";
 import { AuthContext } from "../../context/auth-context";
-import Footer from "../footer";
-import Loader from "../loader/loader";
+import {Footer} from "../../pages";
+import Loader from "../loader";
 import { use } from "react";
 
 

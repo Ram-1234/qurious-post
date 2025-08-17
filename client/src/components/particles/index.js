@@ -19,11 +19,11 @@ const Background = () => {
   };
 
   return (
-    <><Particles
+    <Particles
         id="tsparticles"
         particlesLoaded={particlesLoaded}
         options={particalesConfig}
-     /></>
+     />
   )
 }
 

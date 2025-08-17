@@ -4,8 +4,8 @@ import StoryCard from "./story-card";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../../context/auth-context";
 import RecommendeUsers from "./refer-usre-list";
-import Loader from "../loader/loader";
-import Footer from "../footer";
+import Loader from "../loader";
+import {Footer} from "../../pages";
 
 
 const OurStory = () => {

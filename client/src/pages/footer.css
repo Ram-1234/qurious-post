@@ -17,7 +17,7 @@ footer>span{
     margin: 0 1rem;
     font-size: 0.8rem;
     font-family: sans-serif;
-    cursor: progress;
+    cursor: pointer;
 }
 
 .footer_icon{

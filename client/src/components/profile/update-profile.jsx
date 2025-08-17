@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import apiRequest from "../lib/apiRequest";
-import { AuthContext } from "../context/auth-context";
-import Background from "../components/particles/Background";
+import apiRequest from "../../lib/apiRequest";
+import { AuthContext } from "../../context/auth-context";
+import {Background} from "../../components";
 
 const UpdateProfile = ({ email, username, password }) => {
   const [error, setError] = useState("");
