@@ -2,10 +2,10 @@ import { createContext, useEffect, useState } from 'react';
 
 export const AuthContext = createContext();
 
-export const AuthContextProvider=({children})=>{
-    const [currentUser, setCurrUser]=useState(JSON.parse(localStorage.getItem('user')));
-    const [url, setUrl]=useState('');
-    const [modal, setModal]=useState(false);
+export const AuthContextProvider = ({children})=>{
+    const [currentUser, setCurrUser] = useState(JSON.parse(localStorage.getItem('user')));
+    const [url, setUrl] = useState('');
+    const [modal, setModal] = useState(false);
     const [loading, setLoading] = useState(false);
 
     const updateUser=(data)=>{
@@ -25,7 +25,7 @@ export const AuthContextProvider=({children})=>{
     },[currentUser])
 
     return (
-        <AuthContext.Provider value={{currentUser,updateUser, modal,url, setModalHandler, setURLHandler,loading, setLoading}}>
+        <AuthContext.Provider value = {{currentUser,updateUser, modal,url, setModalHandler, setURLHandler,loading, setLoading}}>
             {children}
         </AuthContext.Provider>
     )

@@ -1,5 +1,5 @@
 export default function swPWA() {
-    let urls = `${process.env.PUBLIC_URL}/worker.js`;
+    let urls = `${import.meta.env.VITE_APP_PUBLIC_URL}/worker.js`;
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", function () {
         navigator.serviceWorker
