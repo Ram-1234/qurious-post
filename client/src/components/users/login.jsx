@@ -4,8 +4,8 @@ import apiRequest from '../../lib/apiRequest';
 import { AuthContext } from '../../context/auth-context.jsx';
 
 const Login = () => {
-  const [isLoading, setIsLoading]=useState(false);
-  const [errorMsg, setError]=useState();
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMsg, setError] = useState();
   const {updateUser} = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -28,7 +28,7 @@ const Login = () => {
     }
   }
  
-  const onSubmitHandle=async function(e){
+  const onSubmitHandle = async function(e){
     e.preventDefault();
     setIsLoading(true);
     setError("");
@@ -39,18 +39,16 @@ const Login = () => {
 
     try {
       let response = await apiRequest.post('auth/login',{username,password})
-      console.log('res', response);
       localStorage.clear();
-      const{avatar, ...restInfo}=response.data.user;
-      console.log('restInfo', restInfo);
+      const{avatar, ...restInfo} = response.data.user;
       localStorage.setItem('user', JSON.stringify(restInfo));
       updateUser(response.data.user)
-      if(response.status===200){
+      
+      if(response.status === 200){
         setTimeout(alertHandle, 1000*60*60);
         navigate(`/posts`);
       }
     } catch (error) {
-      console.log("error", error)
       console.log(error);
       setError(error?.message);
     } finally{

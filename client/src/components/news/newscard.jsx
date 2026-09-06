@@ -10,11 +10,11 @@ export default function NewsCard({description,content, title, thumbnail, date, a
   };
 
   return (
-    <div class="card" style={{height:"100%"}}>
-      <img src={thumbnail||tempImg} loading='lazy' class="card-img-top" alt="..."/>
-      <div class="card-body">
-        <h5 class="card-title">{author}</h5>
-        <p class="card-text">{title}</p>
+    <div className="card" style={{height:"100%"}}>
+      <img src={thumbnail||tempImg} loading='lazy' className="card-img-top" alt="..."/>
+      <div className="card-body">
+        <h5 className="card-title">{author}</h5>
+        <p className="card-text">{title}</p>
         <a href={url} target='_blank' rel="noreferrer" className="btn btn-primary">Full News</a>
       </div>
     </div>

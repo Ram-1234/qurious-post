@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect } from 'react';
 import "./style.css";
 import { FaRegUserCircle } from "react-icons/fa";
@@ -14,22 +13,19 @@ const Navbar = () => {
     const [profilePic, setProfilePic] = React.useState('');
 
     const navigate = useNavigate();
-    //console.log("user", currentUser);
-    useEffect(()=>{
 
-         (async()=>{
-            try {
-                const res = await apiRequest.get(`/users/${currentUser.id}`);
-                //console.log("res",res);
-                //setUpdate(false);
-                const {avatar, ...restInfo}= res.data;
-                setProfilePic(avatar)
-                //console.log('user', res.data);
-                //updateUser(restInfo);
-            } catch (error) {
-                console.log(error)
-            }
-        })();
+    useEffect(()=>{
+        if(currentUser && currentUser?.id) {
+            (async()=>{
+               try {
+                   const res = await apiRequest.get(`/users/${currentUser.id}`);
+                   const {avatar, ...restInfo}= res.data;
+                   setProfilePic(avatar)
+               } catch (error) {
+                   console.log(error)
+               }
+           })();
+        }
 
 
         if(!currentUser){
@@ -49,8 +45,8 @@ const Navbar = () => {
     }
  
   return ( 
-    <nav class="navbar bg-body-tertiary fixed-top">
-        <div class="container-fluid">
+    <nav className="navbar bg-body-tertiary fixed-top">
+        <div className="container-fluid">
             {/* putting prev navbar  */}
             <div className="container d-flex align-items-center justify-content-between">
                 <NavLink className="navbarr-brand w-25 d-flex" to="/"><i className="bi bi-bullseye"></i> Curious</NavLink>
@@ -101,7 +97,7 @@ const Navbar = () => {
             <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas offcanvas-end"  id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Curious</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
