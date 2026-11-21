@@ -38,7 +38,7 @@ const Login = () => {
 
 
     try {
-      let response = await apiRequest.post('auth/login',{username,password})
+      let response = await apiRequest.post('auth/login',{username,password});
       localStorage.clear();
       const{avatar, ...restInfo} = response.data.user;
       localStorage.setItem('user', JSON.stringify(restInfo));

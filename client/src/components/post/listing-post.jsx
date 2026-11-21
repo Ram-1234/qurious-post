@@ -23,7 +23,10 @@ const ListofPosts = () => {
           end: 10,
         });
         
-        let userRes = await apiRequest.get(`/users/`);
+        let userRes = await apiRequest.get(`/users/`, {
+          start: 0,
+          end: 10,
+        });
         if (userRes.status === 200) {
           setUserData(userRes.data.Users);
           setLoading(false)

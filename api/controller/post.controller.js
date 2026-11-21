@@ -1,5 +1,6 @@
 import prisma from "../lib/prisma.js";
 import bcrypt from "bcrypt";
+import { processAndUpload } from "./image_file.controller.js";
 
 
 export const getPosts = async (req, res) => {
@@ -44,8 +45,12 @@ export const userPosts = async (req, res) => {
 export const createPost = async (req, res) => {
 
   const data = req.body;
+  console.log("data", data);
+  console.log("req.theme", req);
   try {
-    const resp = await prisma.post.create({ data });
+    if (!data.theme) return res.status(400).json({ error: "No image uploaded" });
+    const image = await processAndUpload(data.theme.buffer, await bcrypt.hash(data.title + new Date(), 12));
+    const resp = await prisma.post.create({ data, theme: image, });
     res.status(200).json({ message: "Post Created Successfully", data: resp });
   } catch (error) {
     console.log("error", error);
@@ -116,7 +121,7 @@ export const getRandomPostsForUsers = async (req, res) => {
   try {
     const randomPosts = [];
     const randomUsers = await prisma.user.findMany();
-  
+    
     for (let user of randomUsers) {
       const userPosts = await prisma.post.findMany({
         where: {
@@ -147,4 +152,4 @@ export const getRandomPostsForUsers = async (req, res) => {
   } finally {
     await prisma.$disconnect();
   }
-};
+}

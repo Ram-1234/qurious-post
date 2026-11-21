@@ -17,12 +17,6 @@ model User {
   jobrole  String?
   posts    Post[]
   createAt DateTime @default(now())
-  //likes Like[]
-  //comments Comment[]
-
-  // role      Role @default(BASIC)
-  // preferences Json?
-  // @@unique([username,email])
 }
 
 model Post {
@@ -36,31 +30,17 @@ model Post {
   createdAt DateTime @default(now())
   comments Comment[]
   likes Like[]
-
- 
-  // subtitle String?
-  // categories Category[]
 }
-
-// model Category {
-//   id      String @id @default(auto()) @map("_id") @db.ObjectId
-//   posts Post @relation(fields:[postId], references: [id])
-//   postId String @db.ObjectId
-// }
 
 model Comment{
   id String @id @default(auto()) @map("_id") @db.ObjectId
   message String? 
-  // author    User?    @relation(fields: [authorId], references: [id])
-  // authorId  String   @db.ObjectId
   post   Post? @relation(fields: [postId], references: [id])  
   postId String? @db.ObjectId
 }
 
 model Like{
   id String @id @default(auto()) @map("_id") @db.ObjectId
-  // author    User?    @relation(fields: [authorId], references: [id])
-  // authorId  String   @db.ObjectId
   post   Post? @relation(fields: [postId], references: [id])  
   postId String? @db.ObjectId
   like Boolean?

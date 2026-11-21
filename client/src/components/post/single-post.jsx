@@ -17,8 +17,8 @@ const SingleFullPost = () => {
   const { currentUser,loading, setLoading } = useContext(AuthContext);
   const params = useParams();
   const location = useLocation();
-  //console.log("user", location);
-
+  console.log("storyData", storyData);
+  
   useEffect(() => {
     (async () => {
       setLoading(true)

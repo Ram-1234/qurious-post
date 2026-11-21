@@ -6,13 +6,12 @@ import {Gallery,Background, Modal} from '../../components';
 import { themeStyle } from '../../utils/common.js';
 
 
-
 const CreatePost = (props) => {
     const [edit, setEdit]=useState(true);
     const {currentUser, url, modal,setURLHandler,loading,setLoading, setModalHandler} = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
-    const [posttheme, setTheme]=useState(currentUser?.theme || '');
+    const [posttheme, setTheme] = useState(currentUser?.theme || '');
     
     const handleCreatePost=async()=>{
         let title = document.getElementById('post_title').innerText;

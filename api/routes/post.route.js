@@ -9,13 +9,14 @@ import {
   getRandomPostsForUsers,
 } from "../controller/post.controller.js";
 import { verifyToken } from "../middleware/verifyToken.js";
+import { upload } from "../controller/image_file.controller.js";
 
 const router = express.Router();
 router.get("/posts", verifyToken, getPosts);
 router.get("/random_posts",verifyToken,getRandomPostsForUsers);
 router.get("/posts/:id",verifyToken, userPosts);
 router.get("/:id",verifyToken, getPost);
-router.post("/create",verifyToken, createPost);
+router.post("/create",verifyToken, upload.single("image"), createPost);
 router.put("/:id",verifyToken, updatePost);
 router.delete("/:id",verifyToken, deletePost);
 export default router;
